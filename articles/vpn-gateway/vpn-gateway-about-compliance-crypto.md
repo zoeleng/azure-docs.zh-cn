@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a77ee3c4301d278f98b571402514663dcfc9ca52
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032418"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657918"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>关于加密要求和 Azure VPN 网关
 
@@ -20,7 +20,7 @@ ms.locfileid: "88032418"
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>关于用于 Azure VPN 连接的 IKEv1 和 IKEv2
 
-传统上，我们只允许将 IKEv1 连接用于基本 SKU，允许将 IKEv2 连接用于除基本 SKU 之外的所有 VPN 网关 SKU。 基本 SKU 只允许使用 1 个连接，并且有其他限制（例如性能限制）。使用只支持 IKEv1 协议的旧设备的客户其体验会受限。 为了增强使用 IKEv1 协议的客户的体验，我们现在允许将 IKEv1 连接用于除基本 SKU 之外的所有 VPN 网关 SKU。 有关详细信息，请参阅 [VPN 网关 SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)。
+传统上，我们只允许将 IKEv1 连接用于基本 SKU，允许将 IKEv2 连接用于除基本 SKU 之外的所有 VPN 网关 SKU。 基本 SKU 只允许使用 1 个连接，并且有其他限制（例如性能限制）。使用只支持 IKEv1 协议的旧设备的客户其体验会受限。 为了增强使用 IKEv1 协议的客户的体验，我们现在允许将 IKEv1 连接用于除基本 SKU 之外的所有 VPN 网关 SKU。 有关详细信息，请参阅 [VPN 网关 SKU](./vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
 ![Azure VPN 网关 IKEv1 和 IKEv2 连接](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 

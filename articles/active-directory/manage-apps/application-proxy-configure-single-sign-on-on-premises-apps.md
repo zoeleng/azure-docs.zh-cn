@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90838b0b613c043ae41a71c76b5e9023d21df3a6
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: e7d51aa7e75d7e94d1c2ac66d7edb92a3ef9395b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025844"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657459"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>具有应用程序代理的本地应用程序的 SAML 单一登录
 
@@ -39,11 +39,11 @@ ms.locfileid: "93025844"
 
 ## <a name="create-an-application-and-set-up-saml-sso"></a>创建应用程序并设置 SAML SSO
 
-1. 在 Azure 门户中，选择 " **Azure Active Directory" > 企业应用程序** "，然后选择" **新建应用程序** "。
+1. 在 Azure 门户中，选择 " **Azure Active Directory" > 企业应用程序** "，然后选择" **新建应用程序**"。
 
-2. 输入新应用程序的 "显示名称"，选择 **"集成"** ，然后选择 " **创建** "。
+2. 输入新应用程序的 "显示名称"，选择 **"集成"**，然后选择 " **创建**"。
 
-3. 在应用的 " **概述** " 页上，选择 " **单一登录** "。
+3. 在应用的 " **概述** " 页上，选择 " **单一登录**"。
 
 4. 选择 " **SAML** " 作为 "单一登录方法"。
 
@@ -52,13 +52,13 @@ ms.locfileid: "93025844"
 6. 至少将一个用户添加到应用程序，并确保测试帐户有权访问该应用程序。 连接到企业网络时，请使用测试帐户查看应用程序的单一登录。 
 
    > [!NOTE]
-   > 设置应用程序代理后，会返回并更新 "SAML **回复 URL** "。
+   > 设置应用程序代理后，会返回并更新 "SAML **回复 URL**"。
 
 ## <a name="publish-the-on-premises-application-with-application-proxy"></a>用应用程序代理发布本地应用程序
 
 在为本地应用程序提供 SSO 之前，你需要启用应用程序代理并安装连接器。 请参阅教程 [添加本地应用程序以在 Azure AD 中通过应用程序代理进行远程访问](application-proxy-add-on-premises-application.md) ，了解如何准备本地环境、安装和注册连接器，以及如何测试连接器。 然后执行以下步骤，通过应用程序代理发布新应用程序。 对于下面未提及的其他设置，请参阅教程中的 [将本地应用添加到 Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) 部分。
 
-1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **应用程序代理** "。 提供应用程序的 **内部 URL** 。 如果你使用的是自定义域，还需要为你的应用程序上传 TLS/SSL 证书。 
+1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **应用程序代理**"。 提供应用程序的 **内部 URL** 。 如果你使用的是自定义域，还需要为你的应用程序上传 TLS/SSL 证书。 
    > [!NOTE]
    > 最佳做法是尽可能使用自定义域来实现优化的用户体验。 详细了解如何使用 [Azure AD 应用程序代理中的自定义域](application-proxy-configure-custom-domain.md)。
 
@@ -70,9 +70,9 @@ ms.locfileid: "93025844"
 
 ## <a name="update-the-saml-configuration"></a>更新 SAML 配置
 
-1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **单一登录** "。 
+1. 在 Azure 门户中，如果应用程序仍处于打开状态，请选择 " **单一登录**"。 
 
-2. 在 " **设置单个 Sign-On 与 SAML 一起使用** " 页上，中转到 " **基本 SAML 配置** " 标题，并选择 (铅笔) 的 **编辑** 图标。 请确保在 " **标识符** "、" **回复 url** " 和 " **注销 url** " 字段中填充了在应用程序代理中配置的 **外部 URL** 。 这些 Url 是应用程序代理正常工作所必需的。 
+2. 在 " **设置单个 Sign-On 与 SAML 一起使用** " 页上，中转到 " **基本 SAML 配置** " 标题，并选择 (铅笔) 的 **编辑** 图标。 请确保在 "**标识符**"、"**回复 url**" 和 "**注销 url** " 字段中填充了在应用程序代理中配置的 **外部 URL** 。 这些 Url 是应用程序代理正常工作所必需的。 
 
 3. 编辑前面配置的 **回复 URL** ，使其域可通过应用程序代理在 internet 上访问。 例如，如果 **外部 URL** 为 `https://contosotravel-f128.msappproxy.net` ，原始 **回复 url** 是 `https://contosotravel.com/acs` ，则需要将原始 **回复 url** 更新为 `https://contosotravel-f128.msappproxy.net/acs` 。
 
@@ -88,7 +88,7 @@ ms.locfileid: "93025844"
     > [!NOTE]
     > 如果后端应用程序需要 **回复 url** 作为内部 url，则需要使用 [自定义域](application-proxy-configure-custom-domain.md) 来匹配内部和外部 url，或在用户的设备上安装 "我的应用" 安全登录扩展。 此扩展将自动重定向到相应的应用程序代理服务。 若要安装该扩展，请参阅 [我的应用安全登录扩展](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)。
     
-## <a name="test-your-app"></a>测试应用程序
+## <a name="test-your-app"></a>测试应用
 
 完成所有这些步骤后，应用应会启动并运行。 测试应用：
 
@@ -97,5 +97,5 @@ ms.locfileid: "93025844"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure AD 应用程序代理如何提供单一登录？](application-proxy-single-sign-on.md)
+- [Azure AD 应用程序代理如何提供单一登录？](./what-is-single-sign-on.md)
 - [应用程序代理故障排除](application-proxy-troubleshoot.md)

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108195"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657323"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安装应用程序代理程序连接器时出现问题
 
@@ -39,7 +39,7 @@ Microsoft Azure Active Directory 应用程序代理连接器是一个内部域�
 
 **目标：** 验证连接器计算机是否可以连接到应用程序代理注册终结点以及 Microsoft 登录页。
 
-1.  在连接器服务器上，使用 [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) 或其他端口测试工具运行端口测试，以验证端口443和80是否已打开。
+1.  在连接器服务器上，使用 [telnet](/windows-server/administration/windows-commands/telnet) 或其他端口测试工具运行端口测试，以验证端口443和80是否已打开。
 
 2.  如果这些端口中有任何一个没有成功，请验证防火墙或后端代理是否有权访问所需的域和端口，请参阅 [准备本地环境](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)。
 
@@ -77,16 +77,16 @@ Microsoft Azure Active Directory 应用程序代理连接器是一个内部域�
 可能的 **IsInUserStore** 值为 **true** 和 **false**。 如果值为 **true** ，则表示自动续订的证书存储在网络服务的用户证书存储中的个人容器中。 如果值为 **false** ，则表示客户端证书是在安装过程中创建的，或者是在 Register-AppProxyConnector 命令启动的注册过程中创建的，该证书存储在本地计算机的证书存储中的个人容器中。
 
 如果值为 **true**，请按照以下步骤验证证书：
-1. 下载 [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. 从包中提取 [psexec](https://docs.microsoft.com/sysinternals/downloads/psexec) ，然后在提升的命令提示符下运行 **psexec-i-u "nt authority\network service" cmd.exe** 。
-3. 在新出现的命令提示符下运行**certmgr.msc**
+1. 下载 [PsTools.zip](/sysinternals/downloads/pstools)
+2. 从包中提取 [psexec](/sysinternals/downloads/psexec) ，然后在提升的命令提示符下运行 **psexec-i-u "nt authority\network service" cmd.exe** 。
+3. 在新出现的命令提示符下运行 **certmgr.msc**
 4. 在管理控制台中，展开 "个人" 容器，然后单击 "证书"
-5. 查找**connectorregistrationca.msappproxy.net**颁发的证书
+5. 查找 **connectorregistrationca.msappproxy.net** 颁发的证书
 
 如果值为 **false**，请按照以下步骤验证证书：
 1. 运行 **certlm.msc**
 2. 在管理控制台中，展开 "个人" 容器，然后单击 "证书"
-3. 查找**connectorregistrationca.msappproxy.net**颁发的证书
+3. 查找 **connectorregistrationca.msappproxy.net** 颁发的证书
 
 **续订客户端证书：**
 
@@ -101,7 +101,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-若要详细了解 Register-AppProxyConnector 命令，请参阅 [为 Azure AD 应用程序代理连接器创建无人参与安装脚本](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+若要详细了解 Register-AppProxyConnector 命令，请参阅 [为 Azure AD 应用程序代理连接器创建无人参与安装脚本](./application-proxy-register-connector-powershell.md)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>验证“admin”是否可用于安装连接器
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428603"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656984"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>通过此 Azure Sentinel 工作簿监视数据连接器的运行状况
 
@@ -28,11 +28,11 @@ ms.locfileid: "94428603"
 
 ## <a name="use-the-health-monitoring-workbook"></a>使用运行状况监视工作簿
 
-1. 从 Azure Sentinel 门户的 " **威胁管理** " 菜单中选择 " **工作簿** "。
+1. 从 Azure Sentinel 门户的 "**威胁管理**" 菜单中选择 "**工作簿**"。
 
 1. 在 **工作簿** 库中，在搜索栏中输入 " *运行状况* "，然后从结果中选择 " **数据收集运行状况监视** "。
 
-1. 选择 " **查看模板** " 以按原样使用工作簿，或选择 " **保存** " 以创建工作簿的可编辑副本。 创建复制时，选择 " **查看保存的工作簿** "。
+1. 选择 " **查看模板** " 以按原样使用工作簿，或选择 " **保存** " 以创建工作簿的可编辑副本。 创建复制时，选择 " **查看保存的工作簿**"。
 
 1. 进入工作簿后，首先选择要查看的 **订阅** 和 **工作区** ，然后定义 **TimeRange** 以根据需要筛选数据。 使用 " **显示帮助** " 切换显示工作簿的就地说明。
 
@@ -42,12 +42,12 @@ ms.locfileid: "94428603"
 
 1. " **概览** " 选项卡显示所选工作区中数据引入的一般状态：卷度量值、EPS 速率和上次接收日志的时间。
 
-1. " **数据收集异常** " 选项卡将帮助你按表和数据源检测数据收集过程中的异常。 每个选项卡都显示特定表的异常 (" **常规** " 选项卡包含) 的表的集合。 异常是使用返回 **异常分数** 的 **Series_decompose_anomalies ( # B1** 函数计算得出的。 [了解有关此功能的详细信息](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx)。 为要计算的函数设置以下参数：
+1. " **数据收集异常** " 选项卡将帮助你按表和数据源检测数据收集过程中的异常。 每个选项卡都显示特定表的异常 (" **常规** " 选项卡包含) 的表的集合。 异常是使用返回 **异常分数** 的 **Series_decompose_anomalies ( # B1** 函数计算得出的。 [详细了解此函数](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx)。 为要计算的函数设置以下参数：
 
-    - **AnomaliesTimeRange** ：此时间选取器仅适用于 "数据收集异常" 视图。
-    - **SampleInterval** ：在给定时间范围内对数据进行采样的时间间隔。 仅对最后一个间隔的数据计算异常分数。
-    - **PositiveAlertThreshold** ：此值定义正异常分数阈值。 它接受小数值。
-    - **NegativeAlertThreshold** ：此值定义负异常分数阈值。 它接受小数值。
+    - **AnomaliesTimeRange**：此时间选取器仅适用于数据收集异常视图。
+    - **SampleInterval**：给定时间范围内的数据采样时间间隔。 仅对最后一个时段内的数据计算异常分数。
+    - **PositiveAlertThreshold**：此值定义为正的异常分数阈值。 它接受小数值。
+    - **NegativeAlertThreshold**：此值定义为负的异常分数阈值。 它接受小数值。
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="数据连接器运行状况监视工作簿异常页" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 

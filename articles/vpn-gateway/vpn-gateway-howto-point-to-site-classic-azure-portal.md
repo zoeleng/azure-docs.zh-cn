@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: a66b76350da6f3b3804dac73a7aeb9f54d2e34eb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938366"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657068"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用证书身份验证（经典）配置点到站点连接
 
@@ -58,10 +58,10 @@ ms.locfileid: "91938366"
 * **资源组：** TestRG
 * **VNet 名称：** VNet1
 * **地址空间：** 192.168.0.0/16 <br>对于此示例，我们只使用一个地址空间。 VNet 可以有多个地址空间。
-* **子网名称：** 前端
+* **子网名称：** FrontEnd
 * **子网地址范围：** 192.168.1.0/24
 * **GatewaySubnet：** 10.11.255.0/27
-* **区域：** (us) 美国东部
+* **区域：** （美国）美国东部
 * **客户端地址空间：** 172.16.201.0/24 <br> 使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自指定池的 IP 地址。
 * **连接类型**：选择 " **点到站点**"。
 * **GatewaySubnet 地址范围 (CIDR 块) ：** 192.168.200.0/24
@@ -88,7 +88,7 @@ ms.locfileid: "91938366"
 1. 在页面底部，选择 " **下一步：网关 >**。
 1. 在 " **网关** " 选项卡上，选择以下值：
 
-   * **大小：** 大小是虚拟网络网关的网关 SKU。 在 Azure 门户中，默认 SKU 为“默认”****。 有关网关 Sku 的详细信息，请参阅 [关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+   * **大小：** 大小是虚拟网络网关的网关 SKU。 在 Azure 门户中，默认 SKU 为“默认”。 有关网关 Sku 的详细信息，请参阅 [关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
    * **路由类型：** 对于点到站点配置，必须选择 " **动态** "。 静态路由将不起作用。
    * **网关子网：** 此字段已 autofilled。 不能更改名称。 如果尝试使用 PowerShell 或其他任何方法更改名称，则网关将无法正常工作。
    * **地址范围 (CIDR 块) ：** 尽管创建的网关子网最小可为/29，但建议通过选择 "至少"/28 或/27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。 处理网关子网时，请避免将网络安全组 (NSG) 关联到网关子网。 将网络安全组与此子网关联可能会导致 VPN 网关不再按预期方式工作。
@@ -97,7 +97,7 @@ ms.locfileid: "91938366"
 
 ## <a name="create-certificates"></a><a name="generatecerts"></a>创建证书
 
-Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请将根证书的公钥信息上传到 Azure， 然后即可将该公钥视为“可信”公钥**。 必须根据可信根证书生成客户端证书，并将其安装在每个客户端计算机的 Certificates-Current User\Personal\Certificates 证书存储中。 客户端连接到 VNet 时，使用证书进行身份验证。 
+Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请将根证书的公钥信息上传到 Azure， 然后即可将该公钥视为“可信”公钥。 必须根据可信根证书生成客户端证书，并将其安装在每个客户端计算机的 Certificates-Current User\Personal\Certificates 证书存储中。 客户端连接到 VNet 时，使用证书进行身份验证。 
 
 如果使用自签名证书，这些证书必须使用特定的参数创建。 可以按照 [PowerShell 和 Windows 10](vpn-gateway-certificates-point-to-site.md) 或 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 的说明，创建自签名证书。 在使用自签名根证书以及从自签名根证书生成客户端证书时，必须按这些说明中的步骤操作，这一点很重要。 否则，创建的证书将与 P2S 连接不兼容，你将收到“连接错误”。
 
@@ -116,9 +116,9 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 1. 导航到所创建的虚拟网络。
 1. 在 " **设置**" 下，选择 " **点到站点连接**"。
 1. 选择 " **管理证书**"。
-1. 选择“上传”。
+1. 选择“上传”。 
 1. 在 " **上传证书** " 窗格中，选择文件夹图标，然后导航到要上传的证书。
-1. 选择“上传”。
+1. 选择“上传”。 
 1. 成功上载证书后，可以在 "管理证书" 页上查看该证书。 可能需要选择 " **刷新** " 才能查看刚上传的证书。
 
 ## <a name="configure-the-client"></a>配置客户端
@@ -132,8 +132,8 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 1. 导航到 VNet 的 **点到站点连接** 设置。
 1. 在页面顶部，选择与要在其中安装的客户端操作系统对应的下载包：
 
-   * 对于64位客户端，选择 " **VPN 客户端 (64 位) **。
-   * 对于32位客户端，选择 " **VPN 客户端 (32 位) **。
+   * 对于64位客户端，选择 " **VPN 客户端 (64 位)**。
+   * 对于32位客户端，选择 " **VPN 客户端 (32 位)**。
 
 1. Azure 会生成一个包，其中包含客户端所需的特定设置。 每次对 VNet 或网关进行更改时，需要下载新的客户端配置包，并将其安装在客户端计算机上。
 1. 生成包后，选择 " **下载**"。
@@ -153,7 +153,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 1. 在客户端计算机上，请参阅 "VPN 设置"。
 1. 选择所创建的 VPN。 如果使用了示例设置，则连接将被标记为 **Group TestRG VNet1**。
-1. 选择“连接”  。
+1. 选择“连接” 。
 1. 在 "Microsoft Azure 虚拟网络" 框中，选择 " **连接**"。 如果出现有关证书的弹出消息，请选择 " **继续** " 以使用提升的权限，选择 **"是"** 以接受配置更改。
 1. 当连接成功时，你将看到 **连接** 的通知。
 
@@ -161,7 +161,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 ## <a name="verify-the-vpn-connection"></a>验证 VPN 连接
 
-1. 验证 VPN 连接是否激活。 在客户端计算机上打开提升的命令提示符，并运行 ipconfig/all****。
+1. 验证 VPN 连接是否激活。 在客户端计算机上打开提升的命令提示符，并运行 ipconfig/all。
 1. 查看结果。 请注意，收到的 IP 地址是点到站点连接地址范围中的一个地址，该范围是你在创建 VNet 时指定的。 结果应类似于以下示例：
 
    ```
@@ -202,11 +202,11 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 可以通过将指纹添加到吊销列表来吊销客户端证书。
 
-1. 检索客户端证书指纹。 有关详细信息，请参阅[如何：检索证书的指纹](https://msdn.microsoft.com/library/ms734695.aspx)。
+1. 检索客户端证书指纹。 有关详细信息，请参阅[如何：检索证书的指纹](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate)。
 1. 将信息复制到文本编辑器，删除其中的空格，使之成为连续的字符串。
 1. 导航到 **点到站点 VPN 连接**，然后选择 " **管理证书**"。
-1. 选择“吊销列表”，打开“吊销列表”页********。
-1. 在“指纹”页中，将证书指纹以连续文本行的形式进行粘贴，不留空格****。
+1. 选择“吊销列表”，打开“吊销列表”页。
+1. 在“指纹”页中，将证书指纹以连续文本行的形式进行粘贴，不留空格。
 1. 选择 " **+ 添加到列表** "，将指纹添加到 (CRL) 的证书吊销列表。
 
 更新完成后，不再可以使用证书来连接。 客户端在尝试使用此证书进行连接时，会收到一条消息，指出证书不再有效。
@@ -217,8 +217,8 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 请
 
 ## <a name="next-steps"></a>后续步骤
 
-* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.microsoft.com/azure/)。
+* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](../index.yml)。
 
-* 要详细了解网络和 Linux 虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/network-overview.md)。
+* 要详细了解网络和 Linux 虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/network-overview.md)。
 
 * 有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 346536f5797841a850ef97dc4667110eafa721a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892815"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656950"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 门户创建站点到站点连接（经典）
 
@@ -46,12 +46,12 @@ ms.locfileid: "91892815"
 * **资源组：** TestRG1
 * **VNet 名称：** TestVNet1
 * **地址空间：** 10.11.0.0/16
-* **子网名称：** 前端
+* **子网名称：** FrontEnd
 * **子网地址范围：** 10.11.0.0/24
 * **网关子网：** 10.11.255.0/27
-* **区域：** (us) 美国东部
+* **区域：** （美国）美国东部
 * **本地站点名称：** Site2
-* **** 客户端地址空间：位于本地站点的地址空间。
+* 客户端地址空间：位于本地站点的地址空间。
 
 ## <a name="create-a-virtual-network"></a><a name="CreatVNet"></a>创建虚拟网络
 
@@ -125,17 +125,17 @@ ms.locfileid: "91892815"
    -LocalNetworkSiteName '6C74F6E6_Site2' -SharedKey abc123
    ```
 
-1. 创建连接后，结果为“状态: 成功”****。
+1. 创建连接后，结果为“状态: 成功”。
 
 ## <a name="verify-your-connection"></a><a name="verify"></a>验证连接
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-如果无法进行连接，请参阅左窗格目录的“故障排除”**** 部分。
+如果无法进行连接，请参阅左窗格目录的“故障排除”部分。
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>如何重置 VPN 网关
 
-如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 有关步骤，请参阅[重置 VPN 网关](vpn-gateway-resetgw-classic.md#resetclassic)。
+如果丢失一个或多个站点到站点隧道上的跨界 VPN 连接，重置 VPN 网关可有效解决该情况。 在此情况下，本地 VPN 设备都在正常工作，但却无法与 Azure VPN 网关建立 IPsec 隧道。 有关步骤，请参阅[重置 VPN 网关](./reset-gateway.md#resetclassic)。
 
 ## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>如何更改网关 SKU
 
@@ -143,5 +143,5 @@ ms.locfileid: "91892815"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.microsoft.com/azure/)。
+* 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](../index.yml)。
 * 有关强制隧道的信息，请参阅 [关于强制隧道](vpn-gateway-about-forced-tunneling.md)。

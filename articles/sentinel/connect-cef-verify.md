@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 8bdc9d588e89f498b973db7d1de299b0b26a3d02
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515704"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655725"
 ---
 # <a name="step-3-validate-connectivity"></a>步骤3：验证连接性
 
@@ -32,11 +32,11 @@ ms.locfileid: "94515704"
 - 你必须在日志转发器计算机上安装 **python 2.7** 或 **3** 。<br>
 使用 `python –version` 命令检查。
 
-- 在此过程中的某个时间点，可能需要工作区 ID 和工作区主键。 可以在工作区资源的 " **代理管理** " 下找到它们。
+- 在此过程中的某个时间点，可能需要工作区 ID 和工作区主键。 可以在工作区资源的 " **代理管理**" 下找到它们。
 
 ## <a name="how-to-validate-connectivity"></a>如何验证连接
 
-1. 在 Azure Sentinel 导航菜单中打开 " **日志** "。 使用 **CommonSecurityLog** 架构运行查询，以查看您的安全解决方案是否正在接收日志。<br>
+1. 在 Azure Sentinel 导航菜单中打开 " **日志**"。 使用 **CommonSecurityLog** 架构运行查询，以查看您的安全解决方案是否正在接收日志。<br>
 请注意，在 **Log Analytics** 中开始显示日志之前，可能需要大约20分钟的时间。 
 
 1. 如果看不到查询中的任何结果，请验证是否正在从安全解决方案生成事件，或尝试生成一些事件，并验证是否将这些事件转发到指定的 Syslog 转发器计算机。 
@@ -47,7 +47,7 @@ ms.locfileid: "94515704"
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - 你可能会收到一条消息，指导你运行命令来更正 " ***计算机* " 字段映射** 的问题。 有关详细信息，请参阅 [验证脚本中的说明](#mapping-command) 。
+   - 你可能会收到一条消息，指导你运行命令来更正 " ***计算机*" 字段映射** 的问题。 有关详细信息，请参阅 [验证脚本中的说明](#mapping-command) 。
 
     - 你可能会收到一条消息，指导你运行命令来更正对 **CISCO ASA 防火墙日志进行分析** 时遇到的问题。 有关详细信息，请参阅 [验证脚本中的说明](#parsing-command) 。
 
@@ -247,6 +247,5 @@ ms.locfileid: "94515704"
 ## <a name="next-steps"></a>后续步骤
 本文档介绍了如何将 CEF 设备连接到 Azure Sentinel。 要详细了解 Azure Sentinel，请参阅以下文章：
 - 了解如何[洞悉数据和潜在威胁](quickstart-get-visibility.md)。
-- 开始[使用 Azure Sentinel 检测威胁](tutorial-detect-threats.md)。
+- 开始[使用 Azure Sentinel 检测威胁](./tutorial-detect-threats-built-in.md)。
 - [使用工作簿](tutorial-monitor-your-data.md)监视数据。
-

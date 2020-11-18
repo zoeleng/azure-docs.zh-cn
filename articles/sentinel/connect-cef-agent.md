@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 512e5e0140038b27b7ffc9f2affb4a0e5b28b41b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516731"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655827"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>步骤1：部署日志转发器
 
@@ -42,13 +42,13 @@ ms.locfileid: "94516731"
 
 - 安装 Log Analytics 代理之前，Linux 计算机不得连接到任何 Azure 工作区。
 
-- 在此过程中的某个时间点，可能需要工作区 ID 和工作区主键。 可以在工作区资源的 " **代理管理** " 下找到它们。
+- 在此过程中的某个时间点，可能需要工作区 ID 和工作区主键。 可以在工作区资源的 " **代理管理**" 下找到它们。
 
 ## <a name="run-the-deployment-script"></a>运行部署脚本
  
-1. 在 Azure Sentinel 导航菜单中，单击 " **数据连接器** "。 在连接器列表中，单击 " **常见事件格式" (CEF)** "磁贴，然后单击右下角的" **打开连接器页** "按钮。 
+1. 在 Azure Sentinel 导航菜单中，单击 " **数据连接器**"。 在连接器列表中，单击 " **常见事件格式" (CEF)** "磁贴，然后单击右下角的" **打开连接器页** "按钮。 
 
-1. **1.2 在 Linux 计算机上安装 CEF 收集器** 后，复制 " **运行以下脚本以安装和应用 CEF 收集器** " 下提供的链接，或从下面的文本中 (应用工作区 ID 和主密钥来替换占位符) ：
+1. **1.2 在 Linux 计算机上安装 CEF 收集器** 后，复制 "**运行以下脚本以安装和应用 CEF 收集器**" 下提供的链接，或从下面的文本中 (应用工作区 ID 和主密钥来替换占位符) ：
 
     ```bash
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
@@ -212,5 +212,4 @@ ms.locfileid: "94516731"
 ## <a name="next-steps"></a>后续步骤
 本文档介绍了如何部署 Log Analytics 代理，将 CEF 设备连接到 Azure Sentinel。 要详细了解 Azure Sentinel，请参阅以下文章：
 - 了解如何[洞悉数据和潜在威胁](quickstart-get-visibility.md)。
-- 开始[使用 Azure Sentinel 检测威胁](tutorial-detect-threats.md)。
-
+- 开始[使用 Azure Sentinel 检测威胁](./tutorial-detect-threats-built-in.md)。

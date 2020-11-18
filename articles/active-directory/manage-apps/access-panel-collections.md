@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85956230"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656779"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>在“我的应用”门户中创建集合
 
 用户可以使用 "我的应用" 门户来查看和启动他们有权访问的基于云的应用程序。 默认情况下，用户可以访问的所有应用程序都在一个页面上一起列出。 为了更好地为用户组织此页面，如果你有 Azure AD Premium P1 或 P2 许可证，则可以设置集合。 使用集合，你可以将相关的应用程序分组 (例如，按作业角色、任务或项目) ，并在单独的选项卡上显示它们。集合实质上是对用户可以访问的应用程序应用筛选器，因此用户只会看到集合中已分配给他们的那些应用程序。
 
 > [!NOTE]
-> 本文介绍管理员如何启用和创建集合。 有关如何使用 "我的应用" 门户和集合的最终用户的信息，请参阅 [访问和使用集合](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces)。
+> 本文介绍管理员如何启用和创建集合。 有关如何使用 "我的应用" 门户和集合的最终用户的信息，请参阅 [访问和使用集合](../user-help/my-applications-portal-workspaces.md)。
 
 ## <a name="enable-the-latest-my-apps-features"></a>启用 "我的最新应用" 功能
 
@@ -49,7 +49,7 @@ ms.locfileid: "85956230"
 
 1. 打开 [**Azure 门户**](https://portal.azure.com/) 并以具有 Azure AD Premium P1 或 P2 许可证的管理员身份登录。
 
-2. 请参阅**Azure Active Directory**  >  **企业应用程序**。
+2. 请参阅 **Azure Active Directory**  >  **企业应用程序**。
 
 3. 在 " **管理**" 下，选择 " **集合**"。
 
@@ -83,7 +83,7 @@ ms.locfileid: "85956230"
 * 添加 (最终用户) 的自助服务应用程序
 *  (最终用户) 的自助应用程序删除
 
-可以通过[Azure portal](https://portal.azure.com) **Azure Active Directory**  >  在 "活动" 部分中选择 "Azure Active Directory**企业应用程序**  >  **审核日志**"，来访问 Azure 门户中的审核日志。 对于 " **服务**"，选择 **"我的应用**"。
+可以通过 [Azure portal](https://portal.azure.com) **Azure Active Directory**  >  在 "活动" 部分中选择 "Azure Active Directory **企业应用程序**  >  **审核日志**"，来访问 Azure 门户中的审核日志。 对于 " **服务**"，选择 **"我的应用**"。
 
 ## <a name="get-support-for-my-account-pages"></a>获取我的帐户页面支持
 
@@ -91,9 +91,9 @@ ms.locfileid: "85956230"
 
 如果需要针对 Azure AD 帐户 "页或" Office 帐户 "页上的问题提交支持请求，请按照以下步骤进行操作，以便正确路由你的请求： 
 
-* 对于 **Azure AD "我的帐户"** 页中的问题，请从 Azure 门户内打开支持请求。 请参阅**Azure 门户**  >  **Azure Active Directory**  >  **新的支持请求**。
+* 对于 **Azure AD "我的帐户"** 页中的问题，请从 Azure 门户内打开支持请求。 请参阅 **Azure 门户**  >  **Azure Active Directory**  >  **新的支持请求**。
 
-* 有关 **Office "我的帐户"** 页的问题，请从 Microsoft 365 管理中心内打开支持请求。 请参阅**Microsoft 365 管理中心**  >  **支持**。 
+* 有关 **Office "我的帐户"** 页的问题，请从 Microsoft 365 管理中心内打开支持请求。 请参阅 **Microsoft 365 管理中心**  >  **支持**。 
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 中应用程序的最终用户体验](end-user-experiences.md)

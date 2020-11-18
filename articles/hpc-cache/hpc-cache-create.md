@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341374"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657085"
 ---
 # <a name="create-an-azure-hpc-cache"></a>创建 Azure HPC 缓存
 
@@ -23,15 +23,15 @@ ms.locfileid: "92341374"
 
 [![视频缩略图： Azure HPC 缓存：安装程序 (单击以访问视频页面) ](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
-## <a name="portal"></a>[门户](#tab/azure-portal)
+## <a name="portal"></a>[Portal](#tab/azure-portal)
 
 ## <a name="define-basic-details"></a>定义基本详细信息
 
 ![Azure 门户中的“项目详细信息”页的屏幕截图](media/hpc-cache-create-basics.png)
 
-在“项目详细信息”**** 中，选择将托管缓存的订阅和资源组。
+在“项目详细信息”中，选择将托管缓存的订阅和资源组。
 
-在“服务详细信息”**** 中，设置缓存名称和其他属性：
+在“服务详细信息”中，设置缓存名称和其他属性：
 
 * 位置 - 选择其中一个[支持的区域](hpc-cache-overview.md#region-availability)。
 * 虚拟网络 - 可选择现有虚拟网络或创建新的虚拟网络。
@@ -40,7 +40,7 @@ ms.locfileid: "92341374"
 ## <a name="set-cache-capacity"></a>设置缓存容量
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-在“缓存”**** 页上，必须设置缓存的容量。 此处设置的值确定缓存可以容纳多少数据，以及为客户端请求提供服务的速度。
+在“缓存”页上，必须设置缓存的容量。 此处设置的值确定缓存可以容纳多少数据，以及为客户端请求提供服务的速度。
 
 容量还会影响缓存的成本。
 
@@ -81,17 +81,17 @@ Azure HPC 缓存会管理缓存和预加载哪些文件，以最大限度地提�
 
 ## <a name="add-resource-tags-optional"></a>添加资源标记（可选）
 
-在“标记”**** 页上，可以向 Azure HPC 缓存实例添加[资源标记](../azure-resource-manager/management/tag-resources.md)。
+在“标记”页上，可以向 Azure HPC 缓存实例添加[资源标记](../azure-resource-manager/management/tag-resources.md)。
 
 ## <a name="finish-creating-the-cache"></a>完成缓存创建
 
-配置新缓存后，请单击 " **查看** " 和 "创建" 选项卡。门户将验证你的选择，并允许你查看你的选择。 如果所有内容都正确，请单击“创建”****。
+配置新缓存后，请单击 " **查看** " 和 "创建" 选项卡。门户将验证你的选择，并允许你查看你的选择。 如果所有内容都正确，请单击“创建”。
 
 缓存创建花费大约 10 分钟。 可在 Azure 门户的通知面板中跟踪进度。
 
 ![门户中缓存创建“正在部署”和“通知”页的屏幕截图](media/hpc-cache-deploy-status.png)
 
-创建完成后，将显示一条通知，其中包含指向新的 Azure HPC 缓存实例的链接，并且缓存将显示在订阅的**资源**列表中。
+创建完成后，将显示一条通知，其中包含指向新的 Azure HPC 缓存实例的链接，并且缓存将显示在订阅的 **资源** 列表中。
 
 ![Azure 门户中的 Azure HPC 缓存实例的屏幕截图](media/hpc-cache-new-overview.png)
 
@@ -102,7 +102,7 @@ Azure HPC 缓存会管理缓存和预加载哪些文件，以最大限度地提�
 
 ## <a name="create-the-cache-with-azure-cli"></a>创建缓存并 Azure CLI
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[设置 AZURE HPC 缓存的 Azure CLI](./az-cli-prerequisites.md)。
 
 > [!NOTE]
 > Azure CLI 当前不支持使用客户托管的加密密钥创建缓存。 使用 Azure 门户。

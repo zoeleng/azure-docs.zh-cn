@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614551"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657102"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>设置聚合命名空间
 
@@ -37,7 +37,7 @@ Azure Blob 存储目标只能有一个命名空间路径。
 
 按照以下说明设置或更改 Azure 门户或 Azure CLI 的路径。
 
-### <a name="portal"></a>[门户](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 Azure 门户中，加载 " **命名空间** 设置" 页。 您可以在此页中添加、更改或删除命名空间路径。
 
@@ -57,7 +57,7 @@ Azure Blob 存储目标只能有一个命名空间路径。
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[设置 AZURE HPC 缓存的 Azure CLI](./az-cli-prerequisites.md)。
 
 使用 Azure CLI 时，必须在创建存储目标时添加命名空间路径。 有关详细信息，请参阅 [添加新的 Azure Blob 存储目标](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) 。
 
@@ -97,7 +97,7 @@ NFS 存储系统的所有命名空间路径都是在一个存储目标上创建�
 
 对于每个 NFS 命名空间路径，提供面向客户端的路径和存储系统导出，还可以选择导出子目录。
 
-### <a name="portal"></a>[门户](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 在 Azure 门户中，加载 " **命名空间** 设置" 页。 您可以在此页中添加、编辑或删除命名空间路径。
 
@@ -119,7 +119,7 @@ NFS 存储系统的所有命名空间路径都是在一个存储目标上创建�
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[设置 AZURE HPC 缓存的 Azure CLI](./az-cli-prerequisites.md)。
 
 使用 Azure CLI 时，必须在创建存储目标时至少添加一个命名空间路径。 有关详细信息，请参阅 [添加新的 NFS 存储目标](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) 。
 

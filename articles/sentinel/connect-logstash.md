@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89663750"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655674"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>使用 Logstash 将数据源连接到 Azure Sentinel
 
 > [!IMPORTANT]
 > 使用 Logstash 输出插件的数据引入当前为公共预览版。 此功能在提供时没有服务级别协议，不建议用于生产工作负荷。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-对 **Logstash 数据收集引擎**使用 Azure Sentinel 的新输出插件后，现在可以通过 Logstash 将所需的任何类型的日志直接发送到 Azure Sentinel 中的 Log Analytics 工作区。 日志将发送到将使用输出插件定义的自定义表。
+对 **Logstash 数据收集引擎** 使用 Azure Sentinel 的新输出插件后，现在可以通过 Logstash 将所需的任何类型的日志直接发送到 Azure Sentinel 中的 Log Analytics 工作区。 日志将发送到将使用输出插件定义的自定义表。
 
 若要了解有关使用 Logstash 数据收集引擎的详细信息，请参阅 [Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)入门。
 
@@ -48,8 +48,8 @@ Logstash 引擎由三个组件组成：
 
 使用 Log Analytics HTTP 数据收集器 REST API，适用于 Logstash 的 Azure Sentinel 输出插件向 Log Analytics 工作区发送 JSON 格式的数据。 数据将引入到自定义日志中。
 
-- 了解 [Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/create-request)的详细信息。
-- 详细了解 [自定义日志](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs)。
+- 了解 [Log Analytics REST API](/rest/api/loganalytics/create-request)的详细信息。
+- 详细了解 [自定义日志](../azure-monitor/platform/data-sources-custom-logs.md)。
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>在 Logstash 中部署 Azure Sentinel 输出插件
 
@@ -57,7 +57,7 @@ Logstash 引擎由三个组件组成：
 
 Logstash 集合中提供了 Azure Sentinel 输出插件。
 
-- 请按照 Logstash 使用 [插件](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 文档中的说明安装 ***Logstash-loganalytics*** 插件。
+- 请按照 Logstash 使用 [插件](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 文档中的说明安装 **_Logstash-loganalytics_* _ 插件。
    
 - 如果你的 Logstash 系统无法访问 Internet，请按照 Logstash [脱机插件管理](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) 文档中的说明准备并使用脱机插件包。  (这将需要你构建具有 Internet 访问权限的另一个 Logstash 系统。 ) 
 
@@ -67,14 +67,14 @@ Logstash 集合中提供了 Azure Sentinel 输出插件。
 
 | 字段名称 | 数据类型 | 说明 |
 |----------------|---------------|-----------------|
-| `workspace_id` | 字符串 | 输入你的工作区 ID GUID。 * |
+| `workspace_id` | 字符串 | 输入你的工作区 ID GUID。 _ |
 | `workspace_key` | 字符串 | 输入工作区主键 GUID。 * |
-| `custom_log_table_name` | 字符串 | 设置要将日志引入到其中的表的名称。 只能为每个输出插件配置一个表名称。 日志表将显示在 "**日志**" 下的 "日志" 下的 "**自定义日志**" 类别中的**表**中，带有 `_CL` 后缀。 |
+| `custom_log_table_name` | 字符串 | 设置要将日志引入到其中的表的名称。 只能为每个输出插件配置一个表名称。 日志表将显示在 "**日志**" 下的 "日志" 下的 "**自定义日志**" 类别中的 **表** 中，带有 `_CL` 后缀。 |
 | `endpoint` | 字符串 | 可选字段。 默认情况下，这是 Log Analytics 终结点。 使用此字段可设置备用终结点。 |
 | `time_generated_field` | 字符串 | 可选字段。 此属性将覆盖 Log Analytics 中的默认 **TimeGenerated** 字段。 在数据源中输入时间戳字段的名称。 该字段中的数据必须符合 ISO 8601 格式 (`YYYY-MM-DDThh:mm:ssZ`)  |
-| `key_names` | array | 输入 Log Analytics 输出架构字段的列表。 每个列表项都应括在单引号中，并以逗号分隔项，并将整个列表括在方括号内。 请参阅以下示例。 |
+| `key_names` | 数组 | 输入 Log Analytics 输出架构字段的列表。 每个列表项都应括在单引号中，并以逗号分隔项，并将整个列表括在方括号内。 请参阅以下示例。 |
 | `plugin_flush_interval` | 数字 | 可选字段。 设置此项可定义消息传输 Log Analytics 之间的最大时间间隔 (秒) 。 默认值为 5。 |
-    | `amount_resizing` | boolean | True 或 False。 启用或禁用自动缩放机制，这会根据收到的日志数据量调整消息缓冲区大小。 |
+    | `amount_resizing` | 布尔值 | True 或 False。 启用或禁用自动缩放机制，这会根据收到的日志数据量调整消息缓冲区大小。 |
 | `max_items` | 数字 | 可选字段。 仅当 `amount_resizing` 设置为 "false" 时才适用。 用于在记录)  (中设置消息缓冲区大小的上限。 默认为 2000。  |
 
 \* 你可以在 " **代理管理**" 下的 "工作区资源" 中找到工作区 ID 和主密钥。
@@ -162,7 +162,7 @@ Logstash 集合中提供了 Azure Sentinel 输出插件。
 
 1. 若要查看表中的记录，请使用表名作为架构来查询该表。
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="日志存储自定义日志的屏幕截图。":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="日志存储自定义日志查询的屏幕截图。":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>监视输出插件审核日志
 

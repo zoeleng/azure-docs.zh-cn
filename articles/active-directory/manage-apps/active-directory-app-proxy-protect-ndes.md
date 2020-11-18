@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078931"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656745"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>与网络设备注册服务上 Azure AD 应用程序代理集成 (NDES) 服务器
 
@@ -26,7 +26,7 @@ Azure Active Directory (AD) 应用程序代理可让你在网络内发布应用�
 
 如果你不熟悉 Azure AD 应用程序代理并想要了解详细信息，请参阅 [通过 Azure AD 应用程序代理远程访问本地应用程序](application-proxy.md)。
 
-Azure AD 应用程序代理是在 Azure 上构建的。 它为您提供了大量的网络带宽和服务器基础结构，以便更好地防范分布式拒绝服务 (DDOS) 攻击和卓越的可用性。 而且，无需向本地网络开放外部防火墙端口，也不需要任何外围服务器。 所有流量均源自入站。 有关出站端口的完整列表，请参阅 [教程：在 Azure Active Directory 中通过应用程序代理添加用于远程访问的本地应用程序](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment)。
+Azure AD 应用程序代理是在 Azure 上构建的。 它为您提供了大量的网络带宽和服务器基础结构，以便更好地防范分布式拒绝服务 (DDOS) 攻击和卓越的可用性。 而且，无需向本地网络开放外部防火墙端口，也不需要任何外围服务器。 所有流量均源自入站。 有关出站端口的完整列表，请参阅 [教程：在 Azure Active Directory 中通过应用程序代理添加用于远程访问的本地应用程序](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)。
 
 > Azure AD 应用程序代理是一项仅当你使用 Azure Active Directory 的高级版或基本版时才可用的功能。 有关详细信息，请参阅 [Azure Active Directory 定价](https://azure.microsoft.com/pricing/details/active-directory/)。 
 > 如果你有企业移动性套件 (EMS) 许可证，则可以使用此解决方案。
@@ -96,4 +96,4 @@ Azure AD 应用程序代理是在 Azure 上构建的。 它为您提供了大量
 
 ## <a name="next-steps"></a>后续步骤
 
-将 Azure AD 应用程序代理与 NDES 集成后，发布用户要访问的应用程序。 有关详细信息，请参阅 [使用 Azure AD 应用程序代理发布应用程序](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)。
+将 Azure AD 应用程序代理与 NDES 集成后，发布用户要访问的应用程序。 有关详细信息，请参阅 [使用 Azure AD 应用程序代理发布应用程序](./application-proxy-add-on-premises-application.md)。

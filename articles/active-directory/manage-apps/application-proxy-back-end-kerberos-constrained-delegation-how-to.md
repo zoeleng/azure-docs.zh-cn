@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: c28e79c9a6f8c489a97d360c4fe142d431b5ab5d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042709"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656541"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>排查应用程序代理的 Kerberos 约束委派配置问题
 
@@ -81,7 +81,7 @@ Azure AD 应用程序代理可以部署到许多类型的基础结构或环境�
 
 ![示例：不正确的 KCD 配置错误](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-在事件日志中看到的相应条目显示为事件 13019 或 12027。 在“应用程序和服务日志” **“Microsoft”** &gt; **“AadApplicationProxy”** &gt; **“连接器”** &gt; **“管理员”** &gt; 中找到连接器事件日志。
+在事件日志中看到的相应条目显示为事件 13019 或 12027。 在“应用程序和服务日志”**“Microsoft”** &gt; **“AadApplicationProxy”** &gt; **“连接器”** &gt; **“管理员”** &gt; 中找到连接器事件日志。
 
 ![应用程序代理事件日志中的事件 13019](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
@@ -90,7 +90,7 @@ Azure AD 应用程序代理可以部署到许多类型的基础结构或环境�
 1. 将内部 DNS 中的 A 记录用于应用程序地址，而非 CName。
 1. 再次确认已向连接器主机授予对指定目标帐户 SPN 进行委托的权利。 再次确认已选择“使用任意身份验证协议”。 有关详细信息，请参阅 [SSO 配置文章](application-proxy-configure-single-sign-on-with-kcd.md)。
 1. 验证 Azure AD 中是否只存在一个 SPN 实例。 在任何域成员主机上的命令提示符处发出 `setspn -x`。
-1. 检查是否强制执行了限制[颁发的 Kerberos 令牌的最大大小](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/)的域策略。 如果发现令牌过多，此策略将阻止连接器获取令牌。
+1. 检查是否强制执行了限制[颁发的 Kerberos 令牌的最大大小](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012)的域策略。 如果发现令牌过多，此策略将阻止连接器获取令牌。
 
 为了获取关于这些问题的详细信息，下一步是使用网络跟踪捕获连接器主机和域 KDC 之间的交换内容。 有关详细信息，请参阅[深入进行故障排除白皮书](https://aka.ms/proxytshootpaper)。
 
