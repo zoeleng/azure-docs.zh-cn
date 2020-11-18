@@ -1,7 +1,7 @@
 ---
-title: 创建连接监视器预览版 - ARMClient
+title: 创建连接监视器-ARMClient
 titleSuffix: Azure Network Watcher
-description: 了解如何使用 ARMClient 创建连接监视器（预览版）。
+description: 了解如何使用 ARMClient 创建连接监视器。
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447557"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699094"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>使用 ARMClient 创建连接监视器（预览版）
+# <a name="create-a-connection-monitor-using-the-armclient"></a>使用 ARMClient 创建连接监视器
 
-了解如何使用 ARMClient 创建连接监视器（预览版）以监视资源之间的通信。 它支持混合部署和 Azure 云部署。
+了解如何使用 ARMClient 创建连接监视器来监视资源之间的通信。 它支持混合部署和 Azure 云部署。
 
 ## <a name="before-you-begin"></a>准备阶段 
 
-在连接监视器（预览版）中创建的连接监视器中，可以将本地计算机和 Azure VM 添加为源。 这些连接监视器还可以监视与终结点的连接。 终结点可以位于 Azure 上，也可以位于任何其他 URL 或 IP 上。
+在连接监视器中创建的连接监视器中，可以将本地计算机和 Azure Vm 添加为源。 这些连接监视器还可以监视与终结点的连接。 终结点可以位于 Azure 上，也可以位于任何其他 URL 或 IP 上。
 
-连接监视器（预览版）包含以下实体：
+连接监视器包括以下实体：
 
 * **连接监视器资源** – 特定于区域的 Azure 资源。 以下所有实体都是连接监视器资源的属性。
 * **终结点** – 参与连接检查的源或目标。 终结点的示例包括 Azure VM、本地代理、URL 和 IP。

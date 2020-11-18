@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280392"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700148"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>创建用于与 Azure 认知搜索建立安全连接的专用终结点
 
@@ -42,7 +42,7 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
 
 1. 在“创建虚拟网络”中，输入或选择以下信息：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     | ------- | ----- |
     | 订阅 | 选择订阅|
     | 资源组 | 选择 " **新建**"，输入 *myResourceGroup*，然后选择 **"确定"** |
@@ -58,7 +58,7 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
 
 1. 在 Azure 门户屏幕的左上方，选择 "**创建资源**" "  >  **Web**  >  **Azure 认知搜索**"。
 
-1. 在 **新的搜索服务-基础知识**中，输入或选择以下信息：
+1. 在 **新的搜索服务-基础知识** 中，输入或选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
@@ -66,7 +66,7 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。|
     | **实例详细信息** |  |
-    | 代码 | 输入唯一名称。 |
+    | URL | 输入唯一名称。 |
     | 位置 | 选择所需的区域。 |
     | 定价层 | 选择 " **更改定价层** "，并选择所需的服务层。  (在 **免费** 层上不支持。 必须为 **Basic** 或更高版本。 )  |
     |||
@@ -75,28 +75,28 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
 
 1. 将值保留为默认值，然后选择 " **下一步：网络**"。
 
-1. 在 " **新建搜索服务-网络**" 中，选择 " **专用** " 作为 **终结点连接 (数据) **。
+1. 在 " **新建搜索服务-网络**" 中，选择 " **专用** " 作为 **终结点连接 (数据)**。
 
-1. 在 "**新建搜索服务**" 中，选择 "在**私有终结点**下**添加 +** "。 
+1. 在 "**新建搜索服务**" 中，选择 "在 **私有终结点** 下 **添加 +** "。 
 
 1. 在“创建专用终结点”中，输入或选择以下信息：
 
-    | 设置 | 值 |
+    | 设置 | “值” |
     | ------- | ----- |
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“myResourceGroup”。 已在上一部分创建此内容。|
-    | 位置 | 选择“美国西部”****。|
-    | 名称 | 输入“myPrivateEndpoint”**。  |
+    | 位置 | 选择“美国西部”。|
+    | 名称 | 输入“myPrivateEndpoint”。  |
     | 目标子资源 | 保留默认 **searchService**。 |
     | **网络** |  |
     | 虚拟网络  | 从资源组“myResourceGroup”中选择“MyVirtualNetwork”。 |
-    | 子网 | 选择“mySubnet”**。 |
+    | 子网 | 选择“mySubnet”。 |
     | **专用 DNS 集成** |  |
     | 与专用 DNS 区域集成  | 保留默认值“是”。 |
     | 专用 DNS 区域  | 保留默认值 * * (New) privatelink.search.windows.net * *。 |
     |||
 
-1. 选择“确定” 。 
+1. 选择“确定”。 
 
 1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将在此页面验证配置。 
 
@@ -112,7 +112,7 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
 
 1. 在 Azure 门户屏幕的左上方，选择 "**创建资源**" "计算" "  >  **Compute**  >  **虚拟机**"。
 
-1. 在“创建虚拟机 - 基本信息”**** 中，输入或选择以下信息：
+1. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
@@ -122,34 +122,34 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
     | **实例详细信息** |  |
     | 虚拟机名称 | 输入 *myVm*。 |
     | 区域 | 选择 " **美国西部** " 或任何所使用的区域。 |
-    | 可用性选项 | 保留默认值“不需要基础结构冗余”****。 |
+    | 可用性选项 | 保留默认值“不需要基础结构冗余”。 |
     | 映像 | 选择“Windows Server 2019 Datacenter”。 |
-    | 大小 | 保留默认值“标准 DS1 v2”****。 |
+    | 大小 | 保留默认值“标准 DS1 v2”。 |
     | **管理员帐户** |  |
     | 用户名 | 输入所选用户名。 |
     | 密码 | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     | 确认密码 | 重新输入密码。 |
     | **入站端口规则** |  |
     | 公共入站端口 | 保留默认 **允许所选端口**。 |
-    | 选择入站端口 | 保留默认的 **RDP (3389) **。 |
+    | 选择入站端口 | 保留默认的 **RDP (3389)**。 |
     | **节省资金** |  |
-    | 已有 Windows 许可证？ | 保留默认值“否”****。 |
+    | 已有 Windows 许可证？ | 保留默认值“否”。 |
     |||
 
 1. 在完成时选择“下一步:**磁盘”** 。
 
-1. 在“创建虚拟机 - 磁盘”中保留默认值，然后选择“下一步:**** **网络”** 。
+1. 在“创建虚拟机 - 磁盘”中保留默认值，然后选择“下一步: **网络”** 。
 
-1. 在“创建虚拟机 - 基本信息”**** 中，选择以下信息：
+1. 在“创建虚拟机 - 基本信息”中，选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
-    | 虚拟网络 | 保留默认值“MyVirtualNetwork”****。  |
-    | 地址空间 | 保留默认值“10.1.0.0/24”。****|
-    | 子网 | 保留默认值“mySubnet (10.1.0.0/24)”。****|
-    | 公共 IP | 保留默认值“(new) myVm-ip”****。 |
-    | 公共入站端口 | 选择“允许所选端口”****。 |
-    | 选择入站端口 | 选择“HTTP”和“RDP”。**** ****|
+    | 虚拟网络 | 保留默认值“MyVirtualNetwork”。  |
+    | 地址空间 | 保留默认值“10.1.0.0/24”。|
+    | 子网 | 保留默认值“mySubnet (10.1.0.0/24)”。|
+    | 公共 IP | 保留默认值“(new) myVm-ip”。 |
+    | 公共入站端口 | 选择“允许所选端口”。 |
+    | 选择入站端口 | 选择“HTTP”和“RDP”。 |
     ||
 
    > [!NOTE]
@@ -169,7 +169,7 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
 
 1. 在门户的搜索栏中，输入 *myVm*。
 
-1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开**** ****。
+1. 选择“连接”按钮。 选择“连接”按钮后，“连接到虚拟机”随即打开 。
 
 1. 选择“下载 RDP 文件”。 Azure 会创建远程桌面协议 ( *.rdp*) 文件，并将其下载到计算机。
 
@@ -182,7 +182,7 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
         > [!NOTE]
         > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据 。
 
-1. 选择“确定” 。
+1. 选择“确定”。
 
 1. 你可能会在登录过程中收到证书警告。 如果收到证书警告，请选择“确定”或“继续” 。
 
@@ -208,7 +208,7 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
     Aliases:  [search service name].search.windows.net
     ```
 
-1. 在 VM 中，连接到搜索服务并创建索引。 可以按照本 [快速入门](search-get-started-postman.md) 教程使用 REST API 在 Postman 中的服务中创建新的搜索索引。 若要从 Postman 设置请求，需要搜索服务终结点 (https：//[search service name].) ，以及在上一步中复制的管理 api 密钥。
+1. 在 VM 中，连接到搜索服务并创建索引。 可以按照本 [快速入门](search-get-started-rest.md) 教程使用 REST API 在服务中创建新的搜索索引。 通过 Web API 测试工具设置请求需要搜索服务终结点 (https：//[search service name].) ，以及在上一步中复制的管理 API 密钥。
 
 1. 从 VM 完成快速入门是确认服务是否完全正常运行。
 
@@ -218,9 +218,9 @@ Azure 认知搜索的[专用终结点](../private-link/private-endpoint-overview
 
 ## <a name="clean-up-resources"></a>清理资源 
 使用完专用终结点、搜索服务和 VM 后，请删除资源组及其包含的所有资源：
-1.  *myResourceGroup*   在门户顶部的**搜索**框中输入 "myResourceGroup"，然后 *myResourceGroup*   从搜索结果中选择 "myResourceGroup"。 
-1. 选择“删除资源组”****。 
-1. 输入 *myResourceGroup*   作为 **"资源组名称"** ，然后选择 "**删除**"。
+1. 在门户顶部的“搜索”框中输入“myResourceGroup” **  ，然后从搜索结果中选择“myResourceGroup”。 **   
+1. 选择“删除资源组”。 
+1. 输入  *myResourceGroup*   作为 **"资源组名称"** ，然后选择 "**删除**"。
 
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何在虚拟网络上创建虚拟机，以及如何使用专用终结点创建搜索服务。 你从 internet 连接到 VM，并使用专用链接安全地传达给搜索服务。 若要详细了解专用终结点，请参阅 [什么是 Azure 专用终结点？](../private-link/private-endpoint-overview.md)。

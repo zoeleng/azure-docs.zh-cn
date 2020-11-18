@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 7b0ea9cc1788065a92e168e41a0c293bb1f4ea9b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409351"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698659"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 操作安全性概述
 
@@ -87,7 +87,7 @@ Azure AD 中还包括了整套[标识管理功能](./identity-management-overvie
 - 磁盘加密验证。
 - 基于网络的攻击。
 
-安全中心使用 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)。 RBAC 提供了[内置角色](../../role-based-access-control/built-in-roles.md)，可分配给 Azure 中的用户、组和服务。
+安全中心使用 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)。 Azure RBAC 提供可分配给 Azure 中的用户、组和服务的 [内置角色](../../role-based-access-control/built-in-roles.md) 。
 
 安全中心会评估资源的配置以识别安全问题和漏洞。 只有在分配有资源所属的订阅或资源组的“所有者”、“参与者”或“读取者”角色时，才会在安全中心看到与资源相关的信息。
 

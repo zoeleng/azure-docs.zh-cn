@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 46b1cbbd620cf2de8d875927f5745e91fcf608c5
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 553cfe0c1a5e7d569c127f23a11f25f4d150b0bc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410039"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700753"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 上可用的安全服务和技术
 
@@ -67,7 +67,7 @@ ms.locfileid: "94410039"
 ## <a name="identity-and-access-management"></a>标识和访问管理
 |服务|说明|
 |------|--------|
-| [Azure&nbsp;角色&nbsp;基于&nbsp;访问控制](../../role-based-access-control/role-assignments-portal.md)|一项访问控制功能，它基于用户在组织内的角色，仅允许用户访问其必须访问的内容。  |
+| [Azure &nbsp; 基于角色的 &nbsp; 访问控制](../../role-based-access-control/role-assignments-portal.md)|一项访问控制功能，它基于用户在组织内的角色，仅允许用户访问其必须访问的内容。  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|一个基于云的身份验证存储库，它支持基于云的多租户目录和 Azure 中的多标识管理服务。  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|一项标识管理服务，帮助控制客户使用基于 Azure 的应用程序时如何注册、登录和管理其配置文件。   |
 | [Azure Active Directory 域服务](../../active-directory-domain-services/overview.md)| Active Directory 域服务基于云的托管版本。 |

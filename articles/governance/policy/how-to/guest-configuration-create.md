@@ -3,12 +3,12 @@ title: 如何创建适用于 Windows 的来宾配置策略
 description: 了解如何创建适用于 Windows 的 Azure Policy 来宾配置策略。
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: ea9b40006deefbac2c253082eda4ef2da12149a4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700670"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>如何创建适用于 Windows 的来宾配置策略
 
@@ -202,9 +202,9 @@ AuditBitLocker ./Config
 
 `New-GuestConfigurationPackage` cmdlet 创建包。 配置所需的模块必须在 `$Env:PSModulePath` 中提供。 创建 Windows 内容时 `New-GuestConfigurationPackage` cmdlet 的参数：
 
-- **Name** ：来宾配置包名称。
-- **配置** ：已编译 DSC 配置文档完整路径。
-- **路径** ：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
+- **Name**：来宾配置包名称。
+- **配置**：已编译 DSC 配置文档完整路径。
+- **路径**：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
 
 运行下面的命令，以使用上一步中给出的配置来创建包：
 
@@ -214,15 +214,15 @@ New-GuestConfigurationPackage `
   -Configuration './Config/AuditBitlocker.mof'
 ```
 
-创建配置包后，但在将其发布到 Azure 之前，可以从工作站测试包或持续集成，并 (CI/CD) 环境进行持续部署。 GuestConfiguration cmdlet `Test-GuestConfigurationPackage` 在开发环境中包含与 Azure 计算机内使用的相同的代理。 使用此解决方案，可以在发布到计费的云环境之前，在本地执行集成测试。
+创建配置包之后、将其发布到 Azure 之前，可以从工作站或持续集成和持续部署 (CI/CD) 环境测试该包。 GuestConfiguration cmdlet `Test-GuestConfigurationPackage` 在开发环境中包含与 Azure 计算机内使用的相同的代理。 使用此解决方案，可以在发布到计费的云环境之前，在本地执行集成测试。
 
 由于代理实际上是在评估本地环境，因此在大多数情况下，你需要在计划审核的同一 OS 平台上运行 Test- cmdlet。 该测试仅使用内容包中包含的模块。
 
 `Test-GuestConfigurationPackage` cmdlet 的参数：
 
-- **Name** ：来宾配置策略名称。
+- **Name**：来宾配置策略名称。
 - Parameter：以哈希表格式提供的策略参数。
-- **路径** ：来宾配置包的完整路径。
+- **路径**：来宾配置包的完整路径。
 
 运行下面的命令，以测试由上一步创建的包：
 
@@ -249,10 +249,10 @@ Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName 
 
 - ContentUri：来宾配置内容包的公共 http(s) URI。
 - DisplayName：策略显示名称。
-- **说明** ：策略说明。
+- **说明**：策略说明。
 - Parameter：以哈希表格式提供的策略参数。
-- **版本** ：策略版本。
-- **路径** ：在其中创建策略定义的目标路径。
+- **版本**：策略版本。
+- **路径**：在其中创建策略定义的目标路径。
 - Platform：来宾配置策略和内容包的目标平台 (Windows/Linux)。
 - Tag 向策略定义添加一个或多个标记筛选器
 - Category 在策略定义中设置类别元数据字段
@@ -295,7 +295,7 @@ New-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
 ```
 
-在 Azure 中创建策略后，最后一步是分配定义。 请参阅如何为 [门户](../assign-policy-portal.md)分配定义、 [Azure CLI](../assign-policy-azurecli.md)和 [Azure PowerShell](../assign-policy-powershell.md)。
+在 Azure 中创建策略后，最后一步是分配定义。 了解如何使用[门户](../assign-policy-portal.md)、[Azure CLI](../assign-policy-azurecli.md) 和 [Azure PowerShell](../assign-policy-powershell.md) 分配定义。
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>使用标记筛选来宾配置策略
 
@@ -474,9 +474,9 @@ wmi_service -out ./Config
 
 `New-GuestConfigurationPackage` cmdlet 创建包。 对于第三方内容，使用 FilesToInclude 参数将 InSpec 内容添加到包。 不需要如同 Linux 包一样指定 ChefProfilePath。
 
-- **Name** ：来宾配置包名称。
-- **配置** ：已编译的配置文档完整路径。
-- **路径** ：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
+- **Name**：来宾配置包名称。
+- **配置**：已编译的配置文档完整路径。
+- **路径**：输出文件夹路径。 此参数是可选的。 如果未指定，则在当前目录中创建包。
 - FilesoInclude：InSpec 配置文件的完整路径。
 
 运行下面的命令，以使用上一步中给出的配置来创建包：
@@ -496,8 +496,8 @@ New-GuestConfigurationPackage `
 > [!NOTE]
 > `version`来宾配置分配的属性仅影响由 Microsoft 托管的包。 自定义内容的版本控制的最佳做法是在文件名中包含版本。
 
-- **版本** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。
-- **contentUri** ：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定包位置的 URI。 在文件名中包含包版本将确保每个版本中此属性的值发生更改。
+- **版本**：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定高于当前发布版本的版本号。
+- **contentUri**：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定包位置的 URI。 在文件名中包含包版本将确保每个版本中此属性的值发生更改。
 - contentHash：此属性由 `New-GuestConfigurationPolicy` cmdlet 自动更新。 它是 `New-GuestConfigurationPackage` 创建的包的哈希值。 对于你发布的 `.zip` 文件，此属性必须是正确的。 如果只更新了 contentUri 属性，扩展就不会接受内容包。
 
 发布更新后的包的最简单方法是，重复本文中描述的过程，并提供更新后的版本号。 该过程可保证正确更新所有属性。
@@ -518,7 +518,7 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 `Protect-GuestConfigurationPackage` cmdlet 的参数：
 
-- **路径** ：来宾配置包的完整路径。
+- **路径**：来宾配置包的完整路径。
 - Certificate：用于对包进行签名的代码签名证书。 只有在对 Windows 内容进行签名时，才支持此参数。
 
 GuestConfiguration 代理要求证书公钥在 Windows 计算机上的“受信任的根证书颁发机构”和 Linux 计算机上的 `/usr/local/share/ca-certificates/extra` 路径中存在。 为了让节点能够验证已签名的内容，请先在计算机上安装证书公钥，再应用自定义策略。 可以使用 VM 内的任何技术或使用 Azure Policy 来完成此过程。 [此处提供了](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)一个示例模板。
@@ -532,12 +532,6 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
 在内容发布后，将名为 `GuestConfigPolicyCertificateValidation` 且值为 `enabled` 的标记追加到所有应需要进行代码签名的虚拟机。 请参阅[标记示例](../samples/built-in-policies.md#tags)，了解如何使用 Azure Policy 大规模传递标记。 在此标记就位后，使用 `New-GuestConfigurationPolicy` cmdlet 生成的策略定义通过来宾配置扩展启用要求。
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>来宾配置策略分配故障排除（预览）
-
-有一项工具处于预览状态，有助于对 Azure Policy 来宾配置分配进行故障排除。 此工具处于预览状态，已作为模块名称[来宾配置故障排除程序](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)发布到 PowerShell 库中。
-
-若要详细了解此工具中的 cmdlet，请使用 PowerShell 中的 Get-Help 命令来显示内置的指导。 因为此工具经常更新，所以这是获取最新信息的最佳方式。
 
 ## <a name="next-steps"></a>后续步骤
 

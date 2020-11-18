@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408934"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698795"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>安全控制 V2：备份和恢复
 
@@ -36,7 +36,7 @@ ms.locfileid: "94408934"
 
 - [如何启用跨区域还原](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -58,7 +58,7 @@ ms.locfileid: "94408934"
 
 对于使用 Azure 备份的本地备份，请使用所提供的密码提供静态加密。 对于常规 Azure 服务备份，系统会使用 Azure 平台管理的密钥自动加密备份数据。 你可选择使用客户管理的密钥对备份进行加密。 在这种情况下，请确保 Key Vault 中客户管理的密钥也在备份范围内。 
 
-在 Azure 备份、Azure Key Vault 或其他资源中使用基于角色的访问控制来保护备份和客户管理的密钥。 此外，可启用高级安全功能，要求在更改或删除备份之前进行 MFA。
+在 Azure 备份中使用 Azure 基于角色的访问控制、Azure Key Vault 或其他资源，以保护备份和客户管理的密钥。 此外，可启用高级安全功能，要求在更改或删除备份之前进行 MFA。
 
 - [Azure 备份中的安全功能概述](../../backup/security-overview.md)
 
@@ -68,7 +68,7 @@ ms.locfileid: "94408934"
 
 - [可帮助保护混合备份免受攻击的安全功能](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -90,7 +90,7 @@ ms.locfileid: "94408934"
 
 - [如何在 Azure 中还原 Key Vault 密钥](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 
@@ -108,7 +108,7 @@ ms.locfileid: "94408934"
 
 - [如何在 Key Vault 中启用软删除和清除保护](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**责任** ：客户
+**责任**：客户
 
 客户安全利益干系人（[了解详细信息](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)）：
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413286"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699859"
 ---
 # <a name="azure-network-security-overview"></a>Azure 网络安全概述
 
@@ -81,7 +81,7 @@ NSG 不提供应用程序层检查或经过身份验证的访问控制。
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC 实时 VM 访问
 
-[Azure 安全中心](../../security-center/security-center-introduction.md) 可以管理 vm 上的 nsg 并锁定对 vm 的访问，直到具有适当的基于角色的访问控制 [RBAC](../../role-based-access-control/overview.md) 权限的用户请求访问。 如果成功为该用户授权，则 ASC 会对 NSG 进行修改，以允许在指定的时间访问选定的端口。 该时间过后，NSG 将还原到其以前的受保护状态。
+[Azure 安全中心](../../security-center/security-center-introduction.md) 可以管理 vm 上的 nsg 并锁定对 vm 的访问，直到具有相应 azure 基于角色的访问控制的用户 [azure RBAC](../../role-based-access-control/overview.md) 权限请求访问权限。 如果成功为该用户授权，则 ASC 会对 NSG 进行修改，以允许在指定的时间访问选定的端口。 该时间过后，NSG 将还原到其以前的受保护状态。
 
 了解详细信息：
 

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675575"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700216"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>创建和管理 Azure 认知搜索服务的 API 密钥
 
 对搜索服务的所有请求都需要一个 `api-key` 专为你的服务生成的只读。 `api-key`是对搜索服务终结点的访问进行身份验证的唯一机制，必须包含在每个请求上。 
 
-+ 在 [REST 解决方案](search-get-started-postman.md)中，api 密钥通常在请求标头中指定
++ 在 [REST 解决方案](search-get-started-rest.md)中，api 密钥通常在请求标头中指定
 
 + 在[.net 解决方案](search-howto-dotnet-sdk.md)中，密钥通常指定为配置设置，然后作为[AzureKeyCredential](/dotnet/api/azure.azurekeycredential)传递
 

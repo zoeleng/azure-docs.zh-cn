@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ee28cbffd6f047b4991d29781e0b131a44c7dfae
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 835e4f681d514bb6b92caa5ee076e3794ed59236
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409172"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698812"
 ---
 # <a name="security-control-data-recovery"></a>安全控制：数据恢复
 
@@ -58,7 +58,7 @@ ms.locfileid: "94409172"
 |--|--|--|
 | 9.4 | 10.4 | 客户 |
 
-对于本地备份，使用在备份到 Azure 时提供的密码提供静态加密。 对于 Azure VM，使用存储服务加密 (SSE) 对数据进行静态加密。 使用基于角色的访问控制来保护备份和客户托管的密钥。  
+对于本地备份，使用在备份到 Azure 时提供的密码提供静态加密。 对于 Azure VM，使用存储服务加密 (SSE) 对数据进行静态加密。 使用 Azure 基于角色的访问控制来保护备份和客户管理的密钥。  
 
 在密钥保管库中启用软删除和清除保护，以防止意外删除或恶意删除密钥。  如果将 Azure 存储用于存储备份，请启用软删除以在 blob 或 blob 快照被删除时保存和恢复数据。 
 
