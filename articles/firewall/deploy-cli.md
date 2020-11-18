@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6993bd10caf2f7e489de8074e311f75710b83d82
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565868"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659431"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>使用 Azure CLI 部署和配置 Azure 防火墙
 
@@ -25,7 +25,7 @@ ms.locfileid: "94565868"
 
 将网络流量路由到用作子网默认网关的防火墙时，网络流量受到配置的防火墙规则的控制。
 
-在本文中，你将创建一个包含三个子网的简化 VNet，以便于部署。 对于生产部署，我们建议使用[中心辐射模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。 防火墙位于其自身的 VNet 中。 工作负荷服务器在包含一个或多个子网的同一区域中的对等 VNet 内。
+在本文中，你将创建一个包含三个子网的简化 VNet，以便于部署。 对于生产部署，我们建议使用[中心辐射模型](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)。 防火墙位于其自身的 VNet 中。 工作负荷服务器在包含一个或多个子网的同一区域中的对等 VNet 内。
 
 * **AzureFirewallSubnet** - 防火墙在此子网中。
 * **Workload-SN** - 工作负荷服务器在此子网中。 此子网的网络流量通过防火墙。
@@ -290,4 +290,4 @@ az group delete \
 
 ## <a name="next-steps"></a>后续步骤
 
-* [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
+* [教程：监视 Azure 防火墙日志](./firewall-diagnostics.md)

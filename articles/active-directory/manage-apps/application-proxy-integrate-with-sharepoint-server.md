@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c318c539b1c09761ed81e7602808e415fdaf8b80
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764530"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658173"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>通过 Azure AD 应用程序代理启用对 SharePoint 的远程访问
 
@@ -102,8 +102,8 @@ ms.locfileid: "84764530"
        New-SPAlternateURL -Url $internalUrl -WebApplication $wa -Zone Default -Internal
        ```
 
-    2. 打开 **SharePoint 管理中心**站点。
-    1. 在“系统设置”下，选择“配置备用访问映射”。******** 此时将打开 " **备用访问映射集合** " 框。
+    2. 打开 **SharePoint 管理中心** 站点。
+    1. 在“系统设置”下，选择“配置备用访问映射”。 此时将打开 " **备用访问映射集合** " 框。
     1. 用新的 web 应用程序筛选显示内容，并确认您看到如下所示的内容：
 
        ![Web 应用程序的备用访问映射](./media/application-proxy-integrate-with-sharepoint-server/new-webapp-aam.png)
@@ -125,8 +125,8 @@ ms.locfileid: "84764530"
        New-SPAlternateURL -Url $internalUrl -WebApplication $wa -Zone Extranet -Internal
        ```
 
-    2. 打开 **SharePoint 管理中心**站点。
-    1. 在“系统设置”下，选择“配置备用访问映射”。******** 此时将打开 " **备用访问映射集合** " 框。
+    2. 打开 **SharePoint 管理中心** 站点。
+    1. 在“系统设置”下，选择“配置备用访问映射”。 此时将打开 " **备用访问映射集合** " 框。
     1. 用已扩展的 web 应用程序筛选显示，并确认你看到如下所示的内容：
 
         ![扩展应用程序的备用访问映射](./media/application-proxy-integrate-with-sharepoint-server/extend-webapp-aam.png)
@@ -135,8 +135,8 @@ ms.locfileid: "84764530"
 
 若要确定运行 SharePoint web 应用程序的应用程序池的帐户，并确保该帐户是域帐户，请按照以下步骤操作：
 
-1. 打开 **SharePoint 管理中心**站点。
-1. 转到“安全”并选择“配置服务帐户”。********
+1. 打开 **SharePoint 管理中心** 站点。
+1. 转到“安全”并选择“配置服务帐户”。
 1. 选择 " **Web 应用程序池-YourWebApplicationName**"。
 
    ![用于配置服务帐户的选项](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
@@ -167,7 +167,7 @@ ms.locfileid: "84764530"
 
 ## <a name="step-3-configure-kerberos-constrained-delegation"></a>步骤3：配置 Kerberos 约束委派
 
-用户首先会在 Azure AD 中进行身份验证，然后通过 Azure AD 代理连接器使用 Kerberos 进行身份验证。 若要允许连接器代表 Azure AD 用户获取 Kerberos 令牌，必须使用协议转换 (KCD) 配置 Kerberos 约束委派。 若要了解有关 KCD 的详细信息，请参阅 [Kerberos 约束委派概述](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11))。
+用户首先会在 Azure AD 中进行身份验证，然后通过 Azure AD 代理连接器使用 Kerberos 进行身份验证。 若要允许连接器代表 Azure AD 用户获取 Kerberos 令牌，必须使用协议转换 (KCD) 配置 Kerberos 约束委派。 若要了解有关 KCD 的详细信息，请参阅 [Kerberos 约束委派概述](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11))。
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>为 SharePoint 服务帐户设置 SPN
 
@@ -176,7 +176,7 @@ ms.locfileid: "84764530"
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-`Setspn`命令会在添加 SPN 之前搜索该 SPN。 如果 SPN 已存在，则会出现 " **重复 Spn 值** " 错误。 在这种情况下，如果未在正确的应用程序池帐户下设置现有 SPN，请考虑删除该 SPN。 可以通过 `Setspn` 使用-L 选项运行命令来验证 SPN 是否已成功添加。 若要详细了解该命令，请参阅 [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))。
+`Setspn`命令会在添加 SPN 之前搜索该 SPN。 如果 SPN 已存在，则会出现 " **重复 Spn 值** " 错误。 在这种情况下，如果未在正确的应用程序池帐户下设置现有 SPN，请考虑删除该 SPN。 可以通过 `Setspn` 使用-L 选项运行命令来验证 SPN 是否已成功添加。 若要详细了解该命令，请参阅 [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))。
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>确保连接器受信任，可委派给添加到 SharePoint 应用程序池帐户的 SPN
 
@@ -198,7 +198,7 @@ ms.locfileid: "84764530"
 
 ## <a name="troubleshoot-sign-in-errors"></a>排查登录错误
 
-如果登录站点不起作用，则可以从运行连接器的计算机获取有关该问题的详细信息，打开事件查看器，转到 "**应用程序和服务日志**" "  >  **Microsoft**  >  **AadApplicationProxy**  >  **连接器**"，然后检查**管理**日志。
+如果登录站点不起作用，则可以从运行连接器的计算机获取有关该问题的详细信息，打开事件查看器，转到 "**应用程序和服务日志**" "  >  **Microsoft**  >  **AadApplicationProxy**  >  **连接器**"，然后检查 **管理** 日志。
 
 ## <a name="next-steps"></a>后续步骤
 

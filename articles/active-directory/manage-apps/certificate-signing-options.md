@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc43bb2fa99f95a462dcc4c68d27840199b45c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763680"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658530"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory 中库应用的 SAML 令牌中的高级证书签名选项
 
@@ -47,14 +47,14 @@ Azure AD 支持两种签名算法或安全哈希算法 (Sha) ，以便对 SAML �
 
 * **SHA-256**。 Azure AD 支持使用此默认算法来为 SAML 响应签名： 这是最新的算法，比 SHA-1 更安全。 大多数应用程序支持 SHA-256 算法。 如果应用程序仅支持将 SHA-1 用作签名算法，可以更改算法。 否则，我们建议使用 SHA-256 算法来为 SAML 响应签名。
 
-* **Sha-1**。 此算法较旧，其安全性被视为低于 SHA-256。 如果应用程序仅支持此签名算法，可以在“签名算法”下拉列表选择此选项。**** 然后，Azure AD 会使用 SHA-1 算法为 SAML 响应签名。
+* **Sha-1**。 此算法较旧，其安全性被视为低于 SHA-256。 如果应用程序仅支持此签名算法，可以在“签名算法”下拉列表选择此选项。 然后，Azure AD 会使用 SHA-1 算法为 SAML 响应签名。
 
 ## <a name="change-certificate-signing-options-and-signing-algorithm"></a>更改证书签名选项和签名算法
 
 若要更改应用程序的 SAML 证书签名选项和证书签名算法，请选择有问题的应用程序：
 
-1. 在 [Azure Active Directory 门户](https://aad.portal.azure.com/)中，登录到你的帐户。 此时会显示“Azure Active Directory 管理中心”页。****
-1. 在左窗格中，选择“企业应用程序”****。 此时将显示帐户中企业应用程序的列表。
+1. 在 [Azure Active Directory 门户](https://aad.portal.azure.com/)中，登录到你的帐户。 此时会显示“Azure Active Directory 管理中心”页。
+1. 在左窗格中，选择“企业应用程序”。 此时将显示帐户中企业应用程序的列表。
 1. 选择应用程序。 此时将显示应用程序的 "概述" 页。
 
    ![示例： "应用程序概述" 页](./media/certificate-signing-options/application-overview-page.png)
@@ -75,5 +75,5 @@ Azure AD 支持两种签名算法或安全哈希算法 (Sha) ，以便对 SAML �
 
 ## <a name="next-steps"></a>后续步骤
 
-* [针对不在 Azure Active Directory 应用库中的应用程序配置单一登录](configure-federated-single-sign-on-non-gallery-applications.md)
-* [排查基于 SAML 的单一登录的问题](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [针对不在 Azure Active Directory 应用库中的应用程序配置单一登录](./configure-saml-single-sign-on.md)
+* [排查基于 SAML 的单一登录的问题](./debug-saml-sso-issues.md)

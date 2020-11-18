@@ -7,19 +7,20 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: a2b97bcc9fe902480364ade19efdae863556ac1e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629421"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658564"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>使用 Azure CLI 创建专用链接服务
 本文介绍了如何使用 Azure CLI 在 Azure 中创建专用链接服务。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果你决定在本地安装并使用 Azure CLI，本快速入门要求使用最新 Azure CLI 版本。 若要查找已安装的版本，请运行 `az --version`。 有关安装或升级信息，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
+- 本文需要 Azure CLI 的最新版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
+
 ## <a name="create-a-private-link-service"></a>创建专用链接服务
 ### <a name="create-a-resource-group"></a>创建资源组
 
@@ -29,7 +30,7 @@ ms.locfileid: "94629421"
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
-使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 创建虚拟网络。 此示例创建名为 *myVirtualNetwork* 的默认虚拟网络，它具有一个名为 *mySubnet* 的子网：
+使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 创建虚拟网络。 此示例将创建一个名为 *myVirtualNetwork* 的默认虚拟网络，其中包含一个名为 *mySubnet* 的子网：
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
@@ -62,7 +63,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-rule"></a>创建负载均衡器规则
 
-负载均衡器规则定义传入流量的前端 IP 配置和用于接收流量的后端 IP 池，以及所需源和目标端口。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 创建负载均衡器规则 *myHTTPRule* ，以便侦听前端池 *myFrontEnd* 中的端口 80，并且将经过负载均衡的网络流量发送到也使用端口 80 的后端地址池 *myBackEndPool* 。 
+负载均衡器规则定义传入流量的前端 IP 配置和用于接收流量的后端 IP 池，以及所需源和目标端口。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 创建负载均衡器规则 *myHTTPRule*，以便侦听前端池 *myFrontEnd* 中的端口 80，并且将经过负载均衡的网络流量发送到也使用端口 80 的后端地址池 *myBackEndPool*。 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -111,7 +112,7 @@ az network private-link-service create \
 ## <a name="private-endpoints"></a>专用终结点
 
 ### <a name="create-the-virtual-network"></a>创建虚拟网络 
-使用  [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 创建虚拟网络。 此示例在名为 *myResourcegroup* 的资源组中创建名为  *myPEVNet*  的虚拟网络： 
+使用  [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 创建虚拟网络。 此示例  *myPEVNet*   在名为 *myResourcegroup* 的资源组中创建名为 myPEVNet 的虚拟网络： 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +120,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>创建子网 
-使用  [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) 在虚拟网络中创建子网。 此示例在资源组 *myResourcegroup* 中的虚拟网络 *myPEVnet* 中创建名为  *mySubnet*  的子网： 
+使用  [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) 在虚拟网络中创建子网。 此示例将在名为  *mySubnet*   *myResourcegroup* 的资源组中名为 *myPEVnet* 的虚拟网络中创建名为 mySubnet 的子网： 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -152,7 +153,7 @@ az network private-endpoint create \
 --location westcentralus 
 ```
 可以在专用链接服务上使用 `az network private-link-service show` 获取 private-connection-resource-id。 ID 将如下所示：   
-/subscriptions/subID/resourceGroups/ *resourcegroupname* /providers/Microsoft.Network/privateLinkServices/ **privatelinkservicename** 
+/subscriptions/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>显示专用链接服务连接 
  

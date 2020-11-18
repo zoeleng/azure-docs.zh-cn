@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764581"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658156"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>应用程序代理连接器和应用程序的高可用性和负载均衡
 
@@ -39,7 +39,7 @@ ms.locfileid: "84764581"
 
 1. 客户端设备上的用户尝试访问通过应用程序代理发布的本地应用程序。
 2. 该请求将通过 Azure 负载均衡器来确定哪些应用程序代理服务实例应该获取请求。 每个区域中有数十个可接受请求的实例。 此方法有助于在服务实例之间均匀分布流量。
-3. 请求将发送到 [服务总线](https://docs.microsoft.com/azure/service-bus-messaging/)。
+3. 请求将发送到 [服务总线](../../service-bus-messaging/index.yml)。
 4. 将服务总线信号发送到可用连接器。 然后，连接器将从服务总线中选取请求。
    - 在步骤2中，请求会转向不同的应用程序代理服务实例，因此连接更有可能与不同的连接器建立连接。 因此，在组中几乎使用了连接器。
 5. 连接器将请求传递给应用程序的后端服务器。 然后，应用程序将响应发送回连接器。
@@ -98,4 +98,4 @@ ms.locfileid: "84764581"
 - [启用单一登录](application-proxy-configure-single-sign-on-with-kcd.md)
 - [启用条件性访问](application-proxy-integrate-with-sharepoint-server.md)
 - [解决使用应用程序代理时遇到的问题](application-proxy-troubleshoot.md)
-- [了解 Azure AD 体系结构如何支持高可用性](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [了解 Azure AD 体系结构如何支持高可用性](../fundamentals/active-directory-architecture.md)

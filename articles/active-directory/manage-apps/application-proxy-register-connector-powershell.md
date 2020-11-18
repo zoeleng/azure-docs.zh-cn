@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46071d15db57f64eb60d9267d4081a2b0b74a50
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054828"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658428"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>为 Azure AD 应用程序代理连接器创建无人参与安装脚本
 
@@ -39,7 +39,7 @@ ms.locfileid: "88054828"
 无人参与安装包括两个步骤。 第一步，安装连接器。 第二步，向 Azure AD 注册连接器。
 
 > [!IMPORTANT]
-> 如果要为 Azure 政府云安装连接器，请查看 [先决条件](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) 和 [安装步骤](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud)。 这需要启用对一组不同 URL 的访问以及运行安装的其他参数。
+> 如果要为 Azure 政府云安装连接器，请查看 [先决条件](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) 和 [安装步骤](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)。 这需要启用对一组不同 URL 的访问以及运行安装的其他参数。
 
 ## <a name="install-the-connector"></a>安装连接器
 使用以下步骤免注册安装连接器：
@@ -66,7 +66,7 @@ ms.locfileid: "88054828"
    $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
    $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
    ```
-2. 转到 C:\Program Files\Microsoft AAD App Proxy Connector 并使用创建的 `$cred` 对象运行以下脚本****：
+2. 转到 C:\Program Files\Microsoft AAD App Proxy Connector 并使用创建的 `$cred` 对象运行以下脚本：
 
    ```powershell
    .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy

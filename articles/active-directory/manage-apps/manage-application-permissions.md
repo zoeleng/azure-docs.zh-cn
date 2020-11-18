@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510872"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658972"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>对 Azure Active Directory 中拥有过度特权的或可疑的应用程序采取措施
 
@@ -29,7 +29,7 @@ ms.locfileid: "88510872"
 
 若要执行以下操作，必须以全局管理员、应用程序管理员或云应用程序管理员的身份登录到 Azure 门户。
 
-若要限制对应用程序的访问，你需要要求用户分配，然后将用户或组分配到应用程序。  有关详细信息，请参阅[分配用户和组的方法](methods-for-assigning-users-and-groups.md)。
+若要限制对应用程序的访问，你需要要求用户分配，然后将用户或组分配到应用程序。  有关详细信息，请参阅[分配用户和组的方法](./assign-user-or-group-access-portal.md)。
 
 可以访问 Azure AD 门户，获取上下文 PowerShell 脚本来执行这些操作。
  

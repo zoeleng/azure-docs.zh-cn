@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369091"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659074"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>向应用程序授予租户范围的管理员许可
 
@@ -30,7 +30,7 @@ ms.locfileid: "92369091"
 授予租户范围的管理员许可需要以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录。
 
 > [!IMPORTANT]
-> 为应用程序授予租户范围的管理员许可后，除非已配置为需要用户分配，否则所有用户都可以登录到该应用。 若要限制哪些用户可登录到某个应用程序，需要提供用户分配，然后将用户或组分配到该应用程序。 有关详细信息，请参阅[分配用户和组的方法](methods-for-assigning-users-and-groups.md)。
+> 为应用程序授予租户范围的管理员许可后，除非已配置为需要用户分配，否则所有用户都可以登录到该应用。 若要限制哪些用户可登录到某个应用程序，需要提供用户分配，然后将用户或组分配到该应用程序。 有关详细信息，请参阅[分配用户和组的方法](./assign-user-or-group-access-portal.md)。
 >
 > 若要为 Microsoft Graph API 应用程序权限提供管理员许可，需要“全局管理员”角色。
 
@@ -43,35 +43,35 @@ ms.locfileid: "92369091"
 
 ### <a name="grant-admin-consent-in-enterprise-apps"></a>在企业应用中授予管理员许可
 
-如果应用程序已在租户中预配，则你可以通过“企业应用程序”授予租户范围的管理员许可。** 例如，如果已至少许可一个用户登录到某个应用程序，则可以在租户中预配该应用。 有关详细信息，请参阅[如何以及为何将应用程序添加到 Azure Active Directory](../develop/active-directory-how-applications-are-added.md)。
+如果应用程序已在租户中预配，则你可以通过“企业应用程序”授予租户范围的管理员许可。 例如，如果已至少许可一个用户登录到某个应用程序，则可以在租户中预配该应用。 有关详细信息，请参阅[如何以及为何将应用程序添加到 Azure Active Directory](../develop/active-directory-how-applications-are-added.md)。
 
-若要向“企业应用程序”中列出的应用授予租户范围的管理员许可：****
+若要向“企业应用程序”中列出的应用授予租户范围的管理员许可：
 
 1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.com)。
-2. 依次选择“Azure Active Directory”、“企业应用程序”。********
+2. 依次选择“Azure Active Directory”、“企业应用程序”。
 3. 选择要向其授予租户范围的管理员许可的应用程序。
-4. 选择“权限”，然后单击“授予管理员许可”。********
+4. 选择“权限”，然后单击“授予管理员许可”。
 5. 仔细查看应用程序所需的权限。
-6. 如果你同意应用程序所需的权限，请授予许可。 否则，请单击“取消”或关闭窗口。****
+6. 如果你同意应用程序所需的权限，请授予许可。 否则，请单击“取消”或关闭窗口。
 
 > [!WARNING]
 > 通过“企业应用”授予租户范围内的管理员同意将撤消先前已授予的租户范围内的所有权限。 之前用户自己已授予的权限将不受影响。 
 
 ### <a name="grant-admin-consent-in-app-registrations"></a>在应用注册中授予管理员许可
 
-对于组织开发的应用程序，或已直接在 Azure AD 租户中注册的应用程序，还可以通过 Azure 门户中的“应用注册”授予租户范围的管理员许可。****
+对于组织开发的应用程序，或已直接在 Azure AD 租户中注册的应用程序，还可以通过 Azure 门户中的“应用注册”授予租户范围的管理员许可。
 
-若要通过“应用注册”授予租户范围的管理员许可：****
+若要通过“应用注册”授予租户范围的管理员许可：
 
 1. 以[全局管理员](../roles/permissions-reference.md#global-administrator--company-administrator)、[应用程序管理员](../roles/permissions-reference.md#application-administrator)或[云应用程序管理员](../roles/permissions-reference.md#cloud-application-administrator)的身份登录到 [Azure 门户](https://portal.azure.com)。
-2. 依次选择“Azure Active Directory”、“应用注册”。********
+2. 依次选择“Azure Active Directory”、“应用注册”。
 3. 选择要向其授予租户范围的管理员许可的应用程序。
-4. 选择“API 权限”，然后单击“授予管理员许可”。********
+4. 选择“API 权限”，然后单击“授予管理员许可”。
 5. 仔细查看应用程序所需的权限。
-6. 如果你同意应用程序所需的权限，请授予许可。 否则，请单击“取消”或关闭窗口。****
+6. 如果你同意应用程序所需的权限，请授予许可。 否则，请单击“取消”或关闭窗口。
 
 > [!WARNING]
-> 通过 **应用注册** 向租户范围内的管理员授予许可将撤消之前已被授予租户范围的任何权限。 之前用户自己已授予的权限将不受影响。 
+> 通过“应用注册”授予租户范围内的管理员同意将撤销先前已授予的租户范围内的所有权限。 之前用户自己已授予的权限将不受影响。 
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>构建用于授予租户范围的管理员许可的 URL
 
@@ -99,6 +99,6 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 
 [配置管理员同意工作流](configure-admin-consent-workflow.md)
 
-[Microsoft 标识平台中的权限和许可](../develop/active-directory-v2-scopes.md)
+[Microsoft 标识平台中的权限和许可](../develop/v2-permissions-and-consent.md)
 
 [StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

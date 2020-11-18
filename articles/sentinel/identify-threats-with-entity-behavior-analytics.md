@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425926"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658785"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>在 Azure Sentinel 中通过用户和实体行为分析来识别高级威胁 (UEBA) 
 
@@ -92,7 +92,7 @@ Azure Sentinel 提供的项目可帮助您的安全分析人员清楚地了解�
 - Ip 地址 (IP) 
 - 恶意软件
 - 文件
-- 进程
+- 过程
 - 云应用程序 (CloudApplication) 
 - 域名 (DNS) 
 - Azure 资源
@@ -109,7 +109,7 @@ Azure Sentinel 提供的项目可帮助您的安全分析人员清楚地了解�
 
 ### <a name="entity-pages"></a>实体页
 
-如果你遇到当前限制为用户和主机在搜索、警报或调查中) 的任何实体 (，则可以选择该实体，并将其转到 **实体页** ，这是有关该实体的有用信息的完整数据表。 你将在此页上看到的信息类型包括有关实体的基本信息、与此实体相关的明显事件的时间线以及有关实体行为的见解。
+如果你遇到当前限制为用户和主机在搜索、警报或调查中) 的任何实体 (，则可以选择该实体，并将其转到 **实体页**，这是有关该实体的有用信息的完整数据表。 你将在此页上看到的信息类型包括有关实体的基本信息、与此实体相关的明显事件的时间线以及有关实体行为的见解。
  
 实体页由三个部分组成：
 - 左侧面板包含实体的标识信息，这些信息从数据源（例如 Azure Active Directory、Azure Monitor、Azure 安全中心和 Microsoft Defender）收集。
@@ -180,7 +180,7 @@ Azure Sentinel 提供的项目可帮助您的安全分析人员清楚地了解�
 
 ### <a name="querying-behavior-analytics-data"></a>查询行为分析数据
 
-使用 [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/)，可以查询行为分析表。
+使用 [KQL](/azure/data-explorer/kusto/query/)，可以查询行为分析表。
 
 例如，如果要查找无法登录到 Azure 资源的用户的所有情况，在这种情况下，用户第一次尝试从给定的国家/地区进行连接，并且来自该国家/地区的连接不常见，但对于用户的对等，我们可以使用以下查询：
 
@@ -205,7 +205,7 @@ Azure Sentinel 根据用户的 Azure AD 安全组成员身份、邮件列表等�
 
 权限分析有助于确定攻击者对组织资产造成的潜在影响。 这种影响也称为资产的 "群发 radius"。 安全分析师可以使用此信息来确定调查和事件处理的优先级。
 
-Azure Sentinel 通过评估用户可以直接或通过组或服务主体访问的 Azure 订阅，确定给定用户对 Azure 资源持有的直接和可传递访问权限。 此信息以及用户 Azure AD 安全组成员身份的完整列表将存储在 **UserAccessAnalytics** 表中。 下面的屏幕截图显示了 UserAccessAnalytics 表中用户 Alex Johnson 的示例行。 **源实体** 是用户或服务主体帐户， **目标实体** 是源实体有权访问的资源。 " **访问级别** " 和 " **访问类型** " 的值取决于目标实体的访问控制模型。 你可以看到，Alex 有权访问 Azure 订阅 *Contoso 酒店租户* 。 订阅的访问控制模型为 RBAC。   
+Azure Sentinel 通过评估用户可以直接或通过组或服务主体访问的 Azure 订阅，确定给定用户对 Azure 资源持有的直接和可传递访问权限。 此信息以及用户 Azure AD 安全组成员身份的完整列表将存储在 **UserAccessAnalytics** 表中。 下面的屏幕截图显示了 UserAccessAnalytics 表中用户 Alex Johnson 的示例行。 **源实体** 是用户或服务主体帐户， **目标实体** 是源实体有权访问的资源。 " **访问级别** " 和 " **访问类型** " 的值取决于目标实体的访问控制模型。 你可以看到，Alex 有权访问 Azure 订阅 *Contoso 酒店租户*。 订阅的访问控制模型为 RBAC。   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="用户访问分析表的屏幕截图":::
 

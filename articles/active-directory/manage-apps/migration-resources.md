@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: a49dff0e4ac41670800073c02c5a507eb433c326
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: c470987fe6e699a186fa44d17bc731da048a2262
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280437"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658751"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>用于将应用程序迁移到 Azure Active Directory 的资源
 
@@ -25,7 +25,7 @@ ms.locfileid: "93280437"
 | 资源  | 说明  |
 |:-----------|:-------------|
 |[将应用迁移到 Azure AD](https://aka.ms/migrateapps/whitepaper) | 本白皮书介绍了迁移的优势，并介绍了如何在四个明确概述的阶段中规划迁移：发现、分类、迁移和持续管理。 本文将介绍如何思考该进程并将项目分解为易于使用的部分。 整个文档为指向重要资源的链接，可全程为你提供帮助。 |
-|[解决方案指南：将应用从 Active Directory 联合身份验证服务 (AD FS) 迁移到 Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | 本解决方案指南逐步说明规划和执行迁移白皮书中更高级别描述的应用程序迁移项目的四个相同阶段。 在本指南中，你将学习如何将这些阶段应用于将应用程序从 Active Directory 联合身份验证服务 (AD FS) 移动到 Azure AD 的特定目标。|
+|[解决方案指南：将应用从 Active Directory 联合身份验证服务 (AD FS) 迁移到 Azure AD](./migrate-adfs-apps-to-azure.md) | 本解决方案指南逐步说明规划和执行迁移白皮书中更高级别描述的应用程序迁移项目的四个相同阶段。 在本指南中，你将学习如何将这些阶段应用于将应用程序从 Active Directory 联合身份验证服务 (AD FS) 移动到 Azure AD 的特定目标。|
 |[开发人员教程：向开发人员 AD FS Azure AD 应用程序迁移操作手册](https://aka.ms/adfsplaybook) | 这组 ASP.NET 的代码示例和随附的教程将帮助你了解如何安全、安全地将与 Active Directory 联合身份验证服务 (集成的应用程序迁移到 AD FS) Azure Active Directory (Azure AD) 。 本教程侧重于不仅需要了解在 AD FS 和 Azure AD 上配置应用的开发人员，还会在此过程中认识并自信其代码库将需要的更改。|
 | [工具：Active Directory 联合身份验证服务迁移就绪性脚本](https://aka.ms/migrateapps/adfstools) | 这是可以在本地 Active Directory 联合身份验证服务 (AD FS) 服务器上运行的脚本，用于确定应用迁移到 Azure AD 的就绪情况。|
 | [部署计划：从 AD FS 迁移到密码哈希同步](https://aka.ms/ADFSTOPHSDPDownload) | 凭借密码哈希同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 通过该操作，Azure AD 可对用户进行身份验证，而无需与本地 Active Directory 进行交互。| 
@@ -33,5 +33,3 @@ ms.locfileid: "93280437"
 | [部署计划：使用 Azure AD 启用 SaaS 应用程序的单一登录](https://aka.ms/SSODPDownload) | 进行单一登录 (SSO) 时，只需使用单个用户帐户登录一次，就能访问开展业务所需的全部应用和资源。 例如，用户登录后，该用户可从 Microsoft Office 移动到 SalesForce 和 Box，而无需再次进行身份验证（例如，键入密码）。 
 | [部署计划：使用应用程序代理将应用扩展到 Azure AD](https://aka.ms/AppProxyDPDownload)| 传统上，提供从员工笔记本电脑和其他设备到本地应用程序的访问权限会涉及虚拟专用网络 (VPN) 或外围安全区域 (DMZ)。 这些解决方案不仅复杂且难以确保安全性，而且设置和管理成本也很高。 使用 Azure AD 应用程序代理可更轻松地访问本地应用程序。 |
 | [部署计划](../fundamentals/active-directory-deployment-plans.md) | 查找更多部署计划用于部署多种功能，例如多重身份验证、条件访问、用户预配、无缝 SSO、自助密码重置等！ |
-
-

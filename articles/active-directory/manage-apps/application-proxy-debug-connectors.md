@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbbb5328f2d7e814be9b5b94ec522bbb01df39e5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145694"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658241"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>调试应用程序代理连接器问题 
 
 本文将帮助你排查 Azure Active Directory (Azure AD) 应用程序代理连接器的问题。 如果正在使用应用程序代理服务远程访问本地 web 应用程序，但连接到应用程序时遇到问题，请使用此流程图调试连接器问题。 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本文假设你已安装应用程序代理连接器并且遇到问题。 排查应用程序代理问题时，我们建议你开始处理此故障排除流，以确定是否已正确配置应用程序代理连接器。 如果在连接到应用程序时仍遇到问题，请遵循 [调试应用程序代理应用程序问题](application-proxy-debug-apps.md)中的疑难解答流。  
 
@@ -44,7 +44,7 @@ ms.locfileid: "86145694"
 |---------|---------|---------|
 |1 | 查找分配给应用的连接器组 | 您可能在多台服务器上安装了连接器，在这种情况下，应将连接器 [分配给连接器组](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)。 有关连接器组的详细信息，请参阅[使用连接器组在单独的网络和位置上发布应用程序](application-proxy-connector-groups.md)。 |
 |2 | 安装连接器并分配组 | 如果尚未安装连接器，请参阅 [安装和注册连接器](application-proxy-add-on-premises-application.md#install-and-register-a-connector)。<br></br> 如果在安装连接器时遇到问题，请参阅 [安装连接器时出现问题](application-proxy-connector-installation-problem.md)。<br></br> 如果未将连接器分配给组，请参阅 [将连接器分配给组](application-proxy-connector-groups.md#create-connector-groups)。<br></br>如果未将应用程序分配到连接器组，请参阅 [将应用程序分配到连接器组](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)。|
-|3 | 在连接器服务器上运行端口测试 | 在连接器服务器上，使用 [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) 或其他端口测试工具运行端口测试，以检查端口 [443 和80是否已打开](application-proxy-add-on-premises-application.md#open-ports)。|
+|3 | 在连接器服务器上运行端口测试 | 在连接器服务器上，使用 [telnet](/windows-server/administration/windows-commands/telnet) 或其他端口测试工具运行端口测试，以检查端口 [443 和80是否已打开](application-proxy-add-on-premises-application.md#open-ports)。|
 |4 | 配置域和端口 | [请确保正确配置了你的域和端口](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) 为了使连接器正常工作，某些端口必须是打开的，并且必须是服务器必须能够访问的 Url。 |
 |5 | 检查后端代理是否正在使用中 | 检查连接器是否正在使用后端代理服务器，或跳过它们。 有关详细信息，请参阅 [排查连接器代理问题和服务连接问题](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues)。 |
 |6 | 更新连接器和更新程序以使用后端代理 | 如果正在使用后端代理，则需要确保连接器使用相同的代理。 若要详细了解如何使用代理服务器进行故障排除和配置，请参阅 [使用现有的本地代理服务器](application-proxy-configure-connectors-with-proxy-servers.md)。 |

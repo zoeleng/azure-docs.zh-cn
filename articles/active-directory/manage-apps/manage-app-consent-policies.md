@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442253"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659040"
 ---
 # <a name="manage-app-consent-policies"></a>管理应用同意策略
 
@@ -31,7 +31,7 @@ ID 以“microsoft-”开头的应用同意策略是内置策略。 其中的某
 
 ## <a name="pre-requisites"></a>先决条件
 
-1. 请确保使用 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 模块。 如果同时安装了 [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 模块和 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 模块，则此步骤非常重要。
+1. 请确保使用 [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 模块。 如果同时安装了 [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) 模块和 [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview) 模块，则此步骤非常重要。
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -133,8 +133,8 @@ ID 以“microsoft-”开头的应用同意策略是内置策略。 其中的某
 | 条件 | 说明|
 |:---------------|:----------|
 | PermissionClassification | 要授予的权限的[权限分类](configure-permission-classifications.md)，或“all”（匹配任何权限分类，包括未分类的权限）。 默认值为“all”。 |
-| PermissionType | 要授予的权限的权限类型。 使用“application”表示应用程序权限（例如应用角色），或使用“delegated”表示委托的权限。 <br><br>**注意** ：值“delegatedUserConsentable”表示尚未经 API 发布者配置为需要管理员同意的委托的权限 - 此值可以在内置的权限授予策略中使用，但不能在自定义权限授予策略中使用。 必需。 |
-| ResourceApplication | 要为其授予权限的资源应用程序（例如 API）的 **AppId** ，或“any”（匹配任何资源应用程序或 API）。 默认值为“any”。 |
+| PermissionType | 要授予的权限的权限类型。 使用“application”表示应用程序权限（例如应用角色），或使用“delegated”表示委托的权限。 <br><br>**注意**：值“delegatedUserConsentable”表示尚未经 API 发布者配置为需要管理员同意的委托的权限 - 此值可以在内置的权限授予策略中使用，但不能在自定义权限授予策略中使用。 必需。 |
+| ResourceApplication | 要为其授予权限的资源应用程序（例如 API）的 **AppId**，或“any”（匹配任何资源应用程序或 API）。 默认值为“any”。 |
 | 权限 | 要与之匹配的特定权限的权限 ID 的列表；或其中包含单个值“all”的列表，这匹配任何权限。 默认值为单个值“all”。 <ul><li>可以在 API 的 ServicePrincipal 对象的 **OAuth2Permissions** 属性中找到委托的权限 ID。</li><li>可以在 API 的 ServicePrincipal 对象的 **AppRoles** 属性中找到应用程序权限 ID。</li></ol> |
 | ClientApplicationIds | 要与之匹配的客户端应用程序的 **AppId** 值的列表；或其中包含单个值“all”的列表，这匹配任何客户端应用程序。 默认值为单个值“all”。 |
 | ClientApplicationTenantIds | 在其中注册了客户端应用程序的 Azure Active Directory 租户 ID 的列表；或其中包含单个值“all”的列表，这将匹配在任何租户中注册的客户端应用。 默认值为单个值“all”。 |
@@ -149,7 +149,7 @@ ID 以“microsoft-”开头的应用同意策略是内置策略。 其中的某
 * [配置管理员同意工作流](configure-admin-consent-workflow.md)
 * [了解如何管理对应用程序的同意并评估同意请求](manage-consent-requests.md)
 * [向应用程序授予租户范围的管理许可](grant-admin-consent.md)
-* [Microsoft 标识平台中的权限和许可](../develop/active-directory-v2-scopes.md)
+* [Microsoft 标识平台中的权限和许可](../develop/v2-permissions-and-consent.md)
 
 获取帮助或查找问题的答案：
 * [StackOverflow 上的 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)

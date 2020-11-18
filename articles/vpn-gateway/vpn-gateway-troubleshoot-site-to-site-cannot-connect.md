@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037828"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658343"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>故障排除：Azure 站点到站点 VPN 连接无法建立连接并停止工作
 
@@ -22,7 +22,7 @@ ms.locfileid: "86037828"
 
 ## <a name="troubleshooting-steps"></a>疑难解答步骤
 
-若要解决该问题，请先尝试[重置 Azure VPN 网关](vpn-gateway-resetgw-classic.md)并重置从本地 VPN 设备建立的隧道。 如果问题仍然存在，请遵循以下步骤确定问题的原因。
+若要解决该问题，请先尝试[重置 Azure VPN 网关](./reset-gateway.md)并重置从本地 VPN 设备建立的隧道。 如果问题仍然存在，请遵循以下步骤确定问题的原因。
 
 ### <a name="prerequisite-step"></a>先决条件步骤
 
