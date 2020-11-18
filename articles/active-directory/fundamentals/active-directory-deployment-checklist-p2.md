@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077959"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836914"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 功能部署指南
 
@@ -57,7 +57,7 @@ ms.locfileid: "93077959"
 | [使用条件访问策略部署 Azure AD 多重身份验证](../authentication/howto-mfa-getstarted.md) | 要求用户在使用条件访问策略访问敏感应用程序时执行双重验证。 | Azure AD Premium P1 |
 | [Azure Active Directory 标识保护](../identity-protection/overview-identity-protection.md) | 针对组织中的用户启用有风险登录和已泄密凭据的跟踪。 | Azure AD Premium P2 |
 | [使用风险检测来触发多重身份验证和密码更改](../authentication/tutorial-risk-based-sspr-mfa.md) | 启用可以触发多重身份验证、密码重置和基于风险阻止登录等事件的自动化功能。 | Azure AD Premium P2 |
-| [启用用于自助服务密码重置和 Azure AD 多重身份验证的组合注册](../authentication/concept-registration-mfa-sspr-combined.md) | 允许用户从 Azure 多重身份验证和自助式密码重置的一个常用体验进行注册。 | Azure AD Premium P1 |
+| [启用用于自助服务密码重置和 Azure AD 多重身份验证的组合注册](../authentication/concept-registration-mfa-sspr-combined.md) | 允许用户从一个常见体验注册 Azure AD 多重身份验证和自助密码重置。 | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>阶段 2：导入用户、启用同步和管理设备
 

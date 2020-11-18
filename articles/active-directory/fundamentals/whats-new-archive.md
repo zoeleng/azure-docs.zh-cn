@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a703f6d32cb665bfada73ca833f51c94d83f8b97
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146154"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836591"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能存档
 
@@ -189,7 +189,7 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 **产品功能：** 开发人员体验
 
-这些 Api 是用于管理用户身份验证方法的重要工具。 现在，你可以以编程方式预先注册和管理用于 MFA 和自助服务密码重置 (SSPR) 的验证器。 这是 Azure MFA、SSPR 和 Microsoft Graph 空间中最常请求的功能之一。 此浪潮中发布的新 Api 使您能够：
+这些 Api 是用于管理用户身份验证方法的重要工具。 现在，你可以以编程方式预先注册和管理用于 MFA 和自助服务密码重置 (SSPR) 的验证器。 这是 Azure AD MFA、SSPR 和 Microsoft Graph 空间中最常请求的功能之一。 此浪潮中发布的新 Api 使您能够：
 
 - 读取、添加、更新和删除用户的身份验证电话
 - 重置用户的密码
@@ -227,9 +227,9 @@ OAuth2PermissionGrant 的增量查询适用于公共预览版！ 你现在可以
 
 **产品功能：** 访问控制
 
-**打印机管理员** ：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机并管理所有打印机配置的所有方面，包括通用打印连接器设置。 他们可以同意所有委托的打印权限请求。 打印机管理员还有权访问打印报告。 
+**打印机管理员**：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机并管理所有打印机配置的所有方面，包括通用打印连接器设置。 他们可以同意所有委托的打印权限请求。 打印机管理员还有权访问打印报告。 
 
-**打印机技术人员** ：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机和管理打印机状态。 他们还可以读取所有连接器信息。 打印机技术人员无法完成的关键任务是在打印机和共享打印机上设置用户权限。 [了解详细信息。](../roles/permissions-reference.md#printer-administrator)
+**打印机技术人员**：具有此角色的用户可以在 Microsoft 通用打印解决方案中注册打印机和管理打印机状态。 他们还可以读取所有连接器信息。 打印机技术人员无法完成的关键任务是在打印机和共享打印机上设置用户权限。 [了解详细信息。](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -397,7 +397,7 @@ Azure Active Directory (Azure AD) 现在提供了验证动态组规则的方法�
 **服务类别：** B2B  
 **产品功能：** B2B/B2C
  
-**从2021年3月31日开始** ，Microsoft 将不再支持通过创建非托管 Azure Active Directory (AZURE AD 用于 B2B 协作方案的) 帐户和租户来兑换邀请。 为此，我们建议你选择加入 [电子邮件一次性密码身份验证](../external-identities/one-time-passcode.md)。
+**从2021年3月31日开始**，Microsoft 将不再支持通过创建非托管 Azure Active Directory (AZURE AD 用于 B2B 协作方案的) 帐户和租户来兑换邀请。 为此，我们建议你选择加入 [电子邮件一次性密码身份验证](../external-identities/one-time-passcode.md)。
 
 ---
 
@@ -538,7 +538,7 @@ Azure AD 预配服务提供了一组丰富的配置功能。 客户需要能够�
 **服务类别：** 组管理  
 **产品功能：** 协作
 
-若要为客户提供一种更灵活的方式来创建最符合需要的目录范围内的组，我们已将 "Azure 门户中的" **组** "" 常规设置 "中的" **目录范围组** "选项替换  >  **General** 为 [动态组文档](../enterprise-users/groups-dynamic-membership.md)的链接。 我们已改进文档以提供更多说明，以便管理员可以创建包括或排除来宾用户在内的所有用户组。
+若要为客户提供一种更灵活的方式来创建最符合需要的目录范围内的组，我们已将 "Azure 门户中的"**组**"" 常规设置 "中的"**目录范围组**"选项替换  >  **General** 为 [动态组文档](../enterprise-users/groups-dynamic-membership.md)的链接。 我们已改进文档以提供更多说明，以便管理员可以创建包括或排除来宾用户在内的所有用户组。
 
 ---
 
@@ -787,9 +787,9 @@ Azure AD 预配服务提供了一组丰富的配置功能。 客户需要能够�
 
 我们建议所有开发人员使用本指南来测试其应用程序：
 
-- 将 " **使用安全 Cookie** " 设置的默认值设置为 **"是"** 。
+- 将 " **使用安全 Cookie** " 设置的默认值设置为 **"是"**。
 
-- 将 **SameSite** 属性的默认值设置为 " **无** "。
+- 将 **SameSite** 属性的默认值设置为 " **无**"。
 
 - 添加一个 `SameSite` **Secure** 的附加属性。
 
@@ -1032,7 +1032,7 @@ Azure AD 授权管理是一项新的标识调控功能，可帮助组织大规�
 
 ### <a name="new-my-sign-ins-page-for-end-users-in-azure-ad"></a>Azure AD 中最终用户的新的“我的登录”页面
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 监视和报告
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 监视和报告
 
 我们添加了新的“我的登录”页面 (https://mysignins.microsoft.com) )，通过该页面，组织的用户可以查看他们最近的登录历史记录，以检查是否存在异常活动。 通过此新页面，用户可以看到：
 
@@ -1183,7 +1183,7 @@ Office 365 组过期策略已得到增强，可以自动续订其成员正在使
 
 ### <a name="dynamic-consent-is-now-supported-through-a-new-admin-consent-endpoint"></a>现已通过新的管理员同意终结点支持动态同意
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 我们创建了新的管理员同意终结点以支持动态同意，对于希望在 Microsoft 标识平台上使用动态同意模型的应用，这很有帮助。
 
@@ -1271,7 +1271,7 @@ Office 365 组过期策略已得到增强，可以自动续订其成员正在使
 
 - 修复了其他次要 bug。
 
-自 2019 年 7 月 1 日起，Microsoft 已停止为新部署提供 MFA 服务器。 需要多重身份验证的新客户应使用基于云的 Azure 多重身份验证。 有关详细信息，请参阅[规划基于云的 Azure 多重身份验证部署](../authentication/howto-mfa-getstarted.md)。
+自 2019 年 7 月 1 日起，Microsoft 已停止为新部署提供 MFA 服务器。 需要多重身份验证的新客户应使用基于云的 Azure AD 多重身份验证。 有关详细信息，请参阅 [规划基于云的 Azure AD 多重身份验证部署](../authentication/howto-mfa-getstarted.md)。
 
 ---
 
@@ -1354,7 +1354,7 @@ Office 365 组过期策略已得到增强，可以自动续订其成员正在使
 
 ### <a name="adalnet-ignores-the-msalnet-shared-cache-for-on-behalf-of-scenarios"></a>ADAL.NET 忽略代表方案的 MSAL.NET 共享缓存
 
-**类型：** 已修复 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已修复 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 从 Azure AD 身份验证库 (ADAL.NET) 5.0.0 预览版开始，应用开发人员必须[针对 Web 应用和 Web API 序列化每个帐户的一个缓存](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)。 否则，对于 Java 使用代理 [流](../develop/scenario-web-api-call-api-app-configuration.md?tabs=java) 的某些方案以及某些特定用例， `UserAssertion` 可能会导致权限提升。 为避免出现此漏洞，ADAL.NET 现在会忽略针对代表方案的用于 dotnet 的 Microsoft 身份验证库 (MSAL.NET) 共享缓存。
 
@@ -1425,7 +1425,7 @@ AzureAD 和 AzureAD 预览 PowerShell 模块的新更新可用：
 
 ### <a name="update-your-users-to-the-new-enhanced-security-info-experience"></a>将用户体验更新为新的增强安全信息体验
 
-**类型：** 已更改的功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已更改的功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 我们将于 2019 年 9 月 25 日关闭用于注册和管理用户安全信息的旧版非增强安全信息体验，而仅启用新的[增强版本](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)。 这意味着你的用户将无法再使用旧版体验。
 
@@ -1452,7 +1452,7 @@ AzureAD 和 AzureAD 预览 PowerShell 模块的新更新可用：
 
 ### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>将更严格地验证使用 POST 登录的身份验证请求
 
-**类型：** 已更改的功能 **服务类别：** 身份验证（登录） **产品功能：** 标准
+**类型：** 已更改的功能 **服务类别：** 身份验证（登录）**产品功能：** 标准
 
 自 2019 年 9 月 2 日起，将根据 HTTP 标准更严格地验证使用 POST 方法的身份验证请求。 具体来说，将不再从请求窗体值中删除空格和双引号 (")。 预计这些更改不会破坏任何现有客户端，并且将有助于确保每次都能可靠地处理发送到 Azure AD 的请求。
 
@@ -1492,7 +1492,7 @@ AzureAD 和 AzureAD 预览 PowerShell 模块的新更新可用：
 
 ### <a name="app-only-tokens-now-require-the-client-app-to-exist-in-the-resource-tenant"></a>仅应用令牌现在要求资源租户中存在客户端应用
 
-**类型：** 已修复 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已修复 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 我们于 2019 年 7 月 26 日更改了通过[客户端凭据授权](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)提供仅应用令牌的方式。 以前，无论客户端应用是否位于租户中，应用都可以获取令牌来调用其他应用。 我们更新了此行为之后，单一租户资源（有时称为 Web API）只能由资源租户中存在的客户端应用调用。
 
@@ -1507,7 +1507,7 @@ AzureAD 和 AzureAD 预览 PowerShell 模块的新更新可用：
 
 ### <a name="new-passwordless-sign-in-to-azure-ad-using-fido2-security-keys"></a>使用 FIDO2 安全密钥通过新的无密码方式登录 Azure AD
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 Azure AD 客户现在可以设置策略来管理其组织的用户和组的 FIDO2 安全密钥。 最终用户还可以自行注册安全密钥，并使用这些密钥在支持 FIDO 的设备上登录到网站上的 Microsoft 帐户，以及登录到其已联接 Azure AD 的 Windows 10 设备。
 
@@ -1573,7 +1573,7 @@ Azure AD 客户现在可以设置策略来管理其组织的用户和组的 FIDO
 
 **类型：** 新功能 **服务类别：** 自助式密码重置 **产品功能：** 监视和报告
 
-新的身份验证方法使用情况和见解报告可帮助你了解 Azure 多重身份验证和自助式密码重置等功能在组织中的注册和使用方式，包括每种功能的注册用户数、自助式密码用于重置密码的频率以及重置方法。
+使用 & insights 报表的新的身份验证方法可帮助您了解 Azure AD 多重身份验证和自助密码重置等功能如何在您的组织中注册和使用，包括每项功能的注册用户数量、使用自助密码重置重置密码的频率以及重置发生的方法。
 
 有关详细信息，请参阅[身份验证方法使用情况和见解（预览版）](../authentication/howto-authentication-methods-usage-insights.md)。
 
@@ -1651,7 +1651,7 @@ Azure AD 客户现在可以设置策略来管理其组织的用户和组的 FIDO
 
 ### <a name="azure-ad-now-supports-static-query-parameters-in-reply-redirect-uris"></a>Azure AD 现在支持回复（重定向）URI 中的静态查询参数
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 现在，Azure AD 应用可以注册和使用带有静态查询参数（例如 `https://contoso.com/oauth2?idp=microsoft`）的回复（重定向）URI 来处理 OAuth 2.0 请求。 静态查询参数遵循回复 URI 的字符串匹配，就像回复 URI 的任何其他部分一样。 如果没有已注册的字符串与 URL 解码的重定向 URL 匹配，则该请求会遭到拒绝。 如果找到了回复 URI，则使用整个字符串重定向用户，包括静态查询参数。
 
@@ -1735,7 +1735,7 @@ Azure AD 客户现在可以设置策略来管理其组织的用户和组的 FIDO
 
 ### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>公司品牌现在显示在注销和错误屏幕上
 
-**类型：** 已更改的功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已更改的功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 我们已更新 Azure AD，现在你的公司品牌显示在注销和错误屏幕以及登录页面上。 无需执行任何操作即可启用此功能，Azure AD 仅使用你已在 Azure 门户的“公司品牌”区域中设置的资产。
 
@@ -1747,9 +1747,9 @@ Azure AD 客户现在可以设置策略来管理其组织的用户和组的 FIDO
 
 **类型：** 弃用 **服务类别：** MFA **产品功能：** 标识安全性和保护
 
-从 2019 年 7 月 1 日开始，Microsoft 将不再为新部署提供 MFA 服务器。 希望在其组织中要求进行多重身份验证的新客户现在必须使用基于云的 Azure 多重身份验证。 在 7 月 1 日之前已激活 MFA 服务器的客户不会看到任何更改。 你仍可下载最新版本、获取将来的更新，以及生成激活凭据。
+从 2019 年 7 月 1 日开始，Microsoft 将不再为新部署提供 MFA 服务器。 希望在其组织中需要多重身份验证的新客户现在必须使用基于云的 Azure AD 多重身份验证。 在 7 月 1 日之前已激活 MFA 服务器的客户不会看到任何更改。 你仍可下载最新版本、获取将来的更新，以及生成激活凭据。
 
-有关详细信息，请参阅 [Azure 多重身份验证服务器入门](../authentication/howto-mfaserver-deploy.md)。 有关基于云的 Azure 多重身份验证的详细信息，请参阅[规划基于云的 Azure 多重身份验证部署](../authentication/howto-mfa-getstarted.md)。
+有关详细信息，请参阅 [Azure 多重身份验证服务器入门](../authentication/howto-mfaserver-deploy.md)。 有关基于云的 Azure AD 多重身份验证的详细信息，请参阅 [规划基于云的 Azure AD 多重身份验证部署](../authentication/howto-mfa-getstarted.md)。
 
 ---
 
@@ -1817,7 +1817,7 @@ Azure AD 客户现在可以设置策略来管理其组织的用户和组的 FIDO
 
 ### <a name="new-app-registrations-experience-is-now-available-general-availability"></a>现已推出新的应用注册体验（正式发布）
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 开发人员体验
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 开发人员体验
 
 新[应用注册](https://aka.ms/appregistrations)体验现已正式发布。 这种新体验包括你熟悉的 Azure 门户和应用程序注册门户中的所有关键功能，并通过以下方式对这些功能进行了改进：
 
@@ -2109,7 +2109,7 @@ Azure AD Connect 正在转换电子邮件警报系统，系统可能会向某些
 
 ### <a name="client-apps-in-request-loops-will-be-interrupted-to-improve-reliability-and-user-experience"></a>请求循环中的客户端应用将中断，以提高可靠性和用户体验
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 客户端应用可能会在短时间内错误地发出数百个相同的登录请求。 这些请求（无论是否成功）都会导致用户体验不佳且增加 IDP 的工作负载，同时延长所有用户的延迟以及降低 IDP 的可用性。
 
@@ -2399,7 +2399,7 @@ Privileged Identity Management (PIM) 管理员现在可以为特定资源导出�
 |字段名|更改内容|旧值|新值|
 |----------|------------|----------|----------|
 |类别|以前它是“服务名称”字段， 现在是“审核类别”字段。 “服务名称”已重命名为“loggedByService”字段。 |<ul><li>帐户预配</li><li>核心目录</li><li>自助密码重置</li></ul>|<ul><li>用户管理</li><li>组管理</li><li>应用管理</li></ul>|
-|targetResources|包括顶层的 **TargetResourceType** 。|&nbsp;|<ul><li>策略</li><li>应用</li><li>用户</li><li>组</li></ul>|
+|targetResources|包括顶层的 **TargetResourceType**。|&nbsp;|<ul><li>策略</li><li>应用</li><li>用户</li><li>组</li></ul>|
 |loggedByService|提供生成审核日志的服务的名称。|Null|<ul><li>帐户预配</li><li>核心目录</li><li>自助式密码重置</li></ul>|
 |结果|提供审核日志的结果。 以前会显示枚举值，但现在会显示实际值。|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>失败</li></ul>|
 
@@ -2690,7 +2690,7 @@ Azure 门户“登录”页上的新“故障排除和支持”选项卡旨在�
 
 ### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>更改通知：授权代码不再可重复使用
 
-**类型：** 更改计划 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 更改计划 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 从 2018 年 11 月 15 日起，Azure AD 不再允许对应用使用以前用过的身份验证代码。 此项安全变更有助于使 Azure AD 与 OAuth 规范保持一致，将在 v1 和 v2 终结点上强制实施。
 
@@ -2764,7 +2764,7 @@ Azure 门户“登录”页上的新“故障排除和支持”选项卡旨在�
 
 ### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>更改通知：授权代码不再可重复使用
 
-**类型：** 更改计划 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 更改计划 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 从 2018 年 11 月 15 日起，Azure AD 不再允许对应用使用以前用过的身份验证代码。 此项安全变更有助于使 Azure AD 与 OAuth 规范保持一致，将在 v1 和 v2 终结点上强制实施。
 
@@ -2984,7 +2984,7 @@ Azure AD Connect 的最新版本包括：
 
 ### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>直通身份验证支持旧式协议和应用程序
 
-**类型：** 已更改的功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已更改的功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 直通身份验证现在支持旧式协议和应用。 现在完全支持以下限制：
 
@@ -3132,11 +3132,11 @@ Azure AD Connect 的最新版本包括：
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>有关部署 Azure 多重身份验证的全新详尽指南
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-ad-multi-factor-authentication"></a>有关部署 Azure AD 多重身份验证的新的综合性指南
 
 **类型：** 新功能 **服务类别：** 其他 **产品功能：** 标识安全性和保护
 
-我们发布了有关如何在组织中部署 Azure 多重身份验证 (MFA) 的新分步指南。
+我们发布了有关如何在组织中部署 (MFA) Azure AD 多重身份验证的新分步指南。
 
 若要查看 MFA 部署指南，请转到 GitHub 上的[身份部署指南](./active-directory-deployment-plans.md)存储库。 若要提供有关部署指南的反馈，请使用[部署计划反馈表](https://aka.ms/deploymentplanfeedback)。 如对部署指南有任何疑问，请通过 [IDGitDeploy](mailto:idgitdeploy@microsoft.com) 与我们联系。
 
@@ -3170,9 +3170,9 @@ Azure AD Connect 的最新版本包括：
 
 ### <a name="expressroute-support-changes"></a>ExpressRoute 支持更改
 
-**类型：** 更改计划 **服务类别：** 身份验证（登录） **产品功能：** 平台
+**类型：** 更改计划 **服务类别：** 身份验证（登录）**产品功能：** 平台
 
-软件即服务产品/服务，例如 Azure Active Directory (Azure AD)，设计为直接通过 Internet 时工作性能最好，不需要使用 ExpressRoute 或任何其他专用 VPN 隧道。 因此，在 **2018 年 8 月 1 日** ，我们将停止支持将 ExpressRoute 用于使用 Azure 公共对等互连的 Azure AD 服务和 Microsoft 对等互连中的 Azure 社区。 受此更改影响的所有服务可能会注意到 Azure AD 流量逐步从 ExpressRoute 转移到 Internet。
+软件即服务产品/服务，例如 Azure Active Directory (Azure AD)，设计为直接通过 Internet 时工作性能最好，不需要使用 ExpressRoute 或任何其他专用 VPN 隧道。 因此，在 **2018 年 8 月 1 日**，我们将停止支持将 ExpressRoute 用于使用 Azure 公共对等互连的 Azure AD 服务和 Microsoft 对等互连中的 Azure 社区。 受此更改影响的所有服务可能会注意到 Azure AD 流量逐步从 ExpressRoute 转移到 Internet。
 
 同时我们正在改变我们的支持，我们也知道，在某些情况下，你可能仍然需要为身份验证流量使用专用的线路集。 因此，Azure AD 将继续使用 ExpressRoute 支持每租户 IP 范围限制，并继续通过“其他 Office 365 联机服务”社区支持 Microsoft 对等互连上已有的服务。 如果服务受到影响，但你需要 ExpressRoute，则必须执行以下操作：
 
@@ -3310,9 +3310,9 @@ AADConnect 的 5 月发布内容包括与 PingFederate 的集成、重要安全�
 
 ### <a name="id-tokens-can-no-longer-be-returned-using-the-query-response_mode-for-new-apps"></a>对于新应用，无法再使用 query response_mode 返回 ID 令牌。
 
-**类型：** 已更改的功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已更改的功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
-在 2018 年 4 月 25 日当天或以后创建的应用将不再能够使用 query response_mode 来请求 id_token 。  这样可以为 Azure AD 提供内联的 OIDC 规范，有助于减少应用的受攻击面。  在 2018 年 4 月 25 之前创建的应用可以将 query response_mode 与值为 id_token 的 response_type 配合使用 。  从 Azure AD 请求 id_token 时返回的错误是 **AADSTS70007：请求令牌时不支持 "query" 值 "response_mode"** 。
+在 2018 年 4 月 25 日当天或以后创建的应用将不再能够使用 query response_mode 来请求 id_token 。  这样可以为 Azure AD 提供内联的 OIDC 规范，有助于减少应用的受攻击面。  在 2018 年 4 月 25 之前创建的应用可以将 query response_mode 与值为 id_token 的 response_type 配合使用 。  从 Azure AD 请求 id_token 时返回的错误是 **AADSTS70007：请求令牌时不支持 "query" 值 "response_mode"**。
 
 fragment 和 form_post response_mode 继续有效 - 创建新的具有特定用途（例如，供应用代理使用）的应用程序对象时，请确保使用这两个 response_mode 中的一个，然后才能创建新应用程序 。
 
@@ -3520,7 +3520,7 @@ PowerShell GA 模块现已提供对应用程序代理 cmdlet 的支持！ 这需
 
 ### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>使用非交互式协议的无缝 SSO 支持 Office 365 本机客户端
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 使用 Office 365 本机客户端（16.0.8730.xxxx 和更高版本）的用户在使用无缝 SSO 时会获得静默登录体验。 这项支持是通过在 Azure AD 中添加非交互式协议 (WS-Trust) 提供的。
 
@@ -3530,7 +3530,7 @@ PowerShell GA 模块现已提供对应用程序代理 cmdlet 的支持！ 这需
 
 ### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenant-endpoints"></a>如果应用程序将登录请求发送到 Azure AD 的租用终结点，则用户在使用无缝 SSO 时会获得静默登录体验
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 如果应用程序（例如 `https://contoso.sharepoint.com`）向 Azure AD 的租户终结点（即 `https://login.microsoftonline.com/contoso.com/<..>` 或 `https://login.microsoftonline.com/<tenant_ID>/<..>`）而不是 Azure AD 的普通终结点 (`https://login.microsoftonline.com/common/<...>`) 发送登录请求，用户在使用无缝 SSO 时可以获得静默登录体验。
 
@@ -3540,7 +3540,7 @@ PowerShell GA 模块现已提供对应用程序代理 cmdlet 的支持！ 这需
 
 ### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>只需将一个 Azure AD URL（以前为两个 URL）添加到用户的 Intranet 区域设置，即可实施无缝 SSO
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 若要向用户实施无缝 SSO，只需使用 Active Directory 中的组策略将一个 Azure AD URL 添加到用户的 Intranet 区域设置：`https://autologon.microsoftazuread-sso.com`。 以前，客户需要添加两个 URL。
 
@@ -3574,7 +3574,7 @@ PowerShell GA 模块现已提供对应用程序代理 cmdlet 的支持！ 这需
 
 ### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>将可选声明添加到应用令牌（公共预览版）
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 Azure AD 应用现在可以在 JWT 或 SAML 令牌中请求自定义或可选声明。  因为大小或适用性方面的约束，这些有关用户或租户的声明默认不会包含在令牌中。  此功能目前已在 v1.0 和 v2.0 终结点上的 Azure AD 应用公共预览版中提供。  请参阅文档，以了解可添加的声明，以及如何编辑应用程序清单来请求这些声明。
 
@@ -3584,7 +3584,7 @@ Azure AD 应用现在可以在 JWT 或 SAML 令牌中请求自定义或可选声
 
 ### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>Azure AD 支持使用 PKCE 来提高 OAuth 流的安全性
 
-**类型：** 新功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 新功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 已更新 Azure AD 文档来指明对 PKCE 的支持。使用 PKCE 可以在执行 OAuth 2.0 授权代码授予流期间提高通信的安全性。  v1.0 和 v2.0 终结点上同时支持 S256 和纯文本 code_challenges。
 
@@ -3615,7 +3615,7 @@ Azure AD 应用现在可以在 JWT 或 SAML 令牌中请求自定义或可选声
 
 ### <a name="improved-sign-out-behavior-with-seamless-sso"></a>改进了无缝 SSO 的注销行为
 
-**类型：** 已更改的功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已更改的功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 以前，即使用户显式注销受 Azure AD 保护的应用程序，但如果他们尝试在其企业网络中从已加入域的设备再次访问 Azure AD 应用程序，系统也仍会使用无缝 SSO 自动将其登录。 实施此项更改后，将会支持注销。  这可以让用户选择使用相同或不同的 Azure AD 帐户登录，而不是使用无缝 SSO 自动登录。
 
@@ -4014,7 +4014,7 @@ Azure AD 目录角色的审批工作流程已正式发布。
 
 ### <a name="pass-through-authentication-skype-for-business-support"></a>传递身份验证：Skype For Business 支持
 
-**类型：** 已更改的功能 **服务类别：** 身份验证（登录） **产品功能：** 用户身份验证
+**类型：** 已更改的功能 **服务类别：** 身份验证（登录）**产品功能：** 用户身份验证
 
 传递身份验证现在支持用户登录到支持新式身份验证的 Skype for Business 客户端应用程序，包括联机和混合拓扑。
 
@@ -4164,15 +4164,15 @@ Azure Active Directory 访问控制（也称作访问控制服务）将在 2018 
 
 ---
 
-### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>适用于 Azure 多重身份验证的网络策略服务器扩展
+### <a name="network-policy-server-extension-for-azure-ad-multi-factor-authentication"></a>用于 Azure AD 多重身份验证的网络策略服务器扩展
 
 **类型：** 新功能 **服务类别：** 多重身份验证 **产品功能：** 用户身份验证
 
-适用于 Azure 多重身份验证的网络策略服务器扩展使用现有的服务器在身份验证基础结构中添加基于云的多重身份验证功能。 使用网络策略服务器扩展，可将电话呼叫、短信或电话应用验证添加到现有的身份验证流。 无需安装、配置和维护新服务器。
+Azure AD 多重身份验证的网络策略服务器扩展使用现有服务器将基于云的多重身份验证功能添加到身份验证基础结构。 使用网络策略服务器扩展，可将电话呼叫、短信或电话应用验证添加到现有的身份验证流。 无需安装、配置和维护新服务器。
 
-此扩展是为想要保护虚拟专用网络连接，但不部署 Azure 多重身份验证服务器的组织创建的。 网络策略服务器扩展充当 RADIUS 与基于云的 Azure 多重身份验证之间的适配器，以为联合用户或已同步用户提供身份验证的第二个因素。
+此扩展是为想要保护虚拟专用网络连接，但不部署 Azure 多重身份验证服务器的组织创建的。 网络策略服务器扩展充当 RADIUS 与基于云的 Azure AD 多重身份验证之间的适配器，为联合用户或同步用户提供第二个身份验证因素。
 
-有关详细信息，请参阅[将现有网络策略服务器基础结构与 Azure 多重身份验证集成](../authentication/howto-mfa-nps-extension.md)。
+有关详细信息，请参阅 [将现有网络策略服务器基础结构与 Azure AD 多重身份验证集成](../authentication/howto-mfa-nps-extension.md)。
 
 ---
 

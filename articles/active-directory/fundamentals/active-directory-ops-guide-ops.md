@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370944"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836829"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 常规操作指南参考
 
@@ -43,7 +43,7 @@ ms.locfileid: "92370944"
 | 监视混合日志：直通身份验证代理 | IAM 操作团队 |
 | 监视混合日志：密码写回服务 | IAM 操作团队 |
 | 监视混合日志：本地密码保护网关 | IAM 操作团队 |
-| 监视混合日志： Azure MFA NPS 扩展 (（如果适用）)  | IAM 操作团队 |
+| 监视混合日志： Azure AD MFA NPS 扩展 (（如果适用）)  | IAM 操作团队 |
 
 查看列表时，可能会发现需要为缺少所有者的任务分配所有者，或使用与上述建议不符的所有者来调整任务的所有权。
 
@@ -86,7 +86,7 @@ ms.locfileid: "92370944"
 
 ### <a name="on-premises-agents-logs"></a>本地代理日志
 
-某些标识和访问管理服务要求本地代理启用混合方案。 示例包括密码重置、传递身份验证 (PTA) 、Azure AD 应用程序代理和 Azure MFA NPS 扩展。 操作团队通过使用 System Center Operations Manager 或 SIEM 等解决方案存档和分析组件代理日志来比较和监视这些组件的运行状况，这一点很重要。 同样重要的是，Infosec 运营团队或咨询台了解如何排查错误模式。
+某些标识和访问管理服务要求本地代理启用混合方案。 示例包括密码重置、传递身份验证 (PTA) 、Azure AD 应用程序代理和 Azure AD MFA NPS 扩展。 操作团队通过使用 System Center Operations Manager 或 SIEM 等解决方案存档和分析组件代理日志来比较和监视这些组件的运行状况，这一点很重要。 同样重要的是，Infosec 运营团队或咨询台了解如何排查错误模式。
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>本地代理日志建议阅读
 
@@ -94,7 +94,7 @@ ms.locfileid: "92370944"
 - [自助密码重置疑难解答 - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [了解 Azure AD 应用程序代理连接器](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect：对直通身份验证进行故障排除](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [排查 Azure MFA NPS 扩展的错误代码](../authentication/howto-mfa-nps-extension-errors.md)
+- [对 Azure AD MFA NPS 扩展的错误代码进行故障排除](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>本地代理管理
 
@@ -156,7 +156,7 @@ Azure AD 提供了两个 "发件人" 地址： <o365mc@email2.microsoft.com> （
 
 将应用程序配置为直接向 Azure AD 进行身份验证的组织可以受益于 [Azure AD 智能锁定](../authentication/concept-sspr-howitworks.md)。 如果在 Windows Server 2012 R2 中使用 AD FS，请实现 AD FS [extranet 锁定保护](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)。 如果在 Windows Server 2016 或更高版本上使用 AD FS，请实现 [extranet 智能锁定](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)。 我们至少建议你启用 extranet 锁定，以包含对本地 Active Directory 进行暴力攻击的风险。 但是，如果在 Windows 2016 或更高版本中有 AD FS，还应启用 extranet 智能锁定，以帮助减轻 [密码喷涂](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 攻击。
 
-如果 AD FS 仅用于 Azure AD 联合，则可以关闭某些终结点以最大程度地减少受攻击面。 例如，如果 AD FS 仅用于 Azure AD，则应禁用 WS-Trust 终结点，而不是为 **usernamemixed** 和 **windowstransport**启用终结点。
+如果 AD FS 仅用于 Azure AD 联合，则可以关闭某些终结点以最大程度地减少受攻击面。 例如，如果 AD FS 仅用于 Azure AD，则应禁用 WS-Trust 终结点，而不是为 **usernamemixed** 和 **windowstransport** 启用终结点。
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>使用本地标识组件访问计算机
 

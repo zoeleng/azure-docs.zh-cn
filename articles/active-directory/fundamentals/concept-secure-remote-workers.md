@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370196"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836676"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>使用 Azure AD 快速响应以保护标识
 
@@ -75,7 +75,7 @@ ms.locfileid: "92370196"
 
 | 建议的操作 | 详细信息 |
 | --- | --- |
-| [启用 Azure MFA 和 SSPR 的组合注册体验，简化用户注册体验](../authentication/howto-registration-mfa-sspr-combined.md) | 允许用户从 Azure 多重身份验证和自助式密码重置的一个常用体验进行注册。 |
+| [启用 Azure AD MFA 和 SSPR 的组合注册体验，以简化用户注册体验](../authentication/howto-registration-mfa-sspr-combined.md) | 允许用户从一个常见体验注册 Azure AD 多重身份验证和自助密码重置。 |
 | [为组织配置 MFA 设置](../authentication/howto-mfa-getstarted.md) | 使用多重身份验证确保帐户免受危害 |
 | [启用自助服务密码重置](../authentication/tutorial-enable-sspr.md) | 此功能可减少用户无法登录其设备或应用程序时呼叫支持人员的次数以及生产效率的损失 |
 | [实现密码写回](../authentication/tutorial-enable-sspr-writeback.md)（如果使用混合标识） | 允许将云中的密码更改写回到本地 Windows Server Active Directory 环境。 |
@@ -105,11 +105,11 @@ ms.locfileid: "92370196"
 
 | 建议的操作 | 详细信息 |
 | --- | --- |
-| [启用 Azure MFA 和 SSPR 的组合注册体验，简化用户注册体验](../authentication/howto-registration-mfa-sspr-combined.md) | 允许用户从 Azure 多重身份验证和自助式密码重置的一个常用体验进行注册。 |
+| [启用 Azure AD MFA 和 SSPR 的组合注册体验，以简化用户注册体验](../authentication/howto-registration-mfa-sspr-combined.md) | 允许用户从一个常见体验注册 Azure AD 多重身份验证和自助密码重置。 |
 | [为组织配置 MFA 设置](../authentication/howto-mfa-getstarted.md) | 使用多重身份验证确保帐户免受危害 |
 | [启用自助服务密码重置](../authentication/tutorial-enable-sspr.md) | 此功能可减少用户无法登录其设备或应用程序时呼叫支持人员的次数以及生产效率的损失 |
 | [实现密码写回](../authentication/tutorial-enable-sspr-writeback.md)（如果使用混合标识） | 允许将云中的密码更改写回到本地 Windows Server Active Directory 环境。 |
-| [启用 Identity Protection 策略以强制执行 MFA 注册](../identity-protection/howto-identity-protection-configure-mfa-policy.md) |  (MFA) 管理 Azure 多重身份验证的推出。 |
+| [启用 Identity Protection 策略以强制执行 MFA 注册](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | 管理 (MFA) Azure AD 多因素身份验证的推出。 |
 | [启用标识保护用户和登录风险策略](../identity-protection/howto-identity-protection-configure-risk-policies.md) | 启用标识保护用户和登录策略。 建议的登录策略是针对中型风险登录，并要求进行 MFA。 对于用户策略，它应以要求密码更改操作的高风险用户为目标。 |
 | 创建和启用条件访问策略 | [为管理员配置 MFA，以保护分配了管理员权限的帐户。](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [阻止旧式身份验证协议，因为与旧式身份验证协议相关的风险日益增加。](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [要求为 Azure 管理配置 MFA，从而通过对任何访问 Azure 资源的用户都要求多重身份验证来保护特权资源。](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [启用密码哈希同步](../hybrid/how-to-connect-password-hash-synchronization.md)（如果使用混合标识） | 为身份验证提供冗余并提高安全性（包括智能锁定、IP 锁定以及发现凭据泄露的功能） |

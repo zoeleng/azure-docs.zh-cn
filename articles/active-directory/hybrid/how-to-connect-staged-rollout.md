@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646570"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836387"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>使用分阶段推出迁移到云身份验证（预览）
 
-使用分阶段推出，可以有选择性地测试用户组，其中包含云身份验证功能，如 Azure 多重身份验证 (MFA) 、条件性访问、对泄露凭据的身份保护、标识监管等，以及在削减域之前。  本文介绍如何进行这种切换。 但是，在开始分步推出之前，如果满足以下一个或多个条件，就应当考虑影响：
+使用分阶段推出，可以有选择性地测试具有云身份验证功能的用户组，如 Azure AD 多重身份验证 (MFA) 、条件性访问、对泄露凭据的身份保护、标识监管等，以及在剪切到域之前。  本文介绍如何进行这种切换。 但是，在开始分步推出之前，如果满足以下一个或多个条件，就应当考虑影响：
     
 -  当前正在使用本地多重身份验证服务器。 
 -  使用智能卡进行身份验证。 
@@ -45,7 +45,7 @@ ms.locfileid: "94646570"
 
 -   你已配置了要迁移到云身份验证的用户所需的所有相应租户品牌和条件访问策略。
 
--   如果你计划使用 Azure 多重身份验证，我们建议你使用 " [自助密码重置" 的组合注册 (SSPR) 和多重身份验证](../authentication/concept-registration-mfa-sspr-combined.md) ，让你的用户注册其身份验证方法一次。 注意-在过渡推出期间，使用 SSPR 重置密码或使用 MyProfile 页面更改密码 Azure AD Connect 需要同步新的密码哈希，重置后可能需要2分钟的时间。
+-   如果你计划使用 Azure AD 多重身份验证，我们建议你将 [自助服务密码重置的组合注册 (SSPR) 和多重身份验证](../authentication/concept-registration-mfa-sspr-combined.md) ，让你的用户注册其身份验证方法一次。 注意-在过渡推出期间，使用 SSPR 重置密码或使用 MyProfile 页面更改密码 Azure AD Connect 需要同步新的密码哈希，重置后可能需要2分钟的时间。
 
 -   若要使用分阶段推出功能，你必须是租户的全局管理员。
 

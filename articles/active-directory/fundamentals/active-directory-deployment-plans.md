@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c2a7c2813919321227bfcdc4ee43ca15186b89df
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371879"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836812"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 部署计划
 正在寻找有关部署 Azure Active Directory (Azure AD) 功能的端到端指南吗？ Azure AD 部署计划将引导你完成成功部署常见 Azure AD 功能所需的业务价值、规划注意事项和操作过程。
@@ -29,7 +29,7 @@ ms.locfileid: "92371879"
 
 角色可能包括以下 
 
-|Role |描述 |
+|角色 |说明 |
 |-|-|
 |最终用户|将为其实施功能的代表用户组。 经常预览试点计划中的更改。
 |IT 支持经理|IT 支持组织代表，他们可以从支持人员的角度提供此更改的可支持性的输入。  
@@ -40,13 +40,13 @@ ms.locfileid: "92371879"
 
 **参与级别可能包括：**
 
-- 用于实现项目计划和结果的**R**esponsible 
+- 用于实现项目计划和结果的 **R** esponsible 
 
-- 项目计划和结果**的 pproval** 
+- 项目计划和结果 **的 pproval** 
 
-- **C**ontributor 到项目计划和结果 
+- **C** ontributor 到项目计划和结果 
 
-- **我**nformed 项目计划和结果
+- **我** nformed 项目计划和结果
 
 
 ## <a name="best-practices-for-a-pilot"></a>试验的最佳实践
@@ -61,7 +61,7 @@ ms.locfileid: "92371879"
 
 | 功能 | 说明|
 | -| -|
-| [多重身份验证](../authentication/howto-mfa-getstarted.md)| Azure 多重身份验证 (MFA) 是 Microsoft 的双重验证解决方案。 Azure MFA 可使用管理员批准的身份验证方法，帮助保护对数据和应用程序的访问，同时满足对简单登录过程的需求。 |
+| [多重身份验证](../authentication/howto-mfa-getstarted.md)| Azure AD 多重身份验证 (MFA) 是 Microsoft 的双重验证解决方案。 使用管理员批准的身份验证方法，Azure AD MFA 可帮助保护对数据和应用程序的访问，同时满足用户对简单登录过程的需求。 |
 | [条件访问](../conditional-access/plan-conditional-access.md)| 使用条件访问时，可以根据条件实施自动化的访问控制决策，决定谁能够访问云应用。 |
 | [自助式密码重置](../authentication/howto-sspr-deployment.md)| 自助密码重置功能可帮助用户在无需管理员干预的情况下重置密码。 |
 | [无密码](../authentication/howto-authentication-passwordless-deployment.md) | 使用组织中的 Microsoft Authenticator 应用或 FIDO2 安全密钥实现无密码 authentication |

@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cb1e021049b7c36c4c23f2e9a6a7512fba1110
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 71726724e7c018f34b1175f323d0c8e55b604931
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146122"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836472"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 中的新增功能
 
@@ -457,7 +457,7 @@ Azure AD Connect 云预配公共预览版刷新功能通过客户反馈开发了
 **服务类别：** Privileged Identity Management  
 **产品功能：** Privileged Identity Management
  
-以前，加入到 Privileged Identity Management (PIM) 必需的用户同意，并在 PIM 的边栏选项卡中加入传入流，其中包含 Azure MFA 中的注册。 由于最近将 PIM 体验集成到 Azure AD 角色和管理员 "边栏选项卡中，我们将消除这种体验。 具有有效 P2 许可证的任何租户都将自动载入到 PIM。
+以前，加入到 Privileged Identity Management (PIM) 必需的用户同意，并在 PIM 的边栏选项卡中加入在 Azure AD MFA 中注册的加入流程。 由于最近将 PIM 体验集成到 Azure AD 角色和管理员 "边栏选项卡中，我们将消除这种体验。 具有有效 P2 许可证的任何租户都将自动载入到 PIM。
 
 加入 PIM 对你的租户没有任何直接负面影响。 可能会发生以下更改：
 - 当你在 PIM 或 Azure AD 角色和管理员边栏选项卡中进行分配时，其他分配选项（如活动与符合开始和结束时间）。 

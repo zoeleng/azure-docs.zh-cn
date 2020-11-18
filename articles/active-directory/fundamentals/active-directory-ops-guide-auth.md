@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371046"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836982"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 身份验证管理操作参考指南
 
@@ -95,7 +95,7 @@ ms.locfileid: "92371046"
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>本地中断身份验证复原
 
-除了简单的优点和启用泄漏的凭据检测以外，Azure AD 密码哈希同步 (PHS) 和 Azure MFA 允许用户访问 SaaS 应用程序和 Microsoft 365，因为网络攻击（如 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)）导致了本地中断。 同时，还可以使用联合身份验证来启用 PHS。 启用 PHS 允许在联合身份验证服务不可用时回退身份验证。
+除了简单的优点和启用泄漏的凭据检测以外，Azure AD 密码哈希同步 (PHS) 和 Azure AD MFA 允许用户访问 SaaS 应用程序和 Microsoft 365，这是因为网络攻击（如 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)）导致的本地中断。 同时，还可以使用联合身份验证来启用 PHS。 启用 PHS 允许在联合身份验证服务不可用时回退身份验证。
 
 如果本地组织缺乏中断复原策略，或者有一个未与 Azure AD 集成的策略，则应该部署 Azure AD PHS 并定义包含 PHS 的灾难恢复计划。 启用 Azure AD PHS 将允许用户在本地 Active Directory 不可用时，对 Azure AD 进行身份验证。
 
@@ -205,7 +205,7 @@ ms.locfileid: "92371046"
 
 根据优先级，使用下表找到最符合组织需求的推荐解决方案：
 
-| **Priority** | **方案** | **建议** |
+| **Priority** | **方案** | 建议 |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | 如果你使用的是 PHS 或 PTA，但未定义已命名的位置 | 定义已命名位置以提高风险事件的检测 |
 | 2 | 如果你是联合的并且未使用 "insideCorporateNetwork" 声明和命名位置， | 定义已命名位置以提高风险事件的检测 |
@@ -255,10 +255,10 @@ Microsoft Intune 应用管理 (MAM) 提供将数据保护控制（如存储加�
 
 #### <a name="conditional-access-recommended-reading"></a>建议阅读的条件性访问
 
-- [Azure Active Directory 中的条件性访问的最佳做法](../conditional-access/best-practices.md)
+- [Azure Active Directory 中条件访问的最佳做法](../conditional-access/best-practices.md)
 - [标识和设备访问权限配置](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory 条件访问设置参考](../conditional-access/concept-conditional-access-conditions.md)
-- [常见条件访问策略](../conditional-access/concept-conditional-access-policy-common.md)
+- [常用条件访问策略](../conditional-access/concept-conditional-access-policy-common.md)
 
 ## <a name="access-surface-area"></a>访问外围应用
 

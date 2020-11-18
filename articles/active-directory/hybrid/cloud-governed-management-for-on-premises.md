@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413439"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836455"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD 如何为本地工作负荷提供云管控管理
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 是一个综合性的标识即服务， (由�
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>云管理的身份管理的 Azure AD 方法
 
-当组织过渡到云时，他们需要确保他们能够控制其完整环境-更安全、更深入地了解自动化和主动见解所支持的活动。 " **云管理管理** " 说明了组织如何从云中管理和管理其用户、应用程序、组和设备。
+当组织过渡到云时，他们需要确保他们能够控制其完整环境-更安全、更深入地了解自动化和主动见解所支持的活动。 "**云管理管理**" 说明了组织如何从云中管理和管理其用户、应用程序、组和设备。
 
 在这一新式领域，组织需要能够大规模地进行管理，因为 SaaS 应用程序的激增以及协作和外部标识的不断增长。 云的新风险形势意味着组织必须做出更好的响应性-损害云用户的恶意用户可能会影响云和本地应用程序。
 
@@ -89,7 +89,7 @@ Azure AD 可以根据需要 [自动为来宾用户创建 ad 中的帐户](../ext
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>基于本地联合身份验证的应用程序的云管理管理
 
-对于已使用本地标识提供程序的组织，将应用程序移动到 Azure AD 可实现更安全的访问，并为联合管理提供更轻松的管理体验。 Azure AD 允许通过使用 Azure AD 条件访问来配置精细的按应用程序访问控制，包括 Azure 多重身份验证。 Azure AD 支持更多的功能，包括特定于应用程序的令牌签名证书和可配置的证书过期日期。 这些功能、工具和指导使组织能够停用本地标识提供者。 作为一个例子，microsoft 的 IT 人员已将17987应用程序从 Microsoft 的内部 Active Directory 联合身份验证服务 (AD FS) 到 Azure AD。
+对于已使用本地标识提供程序的组织，将应用程序移动到 Azure AD 可实现更安全的访问，并为联合管理提供更轻松的管理体验。 Azure AD 允许使用 Azure AD 条件访问来配置精细的按应用程序访问控制，包括 Azure AD 多重身份验证。 Azure AD 支持更多的功能，包括特定于应用程序的令牌签名证书和可配置的证书过期日期。 这些功能、工具和指导使组织能够停用本地标识提供者。 作为一个例子，microsoft 的 IT 人员已将17987应用程序从 Microsoft 的内部 Active Directory 联合身份验证服务 (AD FS) 到 Azure AD。
 
 ![Azure AD 进化](media/cloud-governed-management-for-on-premises/image5.png)
 
@@ -111,7 +111,7 @@ Azure AD 可以根据需要 [自动为来宾用户创建 ad 中的帐户](../ext
 
 ## <a name="future-directions"></a>未来发展方向
 
-在混合环境中，Microsoft 的策略是实现部署，其中 **云是标识的控制平面** ，本地目录和其他标识系统（如 Active Directory 和其他本地应用程序）是设置具有访问权限的用户的目标。 此策略将继续确保依赖于它们的应用程序和工作负荷中的权限、标识和访问权限。 在此结束状态下，组织将能够完全从云中推动最终用户的工作效率。
+在混合环境中，Microsoft 的策略是实现部署，其中 **云是标识的控制平面**，本地目录和其他标识系统（如 Active Directory 和其他本地应用程序）是设置具有访问权限的用户的目标。 此策略将继续确保依赖于它们的应用程序和工作负荷中的权限、标识和访问权限。 在此结束状态下，组织将能够完全从云中推动最终用户的工作效率。
 
 ![Azure AD 体系结构](media/cloud-governed-management-for-on-premises/image6.png)
 
