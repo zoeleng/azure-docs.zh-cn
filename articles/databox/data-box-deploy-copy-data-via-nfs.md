@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: bbebe3b3f63e6ccbb5f351abfc9ba3b846ca6fbe
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766269"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337655"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教程：通过 NFS 将数据复制到 Azure Data Box
 
@@ -62,7 +62,7 @@ ms.locfileid: "91766269"
 
 2. 提供 NFS 客户端的 IP 地址，然后单击“添加”。 可以重复此步骤为多个 NFS 客户端配置访问。 单击“确定”。
 
-    ![配置 NFS 客户端访问 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
+    ![配置 NFS 客户端的 IP 地址](media/data-box-deploy-copy-data/nfs-client-access2.png)
 
 2. 确保 Linux 主机上已安装[受支持版本](data-box-system-requirements.md)的 NFS 客户端。 使用特定版本的 Linux 分发版。 
 
@@ -137,7 +137,7 @@ ms.locfileid: "91766269"
      我们建议从 16 个并行副本开始，并根据可用的资源增加线程数。
 
 > [!IMPORTANT]
-> 不支持以下 Linux 文件类型：符号链接、字符文件、块文件、套接字和管道。 在**准备交付**步骤期间，这些文件类型将导致失败。
+> 不支持以下 Linux 文件类型：符号链接、字符文件、块文件、套接字和管道。 在 **准备交付** 步骤期间，这些文件类型将导致失败。
 
 在复制过程中，如果出现任何错误，你将看到一条通知。
 

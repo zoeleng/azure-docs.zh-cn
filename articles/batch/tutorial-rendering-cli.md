@@ -4,12 +4,12 @@ description: 教程 - 如何使用 Batch 渲染服务和 Azure 命令行界面�
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747059"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542382"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -26,14 +26,16 @@ Azure Batch 提供云规模的渲染功能，按使用付费。 Azure Batch 支�
 
 ## <a name="prerequisites"></a>先决条件
 
-要以按用户付款模式使用 Batch 中的渲染应用程序，需要有一个即用即付订阅或其他 Azure 购买选项。 **如果使用的是提供货币额度的免费 Azure 套餐，则不支持按使用付费的许可。**
+ - 要以按用户付款模式使用 Batch 中的渲染应用程序，需要有一个即用即付订阅或其他 Azure 购买选项。 **如果使用的是提供货币额度的免费 Azure 套餐，则不支持按使用付费的许可。**
 
-[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上提供了本教程的示例 3ds Max 场景，以及示例 Bash 脚本和 JSON 配置文件。 3ds Max 场景来自 [Autodesk 3ds Max 示例文件](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 （提供的 Autodesk 3ds Max 示例文件已获得 Creative Commons Attribution-NonCommercial-Share Alike 许可。 版权所有 &copy; Autodesk, Inc.）
+ - [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上提供了本教程的示例 3ds Max 场景，以及示例 Bash 脚本和 JSON 配置文件。 3ds Max 场景来自 [Autodesk 3ds Max 示例文件](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 （提供的 Autodesk 3ds Max 示例文件已获得 Creative Commons Attribution-NonCommercial-Share Alike 许可。 版权所有 &copy; Autodesk, Inc.）
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
+- 本教程需要 Azure CLI 版本 2.0.20 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
+> [!TIP]
+> 可以在 Azure Batch 扩展模板 GitHub 存储库中查看 [Arnold 作业模板](https://github.com/Azure/batch-extension-templates/tree/master/templates/arnold/render-windows-frames)。
 ## <a name="create-a-batch-account"></a>创建批处理帐户
 
 在订阅中创建资源组、Batch 帐户和链接存储帐户（如果尚未这样做）。 
@@ -259,7 +261,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-任务在计算节点上生成 *dragon0001.jpg* ，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 命令将文件从存储下载到本地计算机。
+任务在计算节点上生成 *dragon0001.jpg*，并将其上传到存储帐户中的 *job-myrenderjob* 容器。 若要查看输出，请使用 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 命令将文件从存储下载到本地计算机。
 
 ```azurecli-interactive
 az storage blob download \
@@ -269,14 +271,14 @@ az storage blob download \
 
 ```
 
-在计算机上打开 *dragon.jpg* 。 渲染的图像如下所示：
+在计算机上打开 *dragon.jpg*。 渲染的图像如下所示：
 
 ![渲染的龙第 1 帧](./media/tutorial-rendering-cli/dragon-frame.png) 
 
 
 ## <a name="scale-the-pool"></a>缩放池
 
-现在请修改该池，为包含多个帧的更大型渲染作业做准备。 Batch 提供多种缩放计算资源的方式，包括可以在任务需求变化时添加或删除节点的[自动缩放](batch-automatic-scaling.md)。 对于这个基本的示例，请使用 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 命令将池中低优先级节点的数目增加到 *6* ：
+现在请修改该池，为包含多个帧的更大型渲染作业做准备。 Batch 提供多种缩放计算资源的方式，包括可以在任务需求变化时添加或删除节点的[自动缩放](batch-automatic-scaling.md)。 对于这个基本的示例，请使用 [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) 命令将池中低优先级节点的数目增加到 *6*：
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6

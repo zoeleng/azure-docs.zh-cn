@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 1c37742b7ed31d8253f7908c3adac35ca0b4d5d8
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170327"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376547"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>快速入门：将模拟设备添加到 IoT Central 应用程序
 
@@ -21,7 +21,7 @@ ms.locfileid: "92170327"
 
 设备模板定义连接到 IoT Central 应用程序的设备的功能。 功能包括设备发送的遥测数据、设备属性以及设备响应的命令。 在设备模板中，构建者或操作员可以将实际设备和模拟设备添加到应用程序中。 在连接实际设备之前，模拟设备对于测试 IoT Central 应用程序的行为非常有用。
 
-在本快速入门中，你将添加“MXChip IoT DevKit”（DevKit）开发板的设备模板并创建模拟设备。 无需准备真实的设备即可完成本快速入门，你将使用一个模拟的设备。 DevKit 设备：
+在本快速入门中，你将添加 [MXChip IoT DevKit (DevKit)](https://aka.ms/iot-devkit-purchase) 开发板的设备模板并创建模拟设备。 无需准备真实的设备即可完成本快速入门，你将使用一个模拟的设备。 DevKit 设备：
 
 * 发送温度等遥测数据。
 * 报告设备特定的属性，例如亮度级别。
@@ -142,7 +142,7 @@ ms.locfileid: "92170327"
 
     * “关于”视图将显示属性值，包括已添加到视图中的云属性。
 
-    * 在“命令”视图中可以运行命令，例如，针对设备运行 **blink** 。
+    * 在“命令”视图中可以运行命令，例如，针对设备运行 **blink**。
 
     * “管理设备”视图是你为操作员创建的用于管理设备的窗体。
 

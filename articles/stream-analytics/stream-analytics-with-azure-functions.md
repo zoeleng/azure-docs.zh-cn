@@ -7,18 +7,21 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006884"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489941"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>教程：从 Azure 流分析作业运行 Azure Functions 
 
 可将 Functions 配置为流分析作业的输出接收器之一，以便通过 Azure 流分析运行 Azure Functions。 Functions 是事件驱动的按需计算体验，它允许实现由 Azure 或第三方服务中出现的事件所触发的代码。 Functions 响应触发的这一功能使其成为流分析作业的自然输出。
 
 流分析通过 HTTP 触发调用 Functions。 通过 Functions 输出适配器，用户可以将 Functions 连接到流分析，以便基于流分析查询触发事件。 
+
+> [!NOTE]
+> 不支持从多租户群集中运行的流分析作业连接到虚拟网络 (VNet) 内的 Azure Functions。
 
 在本教程中，你将了解如何执行以下操作：
 
@@ -130,11 +133,11 @@ ms.locfileid: "89006884"
  
 4. 返回到 Azure 门户。 从“平台功能”  选项卡，浏览到你的函数。 在“开发工具”  下方，选择“应用服务编辑器”  。 
  
-   ![应用服务编辑器的屏幕截图](./media/stream-analytics-with-azure-functions/image3.png)
+   ![屏幕截图显示“平台功能”选项卡，其中选择了“应用服务编辑器”。](./media/stream-analytics-with-azure-functions/image3.png)
 
 5. 在应用服务编辑器中，右键单击根目录，并上传 project.json  文件。 上传成功后，刷新页面。 现在，应可看到名为 project.lock.json  的自动生成文件。 该自动生成文件包含对 project.json 文件中指定 .dll 文件的引用。  
 
-   ![应用服务编辑器的屏幕截图](./media/stream-analytics-with-azure-functions/image4.png)
+   ![屏幕截图显示从菜单选择了“上传文件”。](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>更新流分析作业，以函数作为输出
 
@@ -198,7 +201,7 @@ ms.locfileid: "89006884"
 
 在 Azure 门户中，尝试将最大批次大小/最大批次数值重置为空（默认），值将在保存时改回上次输入的值。 这时，请手动输入这些字段的默认值。
 
-流分析当前不支持在 Azure Functions 上使用 [HTTP 路由](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)。
+流分析当前不支持在 Azure Functions 上使用 [HTTP 路由](/sandbox/functions-recipes/routes?tabs=csharp)。
 
 不支持连接到虚拟网络中托管的 Azure Functions。
 

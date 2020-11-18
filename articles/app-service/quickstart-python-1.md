@@ -5,14 +5,15 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: eef0a4f24ba65fea4bb33c68f7e7d15f592e808d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+adobe-target: true
+ms.openlocfilehash: 8b88b8ef81dc8186c122a24896d85114ef8a163d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915461"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506458"
 ---
-# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>快速入门：在 Linux 上的 Azure 应用服务中创建 Python 应用
+# <a name="quickstart-create-a-python-app-in-azure-app-service-for-linux"></a>快速入门：在适用于 Linux 的 Azure 应用服务中创建 Python 应用
 
 在本快速入门中，需将 Python Web 应用部署到 [Linux 上的应用服务](overview.md#app-service-on-linux)，该版本提供了一项高度可缩放、自我修补的 Azure Web 托管服务。 在 Mac、Linux 或 Windows 计算机上，可使用本地 [Azure 命令行界面 (CLI)](/cli/azure/install-azure-cli) 通过 Flask 或 Django 框架来部署示例。 配置的 Web 应用使用免费的应用服务层，因此本文中的操作不会产生任何费用。
 

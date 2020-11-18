@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: e5c82587eca9ac85820bda9690b54ab1879d5328
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0c7494f62f181e34e4879f1e64bf2c4ee1cf52ec
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087870"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593427"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>快速入门：使用必应图像搜索 REST API 和 Python 搜索图像
 
@@ -157,5 +157,5 @@ ms.locfileid: "93087870"
 
 * [什么是必应图像搜索 API？](../overview.md)  
 * [必应搜索 API 的定价详细信息](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
-* [Azure 认知服务文档](https://docs.microsoft.com/azure/cognitive-services)
-* [必应图像搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure 认知服务文档](../../index.yml)
+* [必应图像搜索 API 参考](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

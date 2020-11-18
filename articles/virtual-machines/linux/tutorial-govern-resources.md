@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 890afadc82acc90ab0324058e07aa5c4d34d04e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867349a321f2909d8e568be7e482a5517ddb50b9
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926138"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517948"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>教程：了解如何使用 Azure CLI 管理 Linux 虚拟机
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 Azure CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
+- 本教程需要 Azure CLI 2.0.30 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -63,9 +63,9 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-如果收到一条错误，指出**主体 \<guid> 不存在于目录中**，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
+如果收到一条错误，指出 **主体 \<guid> 不存在于目录中**，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
 
-通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
+通常情况下，请对 *网络参与者* 和 *存储帐户参与者* 重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
 ## <a name="azure-policy"></a>Azure Policy
 

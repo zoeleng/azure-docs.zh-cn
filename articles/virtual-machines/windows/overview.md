@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8a42711bba8f77070e2b30a9b07d29d5b5095945
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9ff05f2cf9f29ef86a6db9955e7d28c9035e1bf4
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973880"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376955"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机
 
@@ -96,7 +96,7 @@ VM [扩展](../extensions/features-windows.md?toc=/azure/virtual-machines/window
 ### <a name="related-resources"></a>相关资源
 VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则要予以创建。
 
-| 资源 | 必须 | 说明 |
+| 资源 | 必选 | 说明 |
 | --- | --- | --- |
 | [资源组](../../azure-resource-manager/management/overview.md) |是 |VM 必须包含在资源组中。 |
 | [存储帐户](../../storage/common/storage-account-create.md) |是 |VM 需要使用存储帐户来存储其虚拟硬盘。 |
@@ -105,10 +105,16 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 | [网络接口](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要使用网络接口在网络中通信。 |
 | [数据磁盘](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
 
+
+## <a name="data-residency"></a>数据驻留
+
+在 Azure 中，将客户数据存储到一个区域的功能目前仅适用于亚太地区的东南亚区域（新加坡）和巴西地区的巴西南部区域（圣保罗州）。 对于其他所有区域，客户数据存储在以下地域。 有关详细信息，请参阅[信任中心](https://azuredatacentermap.azurewebsites.net/)。
+
+
 ## <a name="next-steps"></a>后续步骤
 
 创建第一个 VM！
 
-- [门户](quick-create-portal.md)
+- [Portal](quick-create-portal.md)
 - [PowerShell](quick-create-powershell.md)
 - [Azure CLI](quick-create-cli.md)

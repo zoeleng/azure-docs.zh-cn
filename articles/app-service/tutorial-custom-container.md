@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure 应用服务, web 应用, linux, windows, docker, 容器
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b5682275a9e5f3993de715ab5f23a708d5df47ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130096"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>使用自定义容器将自定义软件迁移到 Azure 应用服务
 
@@ -64,7 +64,7 @@ ms.locfileid: "92743721"
 
 在解决方案资源管理器中，右键单击“CustomFontSample”项目，选择“添加” > “容器业务流程支持”  。
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="显示在默认浏览器中显示的应用的屏幕截图。":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="解决方案资源管理器窗口的屏幕截图，其中显示已选择 CustomFontSample 项目、“添加”和“容器业务流程协调程序支持”菜单项。":::
 
 选择“Docker Compose” > “确定” 。
 
@@ -98,13 +98,13 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 在解决方案资源管理器中，右键单击“CustomFontSample”项目，选择“发布” 。
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="显示在默认浏览器中显示的应用的屏幕截图。":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="解决方案资源管理器的屏幕截图，其中已选择 CustomFontSample 项目和“发布”。":::
 
 ### <a name="create-registry-and-publish"></a>创建注册表并发布
 
 在发布向导中，选择“容器注册表” > “新建 Azure 容器注册表” > “发布”  。
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="显示在默认浏览器中显示的应用的屏幕截图。":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="发布向导的屏幕截图，其中显示已选择“容器注册表”、“新建 Azure 容器注册表”和“发布”按钮。":::
 
 ### <a name="sign-in-with-azure-account"></a>使用 Azure 帐户登录
 
@@ -147,7 +147,7 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 |**发布**| Docker 容器 | |
 |**操作系统**| Windows | |
 |**区域**| 西欧 | |
-|**Windows 计划**| 选择“新建”，键入 **myAppServicePlan** ，然后单击“确定”。 | |
+|**Windows 计划**| 选择“新建”，键入 **myAppServicePlan**，然后单击“确定”。 | |
 
 “基本信息”选项卡应如下所示：
 
@@ -318,6 +318,10 @@ ENTRYPOINT ["init.sh"]
 * 最后一行 `ENTRYPOINT ["init.sh"]` 调用 `init.sh` 来启动 SSH 服务和 Python 服务器。
 
 ## <a name="build-and-test-the-image-locally"></a>在本地生成和测试映像
+
+> [!NOTE]
+> Docker Hub [对每个 IP 的匿名请求数和每个免费用户的经过身份验证的请求数都有配额（请参阅“数据传输”）](https://www.docker.com/pricing)。 如果发现来自 Docker Hub 的请求受到限制，请尝试 `docker login`（如果尚未登录）。
+> 
 
 1. 运行以下命令生成映像：
 

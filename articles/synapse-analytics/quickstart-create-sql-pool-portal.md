@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9dcb2fa8be22c21cc2b005cce1bf8bb1c614381
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324248"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505064"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建专用 SQL 池（预览版）
 
@@ -59,6 +59,9 @@ Azure Synapse Analytics 提供了各种分析引擎，可帮助你引入、转�
 
 3. 在完成时选择“下一步:其他设置”。
 4. 选择“无”以在无数据的情况下预配专用 SQL 池。 让默认排序规则保持选中状态。
+
+    如果要从还原点还原专用 SQL 池，请选择“还原点”。 有关如何执行还原的详细信息，请参阅[操作指南：还原现有专用 SQL 池](backuprestore/restore-sql-pool.md)
+
 ![专用 SQL 池创建流 -“其他设置”选项卡。](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. 选择“查看 + 创建”。

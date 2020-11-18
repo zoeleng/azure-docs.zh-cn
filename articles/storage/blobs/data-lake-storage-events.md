@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 791b50f1458ba7ee127d45ee374b5589ade588e0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674932"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308199"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>教程：实现数据湖捕获模式以更新 Databricks Delta 表
 
@@ -37,7 +37,7 @@ ms.locfileid: "92674932"
 
 * 创建一个采用分层命名空间的存储帐户 (Azure Data Lake Storage Gen2)。 本教程使用名为 `contosoorders` 的存储帐户。 请确保你的用户帐户分配有[存储 Blob 数据参与者角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)。
 
-  请参阅[创建 Azure Data Lake Storage Gen2 帐户](data-lake-storage-quickstart-create-account.md)。
+   请参阅[创建用于 Azure Data Lake Storage Gen2 的存储帐户](create-data-lake-storage-account.md)。
 
 * 创建服务主体。 请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
@@ -69,7 +69,7 @@ ms.locfileid: "92674932"
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. 将此文件保存到本地计算机，并将其命名为 **data.csv** 。
+4. 将此文件保存到本地计算机，并将其命名为 **data.csv**。
 
 5. 在存储资源管理器中，将此文件上传到 **input** 文件夹。  
 
@@ -120,7 +120,7 @@ ms.locfileid: "92674932"
 
 ### <a name="create-a-notebook"></a>创建笔记本
 
-1. 在左窗格中选择“工作区”  。 在 **工作区** 下拉列表中，选择 **创建** > **笔记本** 。
+1. 在左窗格中选择“工作区”  。 在 **工作区** 下拉列表中，选择 **创建** > **笔记本**。
 
     ![在 Databricks 中创建笔记本](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "在 Databricks 中创建笔记本")
 
@@ -291,7 +291,7 @@ ms.locfileid: "92674932"
 
    此时将显示“新建函数”窗格。 
 
-9. 在“新建函数”窗格中，将函数命名为 **UpsertOrder** ，然后单击“创建”按钮。  
+9. 在“新建函数”窗格中，将函数命名为 **UpsertOrder**，然后单击“创建”按钮。  
 
 10. 将代码文件的内容替换为此代码，然后单击“保存”按钮： 
 

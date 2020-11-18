@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89536306"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491267"
 ---
 # <a name="what-is-azure-data-factory"></a>什么是 Azure 数据工厂？
 
@@ -93,7 +93,7 @@ Azure 数据工厂是解决此类数据方案的平台。 它是基于云的 ETL
 
 - 代表数据存储，此类存储包括但不限于 SQL Server 数据库、Oracle 数据库、文件共享或 Azure blob 存储帐户。 有关支持的数据存储的列表，请参阅[复制活动](copy-activity-overview.md)一文。
 
-- 代表可托管活动执行的**计算资源**。 例如，HDInsightHive 活动在 HDInsight Hadoop 群集上运行。 有关转换活动列表和支持的计算环境，请参阅[转换数据](transform-data.md)一文。
+- 代表可托管活动执行的 **计算资源**。 例如，HDInsightHive 活动在 HDInsight Hadoop 群集上运行。 有关转换活动列表和支持的计算环境，请参阅[转换数据](transform-data.md)一文。
 
 ### <a name="triggers"></a>触发器
 触发器代表处理单元，用于确定何时需要启动管道执行。 不同类型的事件有不同类型的触发器类型。

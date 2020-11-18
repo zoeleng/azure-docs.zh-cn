@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 175c92c02196105e9fb1249e5b88d73bc8b87d48
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3210829b3281aa862cdf0dbdc9c915249a55e423
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735236"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517999"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视更改并更新 Azure 中的 Linux 虚拟机
 
@@ -32,13 +32,9 @@ Azure [更改跟踪](../../automation/change-tracking/overview.md)允许你轻�
 > * 管理 Linux 更新
 > * 监视器更改和清单
 
-## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure Cloud Shell 是免费的交互式 shell，可以使用它运行本文中的步骤。 它预安装有常用 Azure 工具并将其配置与帐户一起使用。
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。
+- 本教程需要 Azure CLI 2.0.30 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
 ## <a name="create-vm"></a>创建 VM
 
@@ -195,7 +191,7 @@ az vm create \
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你配置并查看了 VM 的更改跟踪和更新管理。 你已了解如何：
+在本教程中，你配置并查看了 VM 的更改跟踪和更新管理。 你已了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建资源组和 VM

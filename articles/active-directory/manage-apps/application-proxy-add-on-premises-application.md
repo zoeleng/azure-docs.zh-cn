@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0ece14fb1a96ac8cc66f4d35d027b9d93d1f800e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792814"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240913"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教程：在 Azure Active Directory 中添加一个本地应用程序以通过应用程序代理进行远程访问
 
@@ -116,7 +116,7 @@ Azure Active Directory (Azure AD) 具有可让用户使用其 Azure AD 帐户登
 | login.windows.net<br>secure.aadcdn.microsoftonline p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |在注册过程中，连接器将使用这些 URL。 |
 | ctldl.windowsupdate.com | 80/HTTP |在注册过程中，连接器将使用此 URL。 |
 
-如果防火墙或代理允许配置 DNS 允许列表，则可将与 &ast;.msappproxy.net 和 &ast;.servicebus.windows.net 的连接加入允许列表。 如果没有，则需要允许访问 [Azure IP 范围和服务标记 - 公有云](https://www.microsoft.com/download/details.aspx?id=56519)。 IP 范围每周更新。
+如果防火墙或代理允许配置 DNS 允许列表，则可将与 &ast;.msappproxy.net、&ast;.servicebus.windows.net 和上述其他 URL 的连接加入允许列表。 如果没有，则需要允许访问 [Azure IP 范围和服务标记 - 公有云](https://www.microsoft.com/download/details.aspx?id=56519)。 IP 范围每周更新。
 
 ## <a name="install-and-register-a-connector"></a>安装并注册连接器
 
@@ -168,7 +168,7 @@ Azure Active Directory (Azure AD) 具有可让用户使用其 Azure AD 帐户登
 
 确认是否正确安装并注册了连接器：
 
-1. 单击“Windows”键并输入 *services.msc* ，打开 Windows 服务管理器。
+1. 单击“Windows”键并输入 *services.msc*，打开 Windows 服务管理器。
 1. 检查以下两个服务的状态是否为“正在运行”。
    - Microsoft AAD 应用程序代理连接器将启用连接  。
    - **Microsoft AAD 应用程序代理连接器更新程序** 是一个自动的更新服务。 该更新程序会检查连接器的新版本并根据需要更新连接器。
@@ -195,7 +195,7 @@ Azure Active Directory (Azure AD) 具有可让用户使用其 Azure AD 帐户登
     | **预身份验证** | 应用程序代理在向用户授予应用程序访问权限之前如何验证用户。<br><br>**Azure Active Directory** - 应用程序代理重定向用户，让其使用 Azure AD 登录；这会验证他们对目录和应用程序的权限。 建议将此选项保留为默认值，以便可以利用条件性访问和多重身份验证等 Azure AD 安全功能。 必须在 **Azure Active Directory** 中使用 Microsoft 云应用程序安全性来监视应用程序。<br><br>直通 - 用户无需对 Azure AD 进行身份验证即可访问应用程序  。 仍可在后端设置身份验证要求。 |
     | **连接器组** | 连接器处理对应用程序的远程访问，借助连接器组可按区域、网络或用途组织连接器和应用。 如果尚未创建任何连接器组，应用将分配到“默认”  。<br><br>如果应用程序使用 WebSocket 进行连接，组中的所有连接器必须为 1.5.612.0 或更高版本。|
 
-6. 根据需要配置 **其他设置** 。 对于大多数应用程序，应保留这些设置的默认状态。 
+6. 根据需要配置 **其他设置**。 对于大多数应用程序，应保留这些设置的默认状态。 
 
     | 字段 | 说明 |
     | :---- | :---------- |

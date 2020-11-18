@@ -3,7 +3,7 @@ title: 教程：使用 Postgre 部署 Python Django 应用
 description: 创建使用 PostgreSQL 数据库的 Python Web 应用并将其部署到 Azure。 本教程使用 Django 框架，应用托管在 Linux 上的 Azure 应用服务上。
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/02/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 348721304970a5d1d697ecf546a8c5039e81afc1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540748"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506101"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>教程：在 Azure 应用服务中部署使用 PostgreSQL 的 Django Web 应用
 
@@ -79,7 +79,7 @@ az login
 
 登录后，可以使用 Azure CLI 运行 Azure 命令，处理订阅中的资源。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ [请告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ## <a name="clone-or-download-the-sample-app"></a>克隆或下载示例应用
 
@@ -111,12 +111,12 @@ Djangoapp 示例包含数据驱动的 Django 投票应用，该应用是根据 D
 
 示例还会修改为在应用服务等生产环境中运行：
 
-- 生产设置位于“azuresite/production.py”文件中。 开发详细信息位于 azuresite/settings.py 中。
-- 当 `DJANGO_ENV` 环境变量设置为“生产”时，应用将使用生产设置。 你将稍后在本教程中创建此环境变量以及用于 PostgreSQL 数据库配置的其他环境变量。
+- 生产设置位于“azuresite/production.py”文件中。 开发设置位于 azuresite/settings.py 中。
+- 当设置了 `WEBSITE_HOSTNAME` 环境变量时，应用将使用生产设置。 Azure 应用服务会自动将此变量设置为 Web 应用的 URL，例如 `msdocs-django.azurewebsites.net`。
 
-这些更改特定于将 Django 配置为在任何生产环境中运行，而不是特定于应用服务。 有关详细信息，请参阅 [Django 部署清单](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)。 另请参阅 [Azure 上 Django 的生产设置](configure-language-python.md#production-settings-for-django-apps)，以了解某些更改的详细信息。
+生产设置特定于将 Django 配置为在任何生产环境中运行，而不是特定于应用服务。 有关详细信息，请参阅 [Django 部署清单](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)。 另请参阅 [Azure 上 Django 的生产设置](configure-language-python.md#production-settings-for-django-apps)，以了解某些更改的详细信息。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ [请告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ## <a name="create-postgres-database-in-azure"></a>在 Azure 中创建 Postgres 数据库
 
@@ -159,7 +159,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 > [!TIP]
 > `-l <location-name>` 可以设置为任一个 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions/)。 可以使用 [`az account list-locations`](/cli/azure/account#az-account-list-locations) 命令获取可供你的订阅使用的区域。 对于生产应用，请将数据库和应用放置在同一位置。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ [请告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ## <a name="deploy-the-code-to-azure-app-service"></a>将代码部署到 Azure 应用服务
 
@@ -194,30 +194,27 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 
 ![示例 az webapp up 命令输出](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!NOTE]
-> 如果在此时尝试访问应用的 URL，则会遇到错误“DisallowedHost at/”。 发生此错误的原因是你尚未将应用配置为使用前面讨论过的生产设置，你可以在以下部分中执行此操作。
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ### <a name="configure-environment-variables-to-connect-the-database"></a>配置环境变量以连接数据库
 
 将代码部署到应用服务后，下一步是将应用连接到 Azure 中的 Postgres 数据库。
 
-应用代码预期在以下四个环境变量中查找数据库信息：`DBHOST`、`DBNAME`、`DBUSER` 和 `DBPASS`。 若要使用生产设置，还需要将 `DJANGO_ENV` 环境变量设置为 `production`。
+应用代码预期在以下四个环境变量中查找数据库信息：`DBHOST`、`DBNAME`、`DBUSER` 和 `DBPASS`。
 
 若要在应用服务中设置环境变量，请通过以下 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 命令创建“应用设置”。
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
 - 将 *\<postgres-server-name>* 替换为之前通过 `az postgres up` 命令使用的名称。 Azuresite/production.py 中的代码会自动追加 `.postgres.database.azure.com` 来创建完整的 Postgres 服务器 URL。
 - 将 \<username> 和 \<password> 替换为你先前在 `az postgres up` 命令中使用的管理员凭据，或 `az postgres up` 为你生成的评估。 azuresite/production.py 中的代码会自动通过 `DBUSER` 和 `DBHOST` 构造完整的 Postgres 用户名，因此请勿包含 `@server` 部分。 （此外，如前所述，不应在任何一个值中使用 `$` 字符，因为它对 Linux 环境变量具有特殊含义。）
 - 从 .azure/config 文件中的缓存值提取资源组和应用名称。
 
-在 Python 代码中，可以使用 `os.environ.get('DJANGO_ENV')` 之类的语句来访问这些设置（作为环境变量）。 有关详细信息，请参阅[访问环境变量](configure-language-python.md#access-environment-variables)。
+在 Python 代码中，可以使用 `os.environ.get('DBHOST')` 之类的语句来访问这些设置（作为环境变量）。 有关详细信息，请参阅[访问环境变量](configure-language-python.md#access-environment-variables)。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ### <a name="run-django-database-migrations"></a>运行 Django 数据库迁移
 
@@ -258,7 +255,7 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
 
 1. 如果看到“数据库已锁定”错误，请确保已在上一部分运行 `az webapp settings` 命令。 如果没有这些设置，migrate 命令将无法与数据库通信，从而导致错误。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
     
 ### <a name="create-a-poll-question-in-the-app"></a>在应用中创建投票问题
 
@@ -274,7 +271,7 @@ Django 数据库迁移会确保 Azure 数据库上的 PostgreSQL 中的架构与
 
 祝贺你！ 你将在适用于 Linux 的 Azure 应用服务中使用主动 Postgres 数据库运行 Python Django Web 应用。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ [请告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 > [!NOTE]
 > 应用服务将通过在每个 `manage.py startproject` 默认创建的子文件夹中查找“wsgi.py”文件来检测 Django 项目。 应用服务找到该文件后，就会加载 Django Web 应用。 有关详细信息，请参阅[配置内置的 Python 映像](configure-language-python.md)。
@@ -356,7 +353,7 @@ python manage.py runserver
 
 在本地运行时，应用将使用本地 Sqlite3 数据库，而不会影响生产数据库。 如果需要，还可以使用本地 PostgreSQL 数据库来更好地模拟生产环境。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ [请告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ### <a name="update-the-app"></a>更新应用
 
@@ -378,7 +375,7 @@ python manage.py migrate
 
 使用 Ctrl +C 再次停止 Django Web 服务器 。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ### <a name="redeploy-the-code-to-azure"></a>将代码重新部署到 Azure
 
@@ -390,7 +387,7 @@ az webapp up
 
 此命令使用“.azure/config”文件中缓存的参数。 由于应用服务检测到应用已存在，因此仅重新部署代码。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ### <a name="rerun-migrations-in-azure"></a>在 Azure 中重新运行迁移
 
@@ -407,13 +404,13 @@ source /antenv/bin/activate
 python manage.py migrate
 ```
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ### <a name="review-app-in-production"></a>在生产环境中查看应用
 
 浏览到“`http://<app-name>.azurewebsites.net`”并再次在生产中测试应用。 （因为你仅更改了数据库字段的长度，所以仅在创建问题时尝试输入较长的响应时，更改才会比较明显。）
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ## <a name="stream-diagnostic-logs"></a>流式传输诊断日志
 
@@ -429,7 +426,7 @@ az webapp log tail
 
 若要随时停止日志流式处理，可键入 Ctrl+C 。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ [请告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 > [!NOTE]
 > 也可通过浏览器在 `https://<app-name>.scm.azurewebsites.net/api/logs/docker` 中检查日志文件。
@@ -450,7 +447,7 @@ az webapp log tail
 
 ![在 Azure 门户的“概述”页中管理 Python Django 应用](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ 请先参阅[故障排除指南](configure-language-python.md#troubleshooting)，如果问题未能解决，请[告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -464,7 +461,7 @@ az group delete --no-wait
 
 删除所有资源可能需要一些时间。 `--no-wait` 参数允许命令立即返回。
 
-[存在问题？请告诉我们。](https://aka.ms/DjangoCLITutorialHelp)
+遇到问题？ [请告诉我们](https://aka.ms/DjangoCLITutorialHelp)。
 
 ## <a name="next-steps"></a>后续步骤
 

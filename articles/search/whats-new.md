@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518919"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422665"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure 认知搜索中的新增功能
 
@@ -42,7 +42,7 @@ ms.locfileid: "92518919"
 
 |功能&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 类别 | 说明 | 可用性  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.Documents 客户端库](/dotnet/api/overview/azure/search.documents-readme) | 用于 .NET 的 Azure SDK | .NET 客户端库，由 Azure SDK 团队发布，旨在保持与其他 .NET 客户端库的一致性。 <br/><br/>版本 11 面向搜索 REST api-version=2020-06-30，但尚不支持知识存储、地理空间类型或 [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder)。 <br/><br/>有关详细信息，请参阅[快速入门：创建索引](search-get-started-dotnet.md)和[升级到 Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md)。 | 正式发布。 </br> 从 NuGet 安装 [Azure.Search.Documents 包](https://www.nuget.org/packages/Azure.Search.Documents/)。 |
+| [Azure.Search.Documents 客户端库](/dotnet/api/overview/azure/search.documents-readme) | 用于 .NET 的 Azure SDK | .NET 客户端库，由 Azure SDK 团队发布，旨在保持与其他 .NET 客户端库的一致性。 <br/><br/>版本 11 面向搜索 REST api-version=2020-06-30，但尚不支持知识存储或地理空间类型。 <br/><br/>有关详细信息，请参阅[快速入门：创建索引](search-get-started-dotnet.md)和[升级到 Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md)。 | 正式发布。 </br> 从 NuGet 安装 [Azure.Search.Documents 包](https://www.nuget.org/packages/Azure.Search.Documents/)。 |
 | [azure.search.documents 客户端库](/python/api/overview/azure/search-documents-readme)  | 用于 Python 的 Azure SDK| Python 客户端库，由 Azure SDK 团队发布，旨在保持与其他 Python 客户端库的一致性。 <br/><br/>版本 11 面向搜索 REST api-version=2020-06-30。 | 正式发布。 </br> 从 PyPI 安装 [azure-search-documents 包](https://pypi.org/project/azure-search-documents/)。 |
 | [@azure/search-documents 客户端库](/javascript/api/overview/azure/search-documents-readme)  | 用于 JavaScript 的 Azure SDK | JavaScript 客户端库，由 Azure SDK 团队发布，旨在保持与其他 JavaScript 客户端库的一致性。 <br/><br/>版本 11 面向搜索 REST api-version=2020-06-30。 | 正式发布。 </br> 从 npm 安装 [@azure/search-documents 包](https://www.npmjs.com/package/@azure/search-documents)。 |
 
@@ -63,7 +63,7 @@ ms.locfileid: "92518919"
 | [**适用于入站防火墙支持的 IP 规则**](service-configure-firewall.md) | 安全性 | 将对搜索服务终结点的访问限制为特定的 IP 地址。 | 正式发布。 </br> 使用[管理 REST API 2020-03-13](/rest/api/searchmanagement/) 或更高版本，或门户。 |
 | [专用搜索终结点的 Azure 专用链接](service-create-private-endpoint.md) | 安全性| 通过将搜索服务作为专用链接资源（仅可供同一虚拟网络上的客户端应用和其他 Azure 服务访问）运行，使其不受公共 Internet 的影响。 | 正式发布。 </br> 使用[管理 REST API 2020-03-13](/rest/api/searchmanagement/) 或更高版本，或门户。 |
 | [系统托管的标识（预览版）](search-howto-managed-identities-data-sources.md) | 安全性（索引器） | 在 Azure Active Directory 中将搜索服务注册为受信任的服务，以设置到受支持的 Azure 数据源的连接，以编制索引。 适用于从 Azure 数据源（例如 Azure SQL 数据库、Azure Cosmos DB 和 Azure 存储）引入内容的[索引器](search-indexer-overview.md)。 | 公共预览版。 </br> 使用门户注册搜索服务。 |
-| [**sessionId 查询参数**](index-similarity-and-scoring.md)， [scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | 查询（相关性） | 将 sessionID 添加到查询中，以建立一个用于计算搜索分数的会话，scoringStatistics=global 用于从所有分区收集分数，以实现更一致的搜索分数计算。 | 正式发布。 </br> 使用[搜索 REST API 2020-06-30](/rest/api/searchservice/) 或更高版本，或 REST API 2019-05-06。 |
+| [**sessionId 查询参数**](index-similarity-and-scoring.md)，[scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | 查询（相关性） | 将 sessionID 添加到查询中，以建立一个用于计算搜索分数的会话，scoringStatistics=global 用于从所有分区收集分数，以实现更一致的搜索分数计算。 | 正式发布。 </br> 使用[搜索 REST API 2020-06-30](/rest/api/searchservice/) 或更高版本，或 REST API 2019-05-06。 |
 | [featuresMode（预览版）](index-similarity-and-scoring.md#featuresMode-param) | 查询 | 添加此查询参数，展开相关性分数以显示详细信息：每个字段相似度得分、每个字段术语频率和每个字段匹配的唯一标记数。 你可以在自定义评分算法中使用这些数据点。 有关演示此功能的示例，请参阅[添加机器学习 (LearnToRank) 以搜索相关性](https://github.com/Azure-Samples/search-ranking-tutorial)。 | 公共预览版。 </br> 使用[搜索 REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 或 REST API 2019-05-06-Preview。 |
 
 ## <a name="march-2020"></a>2020 年 3 月
@@ -119,7 +119,7 @@ ms.locfileid: "92518919"
 
 ## <a name="new-service-name"></a>新服务名称
 
-Azure 搜索现已重命名为 **Azure 认知搜索** ，以反映认知技能和 AI 处理在核心操作中的更广泛用途（但仍为可选）。 API 版本、NuGet 包、命名空间和终结点未有变化。 新的和现有的搜索解决方案不受服务名称更改的影响。
+Azure 搜索现已重命名为 **Azure 认知搜索**，以反映认知技能和 AI 处理在核心操作中的更广泛用途（但仍为可选）。 API 版本、NuGet 包、命名空间和终结点未有变化。 新的和现有的搜索解决方案不受服务名称更改的影响。
 
 ## <a name="service-updates"></a>服务更新
 

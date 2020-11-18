@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357856"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926625"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 查找并诊断运行时异常
 
@@ -81,7 +81,7 @@ Snapshot Debugger 收集应用程序中最频繁出现的异常的快照，帮�
 
 3. 具有有效值的第一个调用是 **ValidZipCode**，可发现邮政编码通过无法转换为整数的字母提供。  这是代码中的错误，需要更正。
 
-    ![调试快照](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![显示代码中需要更正的错误的屏幕截图。    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. 然后，可以选择将此快照下载到 Visual Studio 中，我们可在其中找到需要更正的实际代码。 为此，请单击“下载快照”  。
 5. 快照会加载到 Visual Studio 中。

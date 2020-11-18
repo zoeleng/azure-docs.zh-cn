@@ -1,7 +1,7 @@
 ---
 title: 回归教程：自动化机器学习
 titleSuffix: Azure Machine Learning
-description: 本教程介绍如何使用自动化机器学习生成机器学习模型。 Azure 机器学习可以通过自动化方式为你执行数据预处理、算法选择和超参数选择操作。
+description: 创建自动的机器学习试验，该试验会根据提供的训练数据和配置设置生成回归模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896789"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358603"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教程：使用自动化机器学习预测出租车费
 
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>配置工作区
 
-从现有工作区创建工作区对象。 [工作区](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)是可接受 Azure 订阅和资源信息的类。 它还可创建云资源来监视和跟踪模型运行。 `Workspace.from_config()` 读取文件 **config.json** 并将身份验证详细信息加载到名为 `ws` 的对象。 在本教程中，`ws` 在代码的其余部分使用。
+从现有工作区创建工作区对象。 [工作区](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)是可接受 Azure 订阅和资源信息的类。 它还可创建云资源来监视和跟踪模型运行。 `Workspace.from_config()` 读取文件 **config.json** 并将身份验证详细信息加载到名为 `ws` 的对象。 在本教程中，`ws` 在代码的其余部分使用。
 
 ```python
 from azureml.core.workspace import Workspace
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>浏览结果
 
-通过 [Jupyter 小组件](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)浏览自动训练的结果。 使用该小组件可以查看每个运行迭代的图形和表，以及训练准确度指标和元数据。 此外，可以筛选不同于下拉选择器中的主要指标的准确度指标。
+通过 [Jupyter 小组件](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)浏览自动训练的结果。 使用该小组件可以查看每个运行迭代的图形和表，以及训练准确度指标和元数据。 此外，可以筛选不同于下拉选择器中的主要指标的准确度指标。
 
 ```python
 from azureml.widgets import RunDetails

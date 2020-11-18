@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 准备 Azure VMware 解决方案 VM 灾难恢复
+title: 为到 Azure Site Recovery 的灾难恢复准备 Azure VMware 解决方案
 description: 了解如何使用 Azure Site Recovery 服务为到 Azure 的灾难恢复准备 Azure VMware 解决方案服务器。
 author: Harsha-CS
 manager: rochakm
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 9b04faf6797d04404dc0c5d617af2fd62a68c49a
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8e77ede7b04c95bfd6b6b8f660c8d811e7434c0f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814187"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395438"
 ---
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>为到 Azure 的灾难恢复准备 Azure VMware 解决方案服务器
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>为到 Azure Site Recovery 的灾难恢复准备 Azure VMware 解决方案
 
 本文介绍如何使用 [Azure Site Recovery](site-recovery-overview.md) 服务为到 Azure 的灾难恢复准备 Azure VMware 解决方案服务器。 
 
@@ -82,7 +82,7 @@ Site Recovery 需要访问 Azure VMware 解决方案服务器，才能够：
 4. 检查[网络](vmware-physical-azure-support-matrix.md#network)和[存储](vmware-physical-azure-support-matrix.md#storage)支持。 
 5. 故障转移后，检查 [Azure 网络](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)、[存储](vmware-physical-azure-support-matrix.md#azure-storage)和[计算](vmware-physical-azure-support-matrix.md#azure-compute)支持的功能。
 6. 复制到 Azure 的 Azure VMware 解决方案 VM 必须符合 [Azure VM 要求](vmware-physical-azure-support-matrix.md#azure-vm-requirements)。
-7. 在 Linux 虚拟机中，设备名称或装入点名称都应具有唯一性。 请确保没有两个设备/装入点具有相同名称。 请注意，名称不区分大小写。 例如，不允许将同一 VM 的两个设备命名为 device1__ 和 Device1__。
+7. 在 Linux 虚拟机中，设备名称或装入点名称都应具有唯一性。 请确保没有两个设备/装入点具有相同名称。 请注意，名称不区分大小写。 例如，不允许将同一 VM 的两个设备命名为 device1 和 Device1。
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>准备在故障转移后连接到 Azure VM
@@ -105,7 +105,7 @@ Site Recovery 需要访问 Azure VMware 解决方案服务器，才能够：
 - 确保防火墙规则允许 SSH 连接。
 - 在 Azure VM 上执行故障转移后，允许已故障转移的 VM 及其所连接 Azure 子网上的网络安全组规则与 SSH 端口建立传入连接。
 - 为 VM [添加公共 IP 地址](./site-recovery-monitor-and-troubleshoot.md)。
-- 可选中“启动诊断”查看 VM 的屏幕截图****。
+- 可选中“启动诊断”查看 VM 的屏幕截图。
 
 
 ## <a name="failback-requirements"></a>故障回复要求

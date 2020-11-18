@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 10/02/2020
 ms.author: joflore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b2ea0806f70d9f99982b9d9af9c462ff0099966
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967947"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041953"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 启用 Azure Active Directory 域服务
 
@@ -44,12 +44,12 @@ Azure Active Directory 域服务 (Azure AD DS) 提供与 Windows Server Active D
 
 Azure AD DS 需要一个服务主体和一个 Azure AD 组。 这些资源使 Azure AD DS 托管域能够同步数据，并定义哪些用户在托管域中拥有管理权限。
 
-首先创建一个 Azure AD 服务主体，使 Azure AD DS 能够通信并对自身进行身份验证。 使用名称为“域控制器服务”的特定应用程序 ID 2565bd9d-da50-47d4-8b85-4c97f669dc36。 请不要更改此应用程序 ID。
+首先创建一个 Azure AD 服务主体，使 Azure AD DS 能够通信并对自身进行身份验证。 使用名称为“域控制器服务”的特定应用程序 ID 6ba9a5d4-8456-4118-b521-9c5ca10cdf84。  请不要更改此应用程序 ID。
 
 使用 [Get-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet 创建 Azure AD 服务主体：
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 现在，请创建名为“AAD DC 管理员”的 Azure AD 组。 然后，添加到此组的用户会被授予在托管域上执行管理任务的权限。
@@ -252,7 +252,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `

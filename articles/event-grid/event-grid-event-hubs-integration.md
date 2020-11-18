@@ -4,12 +4,12 @@ description: 教程：介绍了如何使用 Azure 事件网格和事件中心将
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270541"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305266"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>教程：将大数据流式传输到数据仓库
 Azure [事件网格](overview.md)是一项智能事件路由服务，可用于对应用和服务的通知（事件）作出响应。 例如，它可以触发 Azure 函数来处理已捕获到 Azure Blob 存储或 Azure Data Lake Storage 的事件中心数据，并将数据迁移到其他数据存储库。 此[事件中心和事件网格集成示例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)展示了如何将事件中心与事件网格结合使用，从而将捕获的事件中心数据从 blob 存储无缝迁移到 Azure Synapse Analytics（旧称 SQL 数据仓库）。
@@ -165,7 +165,7 @@ Azure [事件网格](overview.md)是一项智能事件路由服务，可用于�
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>在 Azure Synapse Analytics 中创建表
 通过运行 [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) 脚本在数据仓库中创建表。 若要运行此脚本，可以使用 Visual Studio 或门户中的查询编辑器。 以下步骤显示如何使用查询编辑器： 
 
-1. 在资源组的资源列表中，选择“Synapse SQL 池(数据仓库)”。 
+1. 在资源组的资源列表中，选择“专用 SQL 池”。 
 2. 在 Azure Synapse Analytics 页中，选择左侧菜单中的“查询编辑器(预览)”。 
 
     ![Azure Synapse Analytics 页](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)

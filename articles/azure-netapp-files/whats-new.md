@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932407"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421696"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp 文件中的新增功能
 
 Azure NetApp 文件会定期更新。 本文总结了最新的新功能和增强功能。 
+
+## <a name="november-2020"></a>2020 年 11 月
+
+* [快照还原](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+
+    快照还原功能使你能够快速将卷还原到创建特定快照时的状态。 在大多数情况下，还原卷比将单个文件从快照还原到活动文件系统要快得多。 与将快照还原到新卷相比，此方法也更节省空间。
 
 ## <a name="september-2020"></a>2020 年 9 月
 

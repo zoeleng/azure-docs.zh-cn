@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: b5f1d0712098e4fe331607860f6e0ed488d29c1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848786"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313919"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>教程：Azure Data Lake Storage Gen2、Azure Databricks & Spark
 
@@ -33,7 +33,7 @@ ms.locfileid: "87848786"
 
 * 创建 Azure Data Lake Storage Gen2 帐户。
 
-  请参阅[创建 Azure Data Lake Storage Gen2 帐户](data-lake-storage-quickstart-create-account.md)。
+  请参阅[创建用于 Azure Data Lake Storage Gen2 的存储帐户](create-data-lake-storage-account.md)。
 
 * 请确保你的用户帐户分配有[存储 Blob 数据参与者角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)。
 
@@ -138,7 +138,7 @@ ms.locfileid: "87848786"
 
 1. 在 [Azure 门户](https://portal.azure.com)中，转到你创建的 Azure Databricks 服务，然后选择“启动工作区”。 
 
-2. 在左侧选择“工作区”  。 在**工作区**下拉列表中，选择**创建** > **笔记本**。
+2. 在左侧选择“工作区”  。 在 **工作区** 下拉列表中，选择 **创建** > **笔记本**。
 
     ![在 Databricks 中创建笔记本](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "在 Databricks 中创建笔记本")
 

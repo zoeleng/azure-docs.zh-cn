@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171868"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331951"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>探索 Synapse 知识中心
 
@@ -37,9 +37,9 @@ ms.locfileid: "92171868"
 * **浏览可用示例**。 此选项允许你链接示例数据集，并以 SQL 脚本、笔记本和管道的形式添加示例代码。
 * **浏览 Synapse Studio**。 此选项将带你简单了解 Synapse Studio 的基本部分。 如果你以前从未使用过 Synapse Studio，则这很有用。
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>使用按需 SQL 探索 blob 存储
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>使用无服务器 SQL 池浏览 blob 存储
 
-1. 在“知识中心”中，单击“立即使用示例”
+1. 转到“知识中心”，单击“立即使用示例” 
 1. 选择“使用 SQL 来查询数据” 
 1. 单击“立即使用示例”
 1. 它将创建一个新的 SQL 脚本。
@@ -47,7 +47,7 @@ ms.locfileid: "92171868"
 1. 单击“运行”。 它将运行你选择的文本。
 
 ## <a name="loading-more-nyc-taxi-data"></a>加载更多 NYC 出租车数据
-1. 在“知识中心”中，单击“浏览可用示例” 
+1. 转到“知识中心”，单击“浏览可用示例”  
 1. 选择顶部的“SQL 脚本”选项卡
 1. 选择“加载纽约出租车数据集”
 1. 在“输入”下选择“选择现有池”，接着选择“SQLDB1”
@@ -60,4 +60,4 @@ ms.locfileid: "92171868"
 
 * [Azure Synapse Analytics 入门](get-started.md)
 * [创建工作区](quickstart-create-workspace.md)
-* [使用 SQL 按需版本](quickstart-sql-on-demand.md)
+* [使用无服务器 SQL 池](quickstart-sql-on-demand.md)

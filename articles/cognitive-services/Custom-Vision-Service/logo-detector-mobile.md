@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737548"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616750"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>教程：识别照片中的 Azure 服务徽标
 
@@ -34,9 +34,9 @@ ms.locfileid: "92737548"
 ## <a name="prerequisites"></a>先决条件
 
 - [Visual Studio 2017 或更高版本](https://www.visualstudio.com/downloads/)
-- 适用于 Visual Studio 的 Xamarin 工作负荷（请参阅 [安装 Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows)）
+- 适用于 Visual Studio 的 Xamarin 工作负荷（请参阅 [安装 Xamarin](/xamarin/cross-platform/get-started/installation/windows)）
 - 适用于 Visual Studio 的 iOS 或 Android 仿真器
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)（可选）
+- [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)（可选）
 
 ## <a name="get-the-source-code"></a>获取源代码
 
@@ -94,7 +94,7 @@ ms.locfileid: "92737548"
 
 本教程的自定义视觉部分已完成。 如果要运行应用，还需要集成计算机视觉服务。 应用使用计算机视觉文本识别功能对徽标检测过程进行补充。 Azure 徽标可以通过其外观或其附近打印的文本进行识别。 与自定义视觉模型不同，计算机视觉经过预先训练，可针对图像或视频执行特定的操作。
 
-订阅计算机视觉服务即可获取密钥和终结点 URL。 有关此步骤的帮助，请参阅[如何获取订阅密钥](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe)。
+订阅计算机视觉服务即可获取密钥和终结点 URL。 有关此步骤的帮助，请参阅[如何获取订阅密钥](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows)。
 
 ![Azure 门户中的计算机视觉服务，其中选择了“快速入门”菜单。 密钥的链接会列出，API 终结点 URL 也是如此](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "92737548"
 
 ## <a name="create-a-service-principal"></a>创建服务主体
 
-应用需要通过一个 Azure 服务主体帐户将服务部署到 Azure 订阅。 可以使用 Azure 基于角色的访问控制通过服务主体向应用委托特定的权限。 若要了解详细信息，请参阅[服务主体指南](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)。
+应用需要通过一个 Azure 服务主体帐户将服务部署到 Azure 订阅。 可以使用 Azure 基于角色的访问控制通过服务主体向应用委托特定的权限。 若要了解详细信息，请参阅[服务主体指南](/azure-stack/operator/azure-stack-create-service-principals)。
 
 可以使用 Azure Cloud Shell 或 Azure CLI 创建服务主体（如下所示）。 若要开始，请登录并选择要使用的订阅。
 

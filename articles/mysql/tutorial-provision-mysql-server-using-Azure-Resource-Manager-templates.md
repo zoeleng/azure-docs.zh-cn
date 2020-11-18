@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6923f0a1d568cc695b86d1538ba55a3eb3444da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543689"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341474"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -29,6 +29,8 @@ Azure 资源管理器利用基础 REST API 来声明并计划大规模部署所�
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
+
+## <a name="prerequisites"></a>先决条件
 
 如果还没有 Azure 订阅，可以在开始前创建一个[免费 Azure 帐户](https://azure.microsoft.com/free/)。
 
@@ -199,13 +201,47 @@ UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>清理资源
+
+如果不再需要该资源组，可以将其删除，这将删除资源组中的资源。
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. 在 [Azure 门户](https://portal.azure.com)中，搜索并选择“资源组”。
+
+2. 在资源组列表中，选择你的资源组的名称。
+
+3. 在资源组的“概览”页中，选择“删除资源组” 。
+
+4. 在确认对话框中，键入资源组的名称，然后选择“删除”。
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>后续步骤
-本教程介绍：
+本教程介绍了：
 > [!div class="checklist"]
 > * 使用 Azure 资源管理器模板创建带有 VNet 服务终结点的 Azure Database for MySQL 服务器
-> * 使用 [mysql 命令行工具](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)创建数据库
+> * 使用 mysql 命令行工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
-> 
+
+> [!div class="nextstepaction"]
 > [如何将应用程序连接到 Azure Database for MySQL](./howto-connection-string.md)

@@ -1,6 +1,6 @@
 ---
-title: 教程：用于 SQL 池的机器学习模型评分向导
-description: 有关如何使用机器学习模型评分向导来扩充 Synapse SQL 池中的数据的教程
+title: 教程：用于专用 SQL 池的机器学习模型评分向导
+description: 有关如何使用机器学习模型评分向导来扩充专用 SQL 池中的数据的教程。
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,29 +9,29 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019964"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314046"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>教程：用于 Synapse SQL 池的机器学习模型评分向导
+# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>教程：用于专用 SQL 池的机器学习模型评分向导
 
-了解如何借助预测性机器学习模型轻松扩充 SQL 池中的数据。  数据专业人员现在可以轻松使用数据科学家创建的模型进行预测分析。 Synapse 中的数据专业人员可以直接从 Azure 机器学习模型注册表中选择一个模型，以便在 Synapse SQL 池中进行部署，并启动预测来扩充数据。
+了解如何借助预测性机器学习模型轻松扩充专用 SQL 池中的数据。  数据专业人员现在可以轻松使用数据科学家创建的模型进行预测分析。 Synapse 中的数据专业人员可以直接从 Azure 机器学习模型注册表中选择一个模型，以便在 Synapse SQL 池中进行部署，并启动预测来扩充数据。
 
 在本教程中，你将了解：
 
 > [!div class="checklist"]
 > - 训练一个预测性机器学习模型并在 Azure 机器学习模型注册表中注册该模型
-> - 使用 SQL 评分向导在 Synapse SQL 池中启动预测
+> - 使用 SQL 评分向导在专用 SQL 池中启动预测
 
 如果没有 Azure 订阅，请[在开始之前创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先决条件
 
 - [Synapse Analytics 工作区](../get-started-create-workspace.md)，其中 ADLS Gen2 存储帐户配置为默认存储。 你必须是所用 ADLS Gen2 文件系统的存储 Blob 数据参与者。
-- Synapse Analytics 工作区中的 Synapse SQL 池。 有关详细信息，请参阅[创建 Synapse SQL 池](../quickstart-create-sql-pool-studio.md)。
+- Synapse Analytics 工作区中的专用 SQL 池。 有关详细信息，请参阅[创建专用 SQL 池](../quickstart-create-sql-pool-studio.md)。
 - Synapse Analytics 工作区中的 Azure 机器学习链接服务。 有关详细信息，请参阅[在 Synapse 中创建 Azure 机器学习链接服务](quickstart-integrate-azure-machine-learning.md)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
@@ -62,7 +62,7 @@ ms.locfileid: "92019964"
 1. 该笔记本会训练 ONNX 模型并将其注册到 MLFlow。 转到“模型”来检查新模型是否已正确注册。
    ![注册表中的模型](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. 运行笔记本还会将测试数据导出到 CSV 文件中。 将 CSV 文件下载到本地系统。 稍后，你将 CSV 文件导入到 SQL 池中并使用该数据来测试模型。
+1. 运行笔记本还会将测试数据导出到 CSV 文件中。 将 CSV 文件下载到本地系统。 稍后，你将 CSV 文件导入到专用 SQL 池中并使用该数据来测试模型。
 
    CSV 文件是在笔记本文件所在的文件夹中创建的。 如果没有立刻看到该文件，请在文件资源管理器中单击“刷新”。
 
@@ -76,7 +76,7 @@ ms.locfileid: "92019964"
 
    ![上传数据](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. 转到“开发” -> “SQL 脚本”。 创建一个新的 SQL 脚本以将 `test_data.csv` 上传到你的 SQL 池。
+1. 转到“开发” -> “SQL 脚本”。 创建新的 SQL 脚本，将 `test_data.csv` 加载到专用 SQL 池。
 
    > [!NOTE]
    > 在运行此脚本之前，请更新其中的文件 URL。
@@ -117,12 +117,12 @@ ms.locfileid: "92019964"
    GO
    ```
 
-   ![将数据加载到 SQL 池](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+   ![将数据加载到专用 SQL 池](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. 转到“数据” -> “工作区”。 通过右键单击 SQL 池表打开 SQL 评分向导。 选择“机器学习” -> “使用现有模型进行扩充”。 
+1. 转到“数据” -> “工作区”。 通过右键单击专用 SQL 池表打开 SQL 评分向导。 选择“机器学习” -> “使用现有模型进行扩充”。 
 
    > [!NOTE]
-   > 除非为 Azure 机器学习创建了链接服务，否则不会出现机器学习选项（请参阅本教程开头部分的**先决条件**）。
+   > 除非为 Azure 机器学习创建了链接服务，否则不会出现机器学习选项（请参阅本教程开头部分的 **先决条件**）。
 
    ![机器学习选项](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00c.png)
 
@@ -138,7 +138,7 @@ ms.locfileid: "92019964"
 
    ![表到模型的映射](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. 生成的 T-SQL 代码包装在存储过程中。 这是你需要为存储过程提供名称的原因。 包含元数据（版本、说明等）的模型二进制文件会以物理方式从 Azure 机器学习复制到 SQL 池表。 因此，你需要指定要在其中保存模型的表。 你可以选择“使用现有表”，也可以选择“创建新表”。 在完成后，单击“部署模型 + 打开编辑器”以部署模型并生成 T-SQL 预测脚本。
+1. 生成的 T-SQL 代码包装在存储过程中。 这是你需要为存储过程提供名称的原因。 包含元数据（版本、说明等）的模型二进制文件会以物理方式从 Azure 机器学习复制到专用 SQL 池表。 因此，你需要指定要在其中保存模型的表。 你可以选择“使用现有表”，也可以选择“创建新表”。 在完成后，单击“部署模型 + 打开编辑器”以部署模型并生成 T-SQL 预测脚本。
 
    ![创建过程](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 

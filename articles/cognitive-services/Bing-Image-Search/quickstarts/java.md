@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: aed96bab233a815091009278349627343cc5efd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aeda148f52669d947d2e4fae0e664313ee747487
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099940"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592084"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>快速入门：使用必应图像搜索 API 和 Java 搜索图像 
 
@@ -32,7 +32,7 @@ ms.locfileid: "93099940"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Java 开发工具包 (JDK)](https://aka.ms/azure-jdks)
+* [Java 开发工具包 (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Gson 库](https://github.com/google/gson)
 
@@ -166,8 +166,8 @@ connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
 ## <a name="see-also"></a>另请参阅
 
-* [什么是必应图像搜索 API？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [什么是必应图像搜索 API？](../overview.md)  
 * [尝试在线互动演示](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [必应搜索 API 的定价详细信息](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* [Azure 认知服务文档](https://docs.microsoft.com/azure/cognitive-services)
-* [必应图像搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure 认知服务文档](../../index.yml)
+* [必应图像搜索 API 参考](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

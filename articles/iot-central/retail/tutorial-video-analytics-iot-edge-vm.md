@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127022"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426539"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>教程：创建用于视频分析的 IoT Edge 实例 (Linux VM)
 
@@ -55,7 +55,7 @@ Azure IoT Edge 是一项完全托管的服务，可通过部署和运行以下�
 | 管理员用户名 | *AzureUser* |
 | 管理员密码 | 输入密码。 记下 scratchpad.txt 文件中的密码，以便后续使用。 |
 | 作用域 ID | 在上一教程中添加网关设备时在 scratchpad.txt 文件中记下的作用域 ID。 |
-| 设备 ID | *lva-gateway-001* - 在上一教程中创建的网关设备。 |
+| 设备 ID | gateway-001 - 在上一教程中创建的网关设备。 |
 | 设备密钥 | 在上一教程中添加网关设备时在 scratchpad.txt 文件中记下的设备主密钥。 |
 | IoT Central 应用主机 | 在上一教程的 scratchpad.txt 文件中记下的应用程序 URL。 例如：traders.azureiotcentral.com。 |
 | IoT Central 应用 API 令牌 | 在上一教程中记下的运算符 API 令牌。 |

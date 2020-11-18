@@ -1,18 +1,18 @@
 ---
-title: 将 IoT 即插即用示例 Java 组件设备代码连接到 IoT 中心 | Microsoft Docs
-description: 生成和运行使用了多个组件且连接到 IoT 中心的 IoT 即插即用示例 Java 设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
+title: 教程 - 将 IoT 即插即用示例 Java 组件设备代码连接到 Azure IoT 中心 | Microsoft Docs
+description: 教程 - 生成和运行使用了多个组件且连接到 IoT 中心的 IoT 即插即用示例 Java 设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: fce6477313cb7fb917c0fb81d03a73eec4714915
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 92732eee94a17aa59257ce2894775b2f881632d4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046394"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421408"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-java"></a>教程：将示例 IoT 即插即用多组件设备应用程序连接到 IoT 中心 (Java)
 

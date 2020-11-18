@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a62133737d48a8ebf454b5fab83ef52ef2daad09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9dba9222816ef2cc7891ff7f803e6a7409802a4
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098427"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593444"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>教程：使用必应图像搜索 API 创建单页应用
 
@@ -122,7 +122,7 @@ bingSearchOptions(this), getSubscriptionKey())">
 
 ![[必应图像搜索表单]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-必应图像搜索 API 提供若干个[筛选器查询参数](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters)来缩小范围和筛选搜索结果。 此应用程序中的 HTML 表单使用并显示以下参数选项：
+必应图像搜索 API 提供若干个[筛选器查询参数](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters)来缩小范围和筛选搜索结果。 此应用程序中的 HTML 表单使用并显示以下参数选项：
 
 | 选项 | 说明 |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

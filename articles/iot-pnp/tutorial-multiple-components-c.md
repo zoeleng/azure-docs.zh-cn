@@ -1,18 +1,18 @@
 ---
-title: 将 IoT 即插即用示例 C 设备代码连接到 IoT 中心 | Microsoft Docs
-description: 生成和运行使用了多个组件且连接到 IoT 中心的 IoT 即插即用示例 C 设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
+title: 教程 - 将 IoT 即插即用示例 C 设备代码连接到 Azure IoT 中心 | Microsoft Docs
+description: 教程 - 生成和运行使用了多个组件且连接到 IoT 中心的 IoT 即插即用示例 C 设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e1a2a45d0f5743874ce0c0b20190d7d396094e43
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0bf0e45f6e9b088567dd48d3eb12ae979ba679e4
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046377"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421475"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>教程：将 Linux 或 Windows 上运行的 IoT 即插即用多组件设备应用程序连接到 IoT 中心 (C)
 

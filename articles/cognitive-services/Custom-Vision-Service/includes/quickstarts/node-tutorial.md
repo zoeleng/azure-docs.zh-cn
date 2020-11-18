@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d876a8960bd18e990a5c964c699089b3973b4cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3942d4e7316c9617e1d2f61820cfa91b42d4b883
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755899"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625205"
 ---
 本指南提供说明和示例代码，以帮助你开始使用适用于 Node.js 的自定义视觉客户端库来构建图像分类模型。 你将创建一个项目，添加标记，训练该项目，并使用该项目的预测终结点 URL 以编程方式对其进行测试。 使用此示例作为模板来构建你自己的图像识别应用。
 
@@ -25,7 +25,7 @@ ms.locfileid: "92755899"
 * 发布当前迭代
 * 测试预测终结点
 
-参考文档[（训练）](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [（预测）](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | 库源代码[（训练）](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [（预测）](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction)| 包 (npm) [（训练）](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [（预测）](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [示例](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+参考文档[（训练）](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [（预测）](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | 库源代码[（训练）](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [（预测）](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction)| 包 (npm) [（训练）](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [（预测）](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [示例](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -77,7 +77,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 > [!IMPORTANT]
 > 转到 Azure 门户。 如果在“先决条件”部分中创建的 [产品名称] 资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
 >
-> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](../../../cognitive-services-security.md)文章。
 
 此外，为项目名称添加字段，并为异步调用添加超时参数。
 
@@ -88,9 +88,9 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 |名称|说明|
 |---|---|
-|[TrainingAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | 此类处理模型的创建、训练和发布。 |
-|[PredictionAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| 此类处理用于图像分类预测的模型查询。|
-|[预测](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction?view=azure-node-latest)| 此接口定义对单一图像的单一预测。 它包括对象 ID 和名称的属性，以及可信度分数。|
+|[TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | 此类处理模型的创建、训练和发布。 |
+|[PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| 此类处理用于图像分类预测的模型查询。|
+|[预测](/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction?view=azure-node-latest)| 此接口定义对单一图像的单一预测。 它包括对象 ID 和名称的属性，以及可信度分数。|
 
 ## <a name="code-examples"></a>代码示例
 
@@ -106,7 +106,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 ## <a name="authenticate-the-client"></a>验证客户端
 
-使用终结点和密钥实例化客户端对象。 使用你的密钥创建 ApiKeyCredentials 对象，并将其用于终结点，以创建 [TrainingAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) 和 [PredictionAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest) 对象。
+使用终结点和密钥实例化客户端对象。 使用你的密钥创建 ApiKeyCredentials 对象，并将其用于终结点，以创建 [TrainingAPIClient](/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) 和 [PredictionAPIClient](/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest) 对象。
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_auth)]
 
@@ -198,5 +198,5 @@ Results:
 
 * 什么是自定义视觉？
 * 可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js) 上找到此示例的源代码
-* [SDK 参考文档（训练）](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
-* [SDK 参考文档（预测）](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)
+* [SDK 参考文档（训练）](/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [SDK 参考文档（预测）](/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675549"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080781"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>教程：Azure Active Directory 与 Salesforce Sandbox 的单一登录 (SSO) 集成
 
@@ -149,35 +149,35 @@ ms.locfileid: "92675549"
 
 2. 单击页面右上角设置图标  下的“安装”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![屏幕截图显示在右上角选中了“设置”图标，从下拉列表中选中了“安装”。](./media/salesforce-sandbox-tutorial/configure1.png)
 
 3. 向下滚动到左侧导航窗格中的“设置”  ，单击“标识”  ，以展开相关部分。 然后单击“单一登录设置”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![屏幕截图显示左侧窗格中的“设置”菜单，其中从“标识”菜单中选中了“单一登录设置”。](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 4. 在“单一登录设置”  页上，单击“编辑”  按钮。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“编辑”按钮。](./media/salesforce-sandbox-tutorial/configure3.png)
 
 5. 选择“已启用 SAML”  ，并单击“保存”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“已启用 SAML”复选框，并选中了“保存”按钮。](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. 若要配置 SAML 单一登录设置，请单击“从元数据文件新建”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“从元数据文件新建”按钮。](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 7. 单击“选择文件”  以上传从 Azure 门户下载的元数据 XML 文件，然后单击“创建”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“选择文件”和“创建”按钮。](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. 在“SAML 单一登录设置”  页上，字段将自动填充，请单击“保存”。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![屏幕截图显示“单一登录设置”页，其中已填充字段并选中了“保存”按钮。](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. 在“单一登录设置”页上，单击“下载元数据”按钮以下载服务提供商元数据文件   。 在 Azure 门户的“基本 SAML 配置”部分中使用此文件，以便如上所述配置必要的 URL  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“下载元数据”按钮。](./media/salesforce-sandbox-tutorial/configure4.png)
 
 10. 如果要在 **SP** 发起的模式下配置应用程序，请满足以下先决条件：
 
@@ -202,31 +202,31 @@ ms.locfileid: "92675549"
 
 13. 单击页面右上角设置图标  下的“安装”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![屏幕截图显示了右上角处于选中状态的“设置”图标，并从下拉菜单中选中了“安装”。](./media/salesforce-sandbox-tutorial/configure1.png)
 
 14. 向下滚动到左侧导航窗格中的“设置”  ，单击“标识”  ，以展开相关部分。 然后单击“单一登录设置”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![屏幕截图显示左侧导航窗格中的“设置”菜单，其中从“标识”菜单中选中了“单一登录设置”。](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 15. 在“单一登录设置”  页上，单击“编辑”  按钮。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“编辑”按钮。](./media/salesforce-sandbox-tutorial/configure3.png)
 
 16. 选择“已启用 SAML”  ，并单击“保存”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“已启用 SAML”框，并选中了“保存”按钮。](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. 若要配置 SAML 单一登录设置，请单击“从元数据文件新建”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“从元数据文件新建”按钮。](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 18. 单击“选择文件”以上传元数据 XML 文件，然后单击“创建”   。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![屏幕截图显示“单一登录设置”页，其中选中了“选择文件”按钮和“创建”按钮。](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-19. 在“SAML 单一登录设置”页面上，各字段会自动填充数据，在“名称”文本框中键入配置的名称（例如： *SPSSOWAAD_Test* ）并单击“保存”  。
+19. 在“SAML 单一登录设置”页面上，各字段会自动填充数据，在“名称”文本框中键入配置的名称（例如：*SPSSOWAAD_Test*）并单击“保存”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![屏幕截图显示“单一登录设置”页，其中字段已填充，“名称”文本框中有一个示例名称并选中了“保存”按钮。](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. 若要在 Salesforce 沙盒中启用域，请执行以下步骤：
 
@@ -235,11 +235,11 @@ ms.locfileid: "92675549"
 
 21. 在 Salesforce 沙盒的左侧导航窗格中，单击“公司设置”  展开相关部分，然后单击“我的域”  。
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![屏幕截图显示从左侧导航窗格中选中了“公司设置”和“我的域”。](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. 在“身份验证配置”部分，单击“编辑”。  
 
-    ![配置单一登录](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![屏幕截图显示“身份验证配置”部分，其中选中了“编辑”按钮。](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. 在“身份验证配置”部分，对于“身份验证服务”，请选择在 Salesforce 沙盒中配置 SSO 期间设置的 SAML 单一登录设置的名称，然后单击“保存”。   
 

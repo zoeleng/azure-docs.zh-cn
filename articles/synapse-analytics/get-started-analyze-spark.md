@@ -1,5 +1,5 @@
 ---
-title: 教程：开始使用 Spark 进行分析
+title: 快速入门：开始使用 Spark 进行分析
 description: 在本教程中，你将了解如何使用 Apache Spark 分析数据
 services: synapse-analytics
 author: saveenr
@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ec6af7c23f781d25114794066a228adbfe7528d0
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 89bc2723a0d7c99160c651fb433db6f8892ee676
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093610"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321088"
 ---
 # <a name="analyze-with-apache-spark"></a>使用 Apache Spark 进行分析
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-spark"></a>使用 Spark 分析 Blob 存储中的纽约市出租车数据
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>使用 Spark 分析 Blob 存储中的纽约市出租车数据
 
 本教程介绍使用 Apache Spark for Azure Synapse 加载和分析数据的基本步骤。
 
@@ -32,8 +32,8 @@ ms.locfileid: "92093610"
     data_df = data.to_spark_dataframe()
     display(data_df.limit(10))
     ```
-1. 在笔记本中，在“附加到”菜单中选择 spark 池
-1. 单击单元上的“运行”
+1. 在笔记本中，在“附加到”菜单中选择无服务器 Spark 池
+1. 选择单元上的“运行”
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>将纽约市出租车数据加载到 Spark nyctaxi 数据库
 
@@ -53,8 +53,8 @@ SQLDB1 的表中有可用数据。 将其加载到名为 nyctaxi 的 Spark 数�
 
 1. 转到“数据”中心，右键单击“数据库”，然后选择“刷新”  。 应看到以下数据库：
 
-    - SQLDB1（SQL 池）
-    - nyctaxi (Spark)
+    - SQLDB1（专用 SQL 池）
+    - nyctaxi（无服务器 Apache Spark 池）
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>使用 Spark 和笔记本分析纽约市出租车数据
 
@@ -67,7 +67,7 @@ SQLDB1 的表中有可用数据。 将其加载到名为 nyctaxi 的 Spark 数�
    display(df)
    ```
 
-1. 运行以下代码，执行之前在 SQL 池 SQLDB1 中所做的相同分析。 此代码将分析结果另存到名为 nyctaxi.passengercountstats 的表，然后可视化结果。
+1. 运行以下代码，执行之前在专用 SQL 池 SQLDB1 中所做的相同分析。 此代码将分析结果另存到名为 nyctaxi.passengercountstats 的表，然后可视化结果。
 
    ```py
    %%pyspark
@@ -105,11 +105,11 @@ matplotlib.pyplot.show()
 
 
 
-## <a name="load-data-from-a-spark-table-into-a-sql-pool-table"></a>将 Spark 表中的数据加载到 SQL 池表
+## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>将 Spark 表中的数据加载到专用 SQL 池表
 
-之前我们将数据从 SQL 池表 SQLDB1.dbo.Trip 复制到 Spark 表 nyctaxi.trip 中 。 然后，我们使用 Spark 将数据聚合到了 Spark 表 nyctaxi.passengercountstats。 现在，我们将数据从 nyctaxi.passengercountstats 复制到名为 SQLDB1.dbo.PassengerCountStats 的 SQL 池表中 。
+之前我们将数据从专用 SQL 池表 SQLDB1.dbo.Trip 复制到了 Spark 表 nyctaxi.trip 中 。 然后，我们使用 Spark 将数据聚合到了 Spark 表 nyctaxi.passengercountstats。 现在，我们会将数据从 nyctaxi.passengercountstats 复制到名为 SQLDB1.dbo.PassengerCountStats 的专用 SQL 池表中 。
 
-在笔记本中运行以下单元。 它将聚合的 Spark 表复制回 SQL 池表。
+在笔记本中运行以下单元。 此操作会将聚合的 Spark 表复制回专用 SQL 池表。
 
 ```scala
 %%spark
@@ -120,6 +120,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [使用按需 SQL 分析数据](get-started-analyze-sql-on-demand.md)
+> [使用无服务器 SQL 池分析数据](get-started-analyze-sql-on-demand.md)
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
-ms.openlocfilehash: e90bdcfe22828d85ebeeb74314617fc6eac81385
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: dafa2f231581ee7e7fa7a59a9c9320f6f2a67038
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094604"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357678"
 ---
 # <a name="quickstart-deploy-and-onboard-a-sensor"></a>快速入门：部署和加入传感器
 
@@ -42,7 +42,7 @@ ms.locfileid: "92094604"
 | 定义传感器管理模式 | 定义传感器检测到的资产、警报和其他信息的显示位置。 这取决于你定义的传感器管理模式。<br /><br />本地托管模式：传感器检测到的信息显示在传感器控制台中。 如果传感器连接到本地管理控制台，则还会与本地管理控制台共享检测信息。<br /><br />云托管模式：传感器检测到的信息显示在传感器控制台中。 此外，警报信息通过 IoT 中心传送，并且可与其他 Azure 服务（例如 Azure Sentinel）共享。<br />有关详细信息，请参阅“加入传感器”。 |
 | 获取传感器激活文件 | 对于本地托管的传感器，激活文件用于管理经授权的传感器激活时间段。<br /><br />对于云托管的传感器，激活文件用作传感器与 IoT 中心之间的连接。 有关详细信息，请参阅“加入传感器”。 |
 | 将激活文件上传到传感器 | 激活文件必须上传到企业传感器。 在上传激活文件之前，网络监视和对传感器控制台功能的访问将不可用。 有关更多详细信息，请参阅“上传传感器激活文件”。 |
-| 激活前更新传感器网络参数 | 更新在传感器安装过程中定义的参数。 有关详细信息，请参阅“错误!未找到引用源。”|
+| 激活前更新传感器网络参数 | 更新在传感器安装过程中定义的参数。 有关更多详细信息，请参阅“上传传感器激活文件”。|
 
 
 若要部署传感器：
@@ -57,7 +57,7 @@ ms.locfileid: "92094604"
 
 4. 选择用于获取传感器的选项。
 
-   ![Azure Defender for IoT“网络扇区”视图](media/updates/image6.png)
+   ![Azure Defender for IoT 网络传感器视图](media/updates/image6.png)
 
   - 购买预配置的传感器：Microsoft 与 Arrow 合作，以提供预配置的传感器。 若要购买预配置的传感器，请通过以下方式与 Arrow 联系：<hardware.sales@arrow.com>。 传感器将交付到你的设施。 已安装最新版本。
 

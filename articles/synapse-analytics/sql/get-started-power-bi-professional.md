@@ -1,6 +1,6 @@
 ---
 title: 通过 Power BI Professional 连接到 Synapse SQL
-description: 在本教程中，我们将完成将 Power BI Desktop 连接到 SQL 按需版本（预览版）的步骤。
+description: 在本教程中，我们将完成将 Power BI Desktop 连接到无服务器 SQL 池（预览版）的步骤。
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 97b611c449302c95d4b24c305ce50ee7683e85ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899123"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316462"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>通过 Power BI Professional 连接到 Synapse SQL
+# <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>通过 Power BI Professional 连接到无服务器 SQL 池
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "92899123"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-在本教程中，我们需完成将 Power BI Desktop 连接到 SQL 按需版本（预览版）的步骤。
+在本教程中，我们将完成将 Power BI Desktop 连接到无服务器 SQL 池（预览版）的步骤。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,17 +43,17 @@ ms.locfileid: "92899123"
 
 | 参数                                 | 说明                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL 按需版本服务终结点地址    | 将用作服务器名称                                   |
-| SQL 按需版本服务终结点区域     | 将用来确定我们在示例中将使用什么存储 |
+| 无服务器 SQL 池服务终结点地址    | 将用作服务器名称                                   |
+| 无服务器 SQL 池服务终结点区域     | 将用来确定我们在示例中将使用什么存储 |
 | 用来访问终结点的用户名和密码 | 将用来访问终结点                               |
-| 用于创建视图的数据库     | 在示例中，我们将从此数据库着手       |
+| 用于创建视图的数据库       | 在示例中，我们将从此数据库着手       |
 
 ## <a name="first-time-setup"></a>首次设置
 
 在使用示例之前，需要执行两个步骤：
 
 1. 为视图创建数据库
-2. 创建供 SQL 按需版本用来访问存储中的文件的凭据
+2. 创建供无服务器 SQL 池用来访问存储中的文件的凭据
 
 ### <a name="create-database"></a>创建数据库
 
@@ -70,12 +70,12 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>创建凭据
 
-需要先创建凭据，然后才能运行查询。 SQL 按需版本服务将使用此凭据访问存储中的文件。
+需要先创建凭据，然后才能运行查询。 无服务器 SQL 池服务将使用此凭据访问存储中的文件。
 
 > [!NOTE]
-> 你需要创建用于访问存储帐户的凭据。 尽管 SQL 按需版本可以访问不同区域中的存储，但将存储和 Azure Synapse 工作区置于同一区域中可提供性能更好的体验。
+> 你需要创建用于访问存储帐户的凭据。 尽管无服务器 SQL 池可以访问不同区域中的存储，但将存储和 Azure Synapse 工作区置于同一区域中可提供性能更好的体验。
 
-**有关如何为人口普查数据容器创建凭据的代码片段** ，请运行：
+**有关如何为人口普查数据容器创建凭据的代码片段**，请运行：
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -108,5 +108,4 @@ GO
 
 ## <a name="next-steps"></a>后续步骤
 
-转到[查询存储文件](get-started-azure-data-studio.md)，了解如何使用 Azure Data Studio 连接到 SQL 按需版本。
- 
+转到[查询存储文件](get-started-azure-data-studio.md)，了解如何使用 Azure Data Studio 连接到无服务器 SQL 池。

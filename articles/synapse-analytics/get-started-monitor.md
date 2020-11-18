@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: d497ff1a829902c0623740f01a457e6496db2401
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744956"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427405"
 ---
 # <a name="monitor-your-synapse-workspace"></a>监视 Synapse 工作区
 
-在本教程中，你将了解如何监视 Synapse 工作区中的活动。 你可以监视 SQL、Apache Spark 和 Pipelines 的当前和历史 活动。 
+在本教程中，你将了解如何监视 Synapse 工作区中的活动。 你可以监视 SQL、Apache Spark 和 Pipelines 的当前和历史活动。 
 
 ## <a name="introduction-to-the-monitor-hub"></a>监视中心简介
 
@@ -31,8 +31,7 @@ ms.locfileid: "92744956"
 ## <a name="integration"></a>集成
 
 1. 导航到“集成”>“管道”。 在此视图中，你可以查看每次管道在工作区中运行时的状况。 
-1. 找到在先前步骤中运行的管道，然后单击其管道名称。
-1. 现在，你可以查看该管道中各个活动的运行方式。
+1. 找到在先前步骤中运行的管道，然后单击其管道名称以查看详细信息。
 1. 单击 Synapse Studio 顶部附近的“痕迹导航栏”，再单击“所有管道运行”以返回到先前视图 。
 
 ## <a name="apache-spark-activities"></a>Apache Spark 活动

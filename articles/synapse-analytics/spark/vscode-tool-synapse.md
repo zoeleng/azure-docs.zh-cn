@@ -1,6 +1,6 @@
 ---
 title: 教程 - 适用于 VSCode 的 Spark & Hive Tools（Spark 应用程序）
-description: 教程 - 使用适用于 VSCode 的 Spark & Hive Tools 开发以 Python 编写的 Spark 应用程序，并将其提交到 Apache Spark 池（预览版）。
+description: 教程 - 使用适用于 VSCode 的 Spark & Hive Tools 开发以 Python 编写的 Spark 应用程序，并将其提交到无服务器 Apache Spark 池（预览版）。
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 6778d78ff5e342d97c1c9bc477c1a88eca42a10a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337641"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315667"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>教程：使用 Synapse 工作区通过 VSCode 创建 Apache Spark 应用程序
 
@@ -26,7 +26,7 @@ ms.locfileid: "91337641"
 
 完成本文中的步骤需要以下各项：
 
-- Apache Spark 池。 若要创建 Apache Spark 池，请参阅[使用 Azure 门户创建 Apache Spark 池](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)。
+- 无服务器 Apache Spark 池。 若要创建无服务器 Apache Spark 池，请参阅[使用 Azure 门户创建 Apache Spark 池](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)。
 - [Visual Studio Code](https://code.visualstudio.com/)。
 - [Mono](https://www.mono-project.com/docs/getting-started/install/)。 只有 Linux 和 macOS 需要 Mono。
 - [Visual Studio Code 的 PySpark 交互式环境](../../hdinsight/set-up-pyspark-interactive-environment.md)。
@@ -58,7 +58,7 @@ ms.locfileid: "91337641"
 
      ![visual studio code“新建文件”图标](./media/vscode-tool-synapse/visual-studio-code-new-file.png)
 
-3. 使用 `.py`（Spark 脚本）文件扩展名命名新文件。 此示例使用 HelloWorld.py****。
+3. 使用 `.py`（Spark 脚本）文件扩展名命名新文件。 此示例使用 HelloWorld.py。
 
 ## <a name="connect-to-your-spark-pools"></a>连接到 Spark 池
 
@@ -97,7 +97,7 @@ ms.locfileid: "91337641"
 
 1. 重新打开[前面](#open-a-work-folder)讨论的 Synaseexample 文件夹（如果已关闭）。  
 
-2. 遵循[前面](#open-a-work-folder)所述的步骤创建新的 **HelloWorld.py** 文件。
+2. 遵循 [前面](#open-a-work-folder)所述的步骤创建新的 **HelloWorld.py** 文件。
 
 3. 将以下代码复制并粘贴到脚本文件中：
 
@@ -195,7 +195,7 @@ for (word, count) in sortedCollection:
 
 1. 重新打开[前面](#open-a-work-folder)讨论的 Synaseexample 文件夹（如果已关闭）。  
 
-2. 遵循[前面](#open-a-work-folder)所述的步骤创建新的 **BatchFile.py** 文件。
+2. 遵循 [前面](#open-a-work-folder)所述的步骤创建新的 **BatchFile.py** 文件。
 
 3. 将以下代码复制并粘贴到脚本文件中：
 

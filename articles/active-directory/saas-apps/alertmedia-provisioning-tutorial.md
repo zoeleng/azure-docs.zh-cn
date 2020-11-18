@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358960"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578597"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>教程：为 AlertMedia 配置自动用户预配
 
@@ -95,13 +95,13 @@ ms.locfileid: "94358960"
     ![“预配”选项卡“自动”](common/provisioning-automatic.png)
 
 5. 在“管理员凭据”部分下，按以下格式之一输入 AlertMedia 租户 URL。
-      * （无自定义域） https://dashboard.alertmedia.com/api/scim/v3
+      * （无自定义域）`https://dashboard.alertmedia.com/api/scim/v3`
 
-      * （自定义域） https://subdomain.alertmedia.com/api/scim/v3
+      * （自定义域）`https://subdomain.alertmedia.com/api/scim/v3`
 
       输入之前在步骤 2 中检索到的机密令牌。 单击“测试连接”，以确保 Azure AD 可以连接到 AlertMedia。 如果连接失败，请确保 AlertMedia 帐户具有管理员权限，然后重试。
 
-      ![标记](common/provisioning-testconnection-tenanturltoken.png)
+      ![令牌](common/provisioning-testconnection-tenanturltoken.png)
 
 6. 在“通知电子邮件”字段中，输入应接收预配错误通知的个人或组的电子邮件地址，并选中“发生故障时发送电子邮件通知”复选框 。
 

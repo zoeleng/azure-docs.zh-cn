@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745999"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518288"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>教程：使用 Azure 模板自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。 本教程介绍如何执行下列操作：
@@ -25,15 +25,15 @@ ms.locfileid: "92745999"
 > * 对 VM 实例进行压力测试并触发自动缩放规则
 > * 在需求下降时自动横向缩减
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。 
+- 本文需要 Azure CLI 2.0.29 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。 
 
 
 ## <a name="define-an-autoscale-profile"></a>定义自动缩放配置文件
-请使用 *Microsoft.insights/autoscalesettings* 资源提供程序在 Azure 模板中定义一个自动缩放配置文件。 配置文件提供规模集容量以及任何关联规则的详细信息。 下面的示例定义一个名为 *Autoscale by percentage based on CPU usage* 的配置文件，并设置 *2* 个 VM 实例的默认值、最小值、容量和最大值 ( *10* )：
+请使用 *Microsoft.insights/autoscalesettings* 资源提供程序在 Azure 模板中定义一个自动缩放配置文件。 配置文件提供规模集容量以及任何关联规则的详细信息。 下面的示例定义一个名为 *Autoscale by percentage based on CPU usage* 的配置文件，并设置 *2* 个 VM 实例的默认值、最小值、容量和最大值 (*10*)：
 
 ```json
 {
@@ -64,7 +64,7 @@ ms.locfileid: "92745999"
 
 此规则使用以下参数：
 
-| 参数         | 说明                                                                                                         | Value           |
+| 参数         | 说明                                                                                                         | 值           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | 监视和应用规模集操作的性能指标。                                                   | CPU 百分比  |
 | *timeGrain*       | 为进行而收集指标分析的频率。                                                                   | 1 分钟        |
@@ -73,8 +73,8 @@ ms.locfileid: "92745999"
 | *operator*        | 用于比较指标数据和阈值的运算符。                                                     | 大于    |
 | *threshold*       | 使自动缩放规则触发操作的值。                                                      | 70%             |
 | *direction*       | 定义在应用规则的情况下，规模集应横向缩减还是扩展。                                              | 增加        |
-| *type*            | 表明 VM 实例数应该根据特定值进行更改。                                    | 更改计数    |
-| value           | 应用规则时应减少或增加多少 VM 实例。                                             | 3               |
+| type            | 表明 VM 实例数应该根据特定值进行更改。                                    | 更改计数    |
+| *value*           | 应用规则时应减少或增加多少 VM 实例。                                             | 3               |
 | *cooldown*        | 为使自动缩放操作有时间生效，再次应用规则前需要等待的时间。 | 5 分钟       |
 
 以下规则将添加到上一部分中的 *Microsoft.insights/autoscalesettings* 资源提供程序的概要文件节：
@@ -143,7 +143,7 @@ ms.locfileid: "92745999"
 az group create --name myResourceGroup --location eastus
 ```
 
-现在，使用 [az group deployment create](/cli/azure/group/deployment) 创建虚拟机规模集。 出现提示时，请提供自己的、用作每个 VM 实例的凭据的用户名和密码，例如 *azureuser* ：
+现在，使用 [az group deployment create](/cli/azure/group/deployment) 创建虚拟机规模集。 出现提示时，请提供自己的、用作每个 VM 实例的凭据的用户名和密码，例如 *azureuser*：
 
 ```azurecli-interactive
 az group deployment create \
@@ -196,7 +196,7 @@ sudo stress --cpu 10 --timeout 420 &
 top
 ```
 
-退出 **top** ，然后关闭与 VM 实例的连接。 **stress** 继续在 VM 实例上运行。
+退出 **top**，然后关闭与 VM 实例的连接。 **stress** 继续在 VM 实例上运行。
 
 ```console
 Ctrl-c
@@ -209,7 +209,7 @@ exit
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
-安装并运行 **stress** ，然后在这第二个 VM 实例上启动十个辅助角色。
+安装并运行 **stress**，然后在这第二个 VM 实例上启动十个辅助角色。
 
 ```console
 sudo apt-get -y install stress
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>监视活动的自动缩放规则
-若要监视规模集中的 VM 实例数，请使用 **watch** 。 自动缩放规则需要 5 分钟的时间才能开始横向扩展过程，以便响应由每个 VM 实例上的 **stress** 生成的 CPU 负载：
+若要监视规模集中的 VM 实例数，请使用 **watch**。 自动缩放规则需要 5 分钟的时间才能开始横向扩展过程，以便响应由每个 VM 实例上的 **stress** 生成的 CPU 负载：
 
 ```azurecli-interactive
 watch az vmss list-instances \
@@ -254,7 +254,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-使用 `Ctrl-c` 退出 *watch* 。 规模集继续每 5 分钟横向缩减一次，每次删除一个 VM 实例，直至达到最小实例计数 2。
+使用 `Ctrl-c` 退出 *watch*。 规模集继续每 5 分钟横向缩减一次，每次删除一个 VM 实例，直至达到最小实例计数 2。
 
 
 ## <a name="clean-up-resources"></a>清理资源

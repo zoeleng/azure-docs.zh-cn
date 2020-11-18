@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738154"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307181"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>教程：在 Synapse Studio 中创建 Apache Spark 作业定义
 
-本教程演示如何使用 Azure Synapse Studio 创建 Apache Spark 作业定义，然后将其提交到 Apache Spark 池。
+本教程演示如何使用 Azure Synapse Studio 创建 Apache Spark 作业定义，然后将其提交到无服务器 Apache Spark 池。
 
 本教程涵盖以下任务：
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ ms.locfileid: "92738154"
 在开始学习本教程之前，请确保满足以下要求：
 
 * 一个 Azure Synapse Analytics 工作区。 有关说明，请参阅[创建 Azure Synapse Analytics 工作区](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace)。
-* Apache Spark 池。
+* 无服务器 Apache Spark 池。
 * ADLS Gen2 存储帐户。 你需要是要使用的 ADLS Gen2 文件系统的存储 Blob 数据所有者。 如果还不是该所有者，则需要手动添加权限。
 * 如果不想使用工作区默认存储，请在 Synapse Studio 中链接所需的 ADLS Gen2 存储帐户。 
 

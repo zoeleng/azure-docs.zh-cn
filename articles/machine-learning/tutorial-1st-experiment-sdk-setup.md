@@ -1,7 +1,7 @@
 ---
 title: 教程：从 Jupyter Notebook (Python) 着手
 titleSuffix: Azure Machine Learning
-description: 针对 Jupyter Notebook 教程进行设置。 创建 Azure 机器学习工作区，将 Jupyter Notebook 克隆到工作区中，并创建在其中运行笔记本的计算实例。
+description: 针对 Jupyter Notebook 教程进行设置。 创建工作区，将笔记本克隆到工作区中，并创建在其中运行笔记本的计算实例。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913290"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532964"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>教程：在 Jupyter Notebook 中开始使用 Azure 机器学习
 

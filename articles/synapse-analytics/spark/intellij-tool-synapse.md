@@ -1,6 +1,6 @@
 ---
 title: 教程 - Azure Toolkit for IntelliJ（Spark 应用程序）
-description: 教程 - 使用 Azure Toolkit for IntelliJ 开发以 Scala 编写的 Spark 应用程序，并将其提交到 Apache Spark 池（预览版）。
+description: 教程 - 使用 Azure Toolkit for IntelliJ 开发以 Scala 编写的 Spark 应用程序，并将其提交到无服务器 Apache Spark 池（预览版）。
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368734"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325230"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>教程：使用 Synapse 工作区通过 IntelliJ 创建 Apache Spark 应用程序
 
-本教程演示如何使用 Azure Toolkit for IntelliJ 插件开发以 [Scala](https://www.scala-lang.org/) 编写的 Apache Spark 应用程序，并将其直接从 IntelliJ 集成开发环境 (IDE) 提交到 Spark 池（预览版）。 可按多种方式使用该插件：
+本教程演示如何使用 Azure Toolkit for IntelliJ 插件开发以 [Scala](https://www.scala-lang.org/) 编写的 Apache Spark 应用程序，并将其直接从 IntelliJ 集成开发环境 (IDE) 提交到无服务器 Apache Spark 池（预览版）。 可按多种方式使用该插件：
 
 - 在 Spark 池中开发并提交 Scala Spark 应用程序。
 - 访问 Spark 池资源。
@@ -49,12 +49,12 @@ ms.locfileid: "92368734"
 3. 在主窗口中选择“Spark 项目和示例(Scala)”。
 4. 在“生成工具”下拉列表中选择以下类型之一：
 
-   - **Maven** ：支持 Scala 项目创建向导。
-   - **SBT** ：用于管理依赖项和生成 Scala 项目。
+   - **Maven**：支持 Scala 项目创建向导。
+   - **SBT**：用于管理依赖项和生成 Scala 项目。
 
     ![IntelliJ IDEA“新建项目”对话框](./media/intellij-tool-synapse/create-synapse-application01.png)
 
-5. 选择“ **下一页** ”。
+5. 选择“**下一页**”。
 6. 在“新建项目”窗口中提供以下信息：
 
     | properties | 说明 |

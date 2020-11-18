@@ -4,12 +4,12 @@ description: 了解如何使用 Azure Migrate 服务器评估发现本地物理�
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 83ff63392c6cbcaa6a2ea011eb60199f61844bb1
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314081"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148331"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>教程：使用“服务器评估”功能发现物理服务器
 
@@ -75,11 +75,15 @@ ms.locfileid: "92314081"
 
 设置一个可供设备用于访问物理服务器的帐户。
 
-- 对于 Windows 服务器，在要包括在发现中的所有 Windows 服务器上设置一个本地用户帐户。 将该用户帐户添加到以下组：- 远程管理用户 - 性能监视器用户 - 性能日志用户。
-- 对于 Linux 服务器，需要在要发现的 Linux 服务器上拥有根帐户。 或者，按如下所示设置访问权限：
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk
-    - setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk（如果不存在 /usr/sbin/fdisk）<br/> - setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode chmod a+r /sys/class/dmi/id/product_uuid
+- 对于 Windows 服务器，针对已加入域的计算机使用域帐户，针对未加入域的计算机使用本地帐户。 应将用户帐户添加到这些组：远程管理用户、性能监视器用户和性能日志用户。
+- 对于 Linux 服务器，需要在要发现的 Linux 服务器上拥有根帐户。 或者，可使用以下命令设置具有所需功能的非根帐户：
+
+**命令** | **用途**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | 收集磁盘配置
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | 收集磁盘性能数据
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | 收集 BIOS 序列号
+chmod a+r /sys/class/dmi/id/product_uuid | 收集 BIOS GUID
 
 
 ## <a name="set-up-a-project"></a>设置项目
@@ -137,13 +141,13 @@ ms.locfileid: "92314081"
 3.  验证最新的设备版本和哈希值：
     - 对于公有云：
 
-        **方案** | **下载*** | **哈希值**
+        **方案** | **下载** _ | _ *哈希值**
         --- | --- | ---
         物理 (85.8 MB) | [最新版本](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - 对于 Azure 政府：
 
-        **方案** | **下载*** | **哈希值**
+        **方案** | **下载** _ | _ *哈希值**
         --- | --- | ---
         物理 (85.8 MB) | [最新版本](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
@@ -216,7 +220,7 @@ ms.locfileid: "92314081"
 
 现在，从设备连接到要发现的物理服务器，并启动发现。
 
-1. 在**步骤 1：提供用于发现 Windows 和 Linux 物理服务器或虚拟服务器的凭据**中，单击“添加凭据”，为凭据指定一个易记名称，并为 Windows 或 Linux 服务器添加“用户名”和“密码”  。 单击“保存” 。
+1. 在 **步骤 1：提供用于发现 Windows 和 Linux 物理服务器或虚拟服务器的凭据** 中，单击“添加凭据”，为凭据指定一个易记名称，并为 Windows 或 Linux 服务器添加“用户名”和“密码”  。 单击“保存” 。
 1. 如果要一次添加多个凭据，请单击“添加更多”，以保存和添加更多凭据。 物理服务器发现支持多个凭据。
 1. 在“步骤 2：提供物理服务器或虚拟服务器详细信息”中，单击“添加发现源”，以指定服务器 IP地址/FQDN 以及为用于连接到服务器的凭据指定易记名称  。
 1. 可以一次“添加单个项目”，也可以一次“添加多个项目” 。 还有一个选项是通过“导入 CSV”提供服务器详细信息。
@@ -240,7 +244,7 @@ ms.locfileid: "92314081"
 发现完成后，可以验证服务器是否出现在门户中。
 
 1. 打开 Azure Migrate 仪表板。
-2. 在“Azure Migrate - 服务器” > “Azure Migrate: 服务器评估”页中，单击显示了**已发现服务器**计数的图标。
+2. 在“Azure Migrate - 服务器” > “Azure Migrate: 服务器评估”页中，单击显示了 **已发现服务器** 计数的图标。
 ## <a name="next-steps"></a>后续步骤
 
 - [评估物理服务器](tutorial-assess-physical.md)以便迁移到 Azure VM。

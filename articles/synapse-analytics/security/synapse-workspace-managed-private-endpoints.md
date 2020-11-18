@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 930c1f94446eb145a093bf7a8706485d40eec210
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313780"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379651"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 托管专用终结点（预览版）
 
@@ -49,7 +49,7 @@ Azure Synapse 支持专用链接。 通过专用链接，你可以安全地从 A
 
 创建工作区时，Azure Synapse 会在该工作区中创建两个托管专用终结点，分别用于专用 SQL 池和无服务器 SQL 池。 
 
-这两个托管专用终结点会在 Azure Synapse Studio 中列出。 在 Studio 的左侧导航栏中选择“管理”，然后选择“托管虚拟网络”即可查看它们。
+这两个托管专用终结点会在 Synapse Studio 中列出。 在 Studio 的左侧导航栏中选择“管理”，然后选择“托管专用终结点”即可查看它们 。
 
 面向 SQL 池的托管专用终结点名为 synapse-ws-sql--\<workspacename\>，面向无服务器 SQL 池的托管专用终结点名为 ynapse-ws-sqlOnDemand--\<workspacename\> 。
 

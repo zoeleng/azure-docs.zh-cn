@@ -1,19 +1,19 @@
 ---
-title: 将 IoT 即插即用示例 Node.js 设备代码连接到 Azure IoT 中心 | Microsoft Docs
-description: 使用 Node.js 生成并运行可连接到 IoT 中心的 IoT 即插即用示例设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
+title: 快速入门 - 将 IoT 即插即用示例 Node.js 设备代码连接到 Azure IoT 中心 | Microsoft Docs
+description: 快速入门 - 使用 Node.js 生成并运行可连接到 IoT 中心的 IoT 即插即用示例设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2342577fdd7e42f4b21d1f47348c39e3ed4a46e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 24f6cc1e9656957d6894ecb6b7c3e0476b233cf6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747236"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421577"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-nodejs"></a>快速入门：将示例 IoT 即插即用设备应用程序连接到 IoT 中心 (Node.js)
 

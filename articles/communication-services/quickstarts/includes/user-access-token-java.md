@@ -2,20 +2,20 @@
 title: include 文件
 description: include 文件
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: a9c8d604e5564526936f37edcc9eec5891443a47
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.author: tchladek
+ms.openlocfilehash: de578ec286a8232ee8d4e259b2f37fb76101f7a5
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779400"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506207"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -28,7 +28,7 @@ ms.locfileid: "91779400"
 
 ### <a name="create-a-new-java-application"></a>创建新的 Java 应用程序
 
-打开终端或命令窗口，并导航到要在其中创建 Java 应用程序的目录。 运行以下命令以从 maven-archetype-quickstart 模板生成 Java 项目。
+打开终端或命令窗口。 导航到要在其中创建 Java 应用程序的目录。 运行以下命令以从 maven-archetype-quickstart 模板生成 Java 项目。
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -60,23 +60,23 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 使用以下代码以开始执行以下操作：
 
 ```java
-import com.azure.communication.common.CommunicationUser;
-import com.azure.communication.administration.models.CommunicationIdentityToken;
-import com.azure.communication.administration.CommunicationIdentityClient;
-import com.azure.communication.administration.CommunicationIdentityClientBuilder;
+import com.azure.communication.administration.*;
+import com.azure.communication.common.*;
 import java.io.*;
+import java.util.*;
+import java.time.*;
+
+import com.azure.core.http.*;
 
 public class App
 {
     public static void main( String[] args ) throws IOException
     {
-        System.out.println("Azure Communication Services - User Access Tokens Quickstart");
+        System.out.println("Azure Communication Services - Access Tokens Quickstart");
         // Quickstart code goes here
     }
 }
 ```
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
 
 ## <a name="authenticate-the-client"></a>验证客户端
 
@@ -85,65 +85,77 @@ public class App
 将以下代码添加到 `main` 方法中：
 
 ```java
-// Your can find your endpoint and access token from your resource in the Azure Portal
+// Your can find your endpoint and access key from your resource in the Azure Portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-String accessToken = "SECRET";
+String accessKey = "SECRET";
 
 // Create an HttpClient builder of your choice and customize it
 // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
+// -> Add "import com.azure.core.http.netty.*;"
+// -> Add azure-core-http-netty dependency to file pom.xml
+
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .endpoint(endpoint)
-    .credential(new CommunicationClientCredential(accessToken))
+    .credential(new CommunicationClientCredential(accessKey))
     .httpClient(httpClient)
     .buildClient();
 ```
 
 可以用任何实现 `com.azure.core.http.HttpClient` 接口的自定义 HTTP 客户端来初始化客户端。 上面的代码演示了如何使用 `azure-core` 提供的 [Azure Core Netty HTTP 客户端](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true)。
 
-## <a name="create-a-user"></a>创建用户
+## <a name="create-an-identity"></a>创建标识
 
-Azure 通信服务维护轻量级标识目录。 使用 `createUser` 方法可在目录中创建具有唯一 `Id` 的新项。 应维护应用程序的用户与通信服务生成的标识之间的映射（例如，通过将它们存储在应用程序服务器的数据库中）。
+Azure 通信服务维护轻量级标识目录。 使用 `createUser` 方法可在目录中创建具有唯一 `Id` 的新项。 存储收到的标识，并映射到应用程序的用户。 例如，将它们存储在应用程序服务器的数据库中。 稍后颁发访问令牌时需要该标识。
 
 ```java
-CommunicationUser user = communicationIdentityClient.createUser();
-System.out.println("\nCreated a user with ID: " + user.getId());
+CommunicationUser identity = communicationIdentityClient.createUser();
+System.out.println("\nCreated an identity with ID: " + identity.getId());
 ```
 
-## <a name="issue-user-access-tokens"></a>颁发用户访问令牌
+## <a name="issue-access-tokens"></a>颁发访问令牌
 
-使用 `issueToken` 方法为通信服务用户颁发访问令牌。 如果未提供可选的 `user` 参数，将创建一个新用户并将其与令牌一起返回。
+使用 `issueToken` 方法为已存在的通信服务标识颁发访问令牌。 参数 `scopes` 定义一组基元，用于授权此访问令牌。 请参阅[受支持的操作列表](../../concepts/authentication.md)。 参数 `user` 的新实例可以基于 Azure 通信服务标识的字符串表示形式构造。
 
 ```java
-// Issue an access token with the "voip" scope for a new user
+// Issue an access token with the "voip" scope for an identity
 List<String> scopes = new ArrayList<>(Arrays.asList("voip"));
-CommunicationUserToken response = communicationIdentityClient.issueToken(user, scopes);
+CommunicationUserToken response = communicationIdentityClient.issueToken(identity, scopes);
 OffsetDateTime expiresOn = response.getExpiresOn();
 String token = response.getToken();
-String userId = response.getUser().getId();
-System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + userId + ": " + token);
-System.out.println(token);
+String identityId = response.getUser().getId();
+System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + identityId + ": " + token);
 ```
 
-用户访问令牌是需要重新颁发的短期凭据，以防止用户遇到服务中断的情况。 `expiresAt` 响应属性指示令牌的生存期。
+访问令牌是短期凭据，需要重新颁发。 如果不重新颁发，可能会导致应用程序用户的体验中断。 `expiresAt` 响应属性指示访问令牌的生存期。
 
-## <a name="revoke-user-access-tokens"></a>调用用户访问令牌
+## <a name="refresh-access-tokens"></a>刷新访问令牌
 
-在某些情况下，你可能需要显式撤销用户访问令牌，例如，当用户更改用于向服务进行身份验证的密码时。 这将使用 `revokeTokens` 方法使用户的所有访问令牌无效。
+若要刷新访问令牌，请使用 `CommunicationUser` 对象重新颁发：
 
 ```java  
-communicationIdentityClient.revokeTokens(user, OffsetDateTime.now());
-System.out.println("\nRevoked tokens for the user with ID: " + user.getId());
+// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+CommunicationUser identity = new CommunicationUser(existingIdentity);
+response = communicationIdentityClient.issueToken(identity, scopes);
 ```
 
-## <a name="delete-a-user"></a>删除用户
+## <a name="revoke-access-tokens"></a>撤销访问令牌
 
-删除用户将撤销所有活动令牌，并阻止你为标识颁发后续令牌。 它还会删除与用户关联的所有保存的内容。
+在某些情况下可能会显式撤销访问令牌。 例如，当应用程序的用户更改在向服务进行身份验证时所使用的密码时。 `revokeTokens` 方法使颁发给标识的所有活动访问令牌无效。
+
+```java  
+communicationIdentityClient.revokeTokens(identity, OffsetDateTime.now());
+System.out.println("\nRevoked access tokens for the user with ID: " + identity.getId());
+```
+
+## <a name="delete-an-identity"></a>删除标识
+
+删除标识将撤销所有活动访问令牌，并阻止你为标识颁发访问令牌。 它还会删除与标识关联的所有保存的内容。
 
 ```java
-communicationIdentityClient.deleteUser(user);
-System.out.println("\nSuccessfully deleted the identity with ID: " + user.getId());
+communicationIdentityClient.deleteUser(identity);
+System.out.println("\nSuccessfully deleted the identity with ID: " + identity.getId());
 ```
 
 ## <a name="run-the-code"></a>运行代码

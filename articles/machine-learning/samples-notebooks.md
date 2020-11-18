@@ -1,7 +1,7 @@
 ---
 title: 示例 Jupyter Notebook
 titleSuffix: Azure Machine Learning
-description: 找到并使用示例 Jupyter Notebook，以便探索 Azure 机器学习 Python SDK。
+description: 了解如何查找并使用 Juypter 笔记本，这些 Juypter 笔记本旨在帮助你浏览 SDK，并充当你自己的机器学习项目的模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8b4256f33a143c711a23a3564c2a46c69e0783b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3f5cb2831a58ce9d0d30039b80815e281401e883
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675773"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542552"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>使用 Jupyter Notebook 探索 Azure 机器学习
 
@@ -47,7 +47,7 @@ ms.locfileid: "92675773"
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-这些说明会安装快速入门和教程笔记本所需的基础 SDK 包。 其他示例笔记本可能需要安装额外组件。 有关详细信息，请参阅[安装适用于 Python 的 Azure 机器学习 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install)。
+这些说明会安装快速入门和教程笔记本所需的基础 SDK 包。 其他示例笔记本可能需要安装额外组件。 有关详细信息，请参阅[安装适用于 Python 的 Azure 机器学习 SDK](/python/api/overview/azure/ml/install)。
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>获取 DSVM 上的示例

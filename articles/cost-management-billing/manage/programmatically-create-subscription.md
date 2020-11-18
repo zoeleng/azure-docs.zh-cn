@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: de93d96085269c2cc8fcf6c18d7e6643facfcaa4
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043274"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372704"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>通过最新的 API 以编程方式创建 Azure 订阅
 
@@ -798,7 +798,15 @@ az account alias create --name "sampleAlias" --billing-scope "/providers/Microso
 
 ### <a name="prerequisites"></a>先决条件
 
-必须在发票科目上具有所有者、参与者或 Azure 订阅创建者角色，或者在计费对象信息或计费帐户上具有所有者或参与者角色才能创建订阅。 有关详细信息，请参阅[订阅计费角色和任务](understand-mca-roles.md#subscription-billing-roles-and-tasks)。
+若要创建订阅，必须具有以下角色之一： 
+
+- 发票科目上的 Azure 订阅所有者
+- 发票科目上的 Azure 订阅参与者
+- 发票科目上的 Azure 订阅创建者角色
+- 计费对象信息或计费帐户上的 Azure 订阅所有者
+- 计费对象信息或计费帐户上的 Azure 订阅参与者角色
+
+ 有关详细信息，请参阅[订阅计费角色和任务](understand-mca-roles.md#subscription-billing-roles-and-tasks)。
 
 此外，由于你要执行 ARM 模板部署，因此需要具有对根对象的写入权限。 因此，如果要在管理组下创建 ARM 部署，则需要具有对管理组的写入权限。 请注意，该操作只是为了创建 ARM 部署，如果创建了一个订阅，则只会在 ARM 模板中指定的管理组中创建该订阅。
 

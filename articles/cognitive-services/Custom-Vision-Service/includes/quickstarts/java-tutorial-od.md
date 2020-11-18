@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 83ff3d53ec44d4bafc1e677f0c496e6beb3dd41f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f0dbe64d6a44d7712d83c018c4db72fac871a838
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548243"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625218"
 ---
 开始使用适用于 Java 的自定义视觉客户端库来构建对象检测模型。 请按照以下步骤安装程序包并试用基本任务的示例代码。 使用此示例作为模板来构建你自己的图像识别应用。
 
@@ -25,8 +25,8 @@ ms.locfileid: "92548243"
 * 发布当前迭代
 * 测试预测终结点
 
-[参考文档](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | 库源代码[（训练）](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training)[（预测）](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)| 项目 (Maven)[（训练）](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar)[（预测）](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar) | 
-[示例](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision)
+[参考文档](/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | 库源代码[（训练）](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training)[（预测）](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)| 项目 (Maven)[（训练）](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar)[（预测）](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar) | 
+[示例](/samples/browse/?products=azure&terms=custom%20vision)
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -48,17 +48,17 @@ ms.locfileid: "92548243"
 mkdir myapp && cd myapp
 ```
 
-从工作目录运行 `gradle init` 命令。 此命令将创建 Gradle 的基本生成文件，包括 *build.gradle.kts* ，在运行时将使用该文件创建并配置应用程序。
+从工作目录运行 `gradle init` 命令。 此命令将创建 Gradle 的基本生成文件，包括 *build.gradle.kts*，在运行时将使用该文件创建并配置应用程序。
 
 ```console
 gradle init --type basic
 ```
 
-当提示你选择一个 **DSL** 时，选择 **Kotlin** 。
+当提示你选择一个 **DSL** 时，选择 **Kotlin**。
 
 ### <a name="install-the-client-library"></a>安装客户端库
 
-找到 *build.gradle.kts* ，并使用喜好的 IDE 或文本编辑器将其打开。 然后在该文件中复制以下生成配置。 此配置将项目定义为一个 Java 应用程序，其入口点为 CustomVisionQuickstart 类。 它将导入自定义视觉库。
+找到 *build.gradle.kts*，并使用喜好的 IDE 或文本编辑器将其打开。 然后在该文件中复制以下生成配置。 此配置将项目定义为一个 Java 应用程序，其入口点为 CustomVisionQuickstart 类。 它将导入自定义视觉库。
 
 ```kotlin
 plugins {
@@ -102,7 +102,7 @@ mkdir -p src/main/java
 > [!IMPORTANT]
 > 转到 Azure 门户。 如果在“先决条件”部分中创建的 [产品名称] 资源已成功部署，请单击“后续步骤”下的“转到资源”按钮  。 在资源的“密钥和终结点”页的“资源管理”下可以找到密钥和终结点 。 
 >
-> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security)文章。
+> 完成后，请记住将密钥从代码中删除，并且永远不要公开发布该密钥。 对于生产环境，请考虑使用安全的方法来存储和访问凭据。 有关详细信息，请参阅认知服务[安全性](../../../cognitive-services-security.md)文章。
 
 在应用程序的 main 方法中，添加对本快速入门中使用的方法的调用。 稍后将对这些调用进行定义。
 
@@ -114,9 +114,9 @@ mkdir -p src/main/java
 
 |名称|说明|
 |---|---|
-|[CustomVisionTrainingClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | 此类处理模型的创建、训练和发布。 |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| 此类处理用于对象检测预测的模型查询。|
-|[ImagePrediction](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| 此类定义单一图像上的单一对象预测。 其中包括对象 ID 和名称的属性、对象的边界框位置以及可信度分数。|
+|[CustomVisionTrainingClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | 此类处理模型的创建、训练和发布。 |
+|[CustomVisionPredictionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| 此类处理用于对象检测预测的模型查询。|
+|[ImagePrediction](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| 此类定义单一图像上的单一对象预测。 其中包括对象 ID 和名称的属性、对象的边界框位置以及可信度分数。|
 
 ## <a name="code-examples"></a>代码示例
 
@@ -138,7 +138,7 @@ mkdir -p src/main/java
 
 ## <a name="create-a-new-custom-vision-project"></a>创建新的自定义视觉项目
 
-下一个方法将创建对象检测项目。 创建的项目将显示在以前访问过的[自定义视觉网站](https://customvision.ai/)上。 请查看 [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) 方法重载，以在创建项目时指定其他选项（在[生成检测器](../../get-started-build-detector.md) Web 门户指南中进行了说明）。
+下一个方法将创建对象检测项目。 创建的项目将显示在以前访问过的[自定义视觉网站](https://customvision.ai/)上。 请查看 [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) 方法重载，以在创建项目时指定其他选项（在[生成检测器](../../get-started-build-detector.md) Web 门户指南中进行了说明）。
 
 [!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create_od)]
 

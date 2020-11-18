@@ -1,14 +1,14 @@
 ---
 title: UK OFFICIAL 和 UK NHS 蓝图示例控件
 description: UK OFFICIAL 和 UK NHS 蓝图示例的控件映射。 每个控制措施都映射到一个或多个协助评估的 Azure Policy 定义。
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931266"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420251"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>UK OFFICIAL 和 UK NHS 蓝图示例的控件映射
 
@@ -26,7 +26,6 @@ ms.locfileid: "91931266"
 - 应该启用只能通过安全方式连接到 Redis 缓存
 - 应该启用安全传输到存储帐户
 - 显示未使用安全通信协议的 Windows Web 服务器中的审核结果
-- 部署先决条件，以便审核未使用安全通信协议的 Windows Web 服务器
 - 只能通过 HTTPS 访问 Web 应用程序
 - 应该只能通过 HTTPS 访问函数应用
 - 只能通过 HTTPS 访问 API 应用
@@ -57,17 +56,17 @@ ms.locfileid: "91931266"
 - 应对 SQL Server 启用漏洞评估
 - 应对 SQL 托管实例启用漏洞评估
 - 应该修复虚拟机规模集上安全配置中的漏洞
-- 应在 SQL 托管实例上启用高级数据安全性
+- 应对 SQL 托管实例启用高级数据安全性
 - 应在 SQL 服务器上启用高级数据安全性
 
 ## <a name="53-protective-monitoring"></a>5.3 保护性监视
 
 此蓝图通过分配针对无限制访问、允许列表活动和威胁提供保护性监视的 [Azure Policy](../../../policy/overview.md) 定义，帮助保护信息系统资产。
 
-- 审核对存储帐户的不受限的网络访问
-- 应在虚拟机上启用自适应应用程序控制
+- 存储帐户应限制网络访问
+- 应在计算机中启用自适应应用程序控制以定义安全应用程序
 - 审核没有配置灾难恢复的虚拟机
-- 应启用 DDoS 防护标准版
+- 应启用 Azure DDoS 防护标准
 - 应在 SQL 托管实例的“高级数据安全性”设置中将“高级威胁保护类型”设置为“所有”
 - 应在 SQL 服务器的“高级数据安全性”设置中将“高级威胁保护类型”设置为“所有”
 - 在 SQL 服务器上部署威胁检测
@@ -115,11 +114,6 @@ Azure 基于角色的访问控制 (Azure RBAC) 可帮助你管理谁有权访问
 
 此蓝图通过分配 Azure Policy 定义用于审核不强制实施最低强度和其他密码要求的 Windows VM，来帮助你强制实施强密码。 识别违反密码强度策略的 VM 有助于采取纠正措施，以确保所有 VM 用户帐户的密码符合策略。
 
-- 部署先决条件，以便审核未启用密码复杂性设置的 Windows VM
-- 部署先决条件，以便审核未将最长密码期限设为 70 天的 Windows VM
-- 部署先决条件，以便审核未将最短密码期限设为 1 天的 Windows VM
-- 部署先决条件，以便审核未将最短密码长度限制为 14 个字符的 Windows VM
-- 部署先决条件，以便审核允许重用之前的 24 个密码的 Windows VM
 - 显示未启用密码复杂性设置的 Windows VM 中的审核结果
 - 显示未将最长密码期限设为 70 天的 Windows VM 中的审核结果
 - 显示未将最短密码期限设为 1 天的 Windows VM 中的审核结果
@@ -128,8 +122,6 @@ Azure 基于角色的访问控制 (Azure RBAC) 可帮助你管理谁有权访问
 
 此蓝图还可帮助你通过分配 Azure Policy 定义来控制对 Azure 资源的访问。 这些策略将审核可能允许更高资源访问权限的资源类型和配置的使用。 了解违反这些策略的资源有助于采取纠正措施来确保仅限已授权的用户访问 Azure 资源。
 
-- 部署要求以审核具有不使用密码的帐户的 Linux VM
-- 部署要求以审核允许通过没有密码的帐户进行远程连接的 Linux VM
 - 显示具有不使用密码的帐户的 Linux VM 中的审核结果
 - 显示允许通过没有密码的帐户进行远程连接的 Linux VM 中的审核结果
 - 应将存储帐户迁移到新 Azure 资源管理器资源
@@ -141,15 +133,15 @@ Azure 基于角色的访问控制 (Azure RBAC) 可帮助你管理谁有权访问
 除了使用超过 25 个策略进行适当的安全用户管理之外，此蓝图还通过分配一个用于监视无限制存储帐户的 [Azure Policy](../../../policy/overview.md) 定义，帮助防止对服务接口进行未经授权的访问。
 具有无限制访问权限的存储帐户可能会允许意外访问信息系统中包含的信息。 此蓝图还会分配一个策略，在虚拟机上启用自适应应用程序控制。
 
-- 审核对存储帐户的不受限的网络访问
-- 应在虚拟机上启用自适应应用程序控制
+- 存储帐户应限制网络访问
+- 应在计算机中启用自适应应用程序控制以定义安全应用程序
 - 应该限制通过面向 Internet 的终结点进行访问
 - 应在面向 Internet 的虚拟机上应用自适应网络强化建议
 - 应在虚拟机规模集上安装 Endpoint Protection 解决方案
-- 应在虚拟机上应用实时网络访问控制
-- 应对函数应用禁用远程调试
-- 应禁用 Web 应用程序的远程调试
-- 应为 API 应用禁用远程调试
+- 应通过即时网络访问控制来保护虚拟机的管理端口
+- 应当为函数应用禁用远程调试
+- 应当为 Web 应用程序禁用远程调试
+- 应当为 API 应用禁用远程调试
 
 ## <a name="13-audit-information-for-users"></a>13 用户的审核信息
 
@@ -161,6 +153,7 @@ Azure 基于角色的访问控制 (Azure RBAC) 可帮助你管理谁有权访问
 - \[预览\]：为 Linux VM 部署 Log Analytics 代理
 - \[预览\]：为 Windows VM 部署 Log Analytics 代理
 - 创建虚拟网络时部署网络观察程序
+
 
 ## <a name="next-steps"></a>后续步骤
 

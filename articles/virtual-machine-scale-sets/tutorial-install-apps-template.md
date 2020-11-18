@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2d748f787b40bb26e9faebb028d71c6c3e30ee55
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746014"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516554"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>教程：使用 Azure 模板在虚拟机规模集中安装应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 前一篇教程介绍了如何创建自定义 VM 映像并使用它来部署 VM 实例。 使用此自定义映像可以手动安装和配置应用程序。 也可以在部署每个 VM 实例之后，将应用程序自动安装到规模集，或者更新已在规模集中运行的应用程序。 本教程介绍如何执行下列操作：
@@ -24,11 +24,11 @@ ms.locfileid: "92746014"
 > * 使用 Azure 自定义脚本扩展
 > * 更新规模集中运行的应用程序
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。
+- 本文需要 Azure CLI 2.0.29 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>什么是 Azure 自定义脚本扩展？
@@ -40,7 +40,7 @@ ms.locfileid: "92746014"
 
 
 ## <a name="create-custom-script-extension-definition"></a>创建自定义脚本扩展定义
-使用 Azure 模板定义虚拟机规模集时， *Microsoft.Compute/virtualMachineScaleSets* 资源提供程序可在扩展中包含一个节。 *extensionsProfile* 详细描述要将哪些设置应用到规模集中的 VM 实例。 若要使用自定义脚本扩展，需指定类型为 *CustomScript* 的 *Microsoft.Azure.Extensions* 的发布者。
+使用 Azure 模板定义虚拟机规模集时，*Microsoft.Compute/virtualMachineScaleSets* 资源提供程序可在扩展中包含一个节。 *extensionsProfile* 详细描述要将哪些设置应用到规模集中的 VM 实例。 若要使用自定义脚本扩展，需指定类型为 *CustomScript* 的 *Microsoft.Azure.Extensions* 的发布者。
 
 *fileUris* 属性用于定义源安装脚本或包。 若要启动安装过程，请在 *commandToExecute* 中定义所需的脚本。 以下示例定义 GitHub 中的一个示例脚本，该脚本可安装并配置 NGINX Web 服务器：
 
@@ -110,7 +110,7 @@ az network public-ip show \
 ## <a name="update-app-deployment"></a>更新应用部署
 在规模集的整个生命周期内，都可能需要部署应用程序的更新版本。 使用自定义脚本扩展可以引用更新的部署脚本，然后将扩展重新应用到规模集。 在上一步骤中创建规模集时，upgradePolicy 已设置为 Automatic 。 此设置可让规模集中的 VM 实例自动更新应用程序并应用其最新版本。
 
-若要更新自定义脚本扩展定义，请编辑模板以引用新的安装脚本。 必须对自定义脚本扩展使用新文件名，以识别更改。 自定义脚本扩展不会通过检查脚本的内容来确定是否发生了任何更改。 以下定义使用更新的安装脚本，该脚本的名称后面追加了 *_v2* ：
+若要更新自定义脚本扩展定义，请编辑模板以引用新的安装脚本。 必须对自定义脚本扩展使用新文件名，以识别更改。 自定义脚本扩展不会通过检查脚本的内容来确定是否发生了任何更改。 以下定义使用更新的安装脚本，该脚本的名称后面追加了 *_v2*：
 
 ```json
 "extensionProfile": {
@@ -148,7 +148,7 @@ az group deployment create \
 
 
 ## <a name="clean-up-resources"></a>清理资源
-若要删除规模集和其他资源，请使用 [az group delete](/cli/azure/group) 删除资源组及其所有资源。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
+若要删除规模集和其他资源，请使用 [az group delete](/cli/azure/group) 删除资源组及其所有资源。 `--no-wait` 参数会使光标返回提示符处，无需等待操作完成。 `--yes` 参数将确认是否希望删除资源，而不会有额外提示。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

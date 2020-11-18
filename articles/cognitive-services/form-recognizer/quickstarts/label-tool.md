@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 文档处理
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976141"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360864"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>使用示例标记工具通过标签来训练表单识别器模型
 
@@ -37,6 +37,14 @@ ms.locfileid: "91976141"
 ## <a name="create-a-form-recognizer-resource"></a>创建表单识别器资源
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>试试看
+
+若要在线试用表单识别器示例标记工具，请转到 [FOTT 网站](https://fott-preview.azurewebsites.net/)。
+
+> [!div class="nextstepaction"]
+> [表单识别器示例标记工具](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>设置示例标记工具
 
@@ -139,7 +147,7 @@ ms.locfileid: "91976141"
 * **API 密钥** - 表单识别器订阅密钥。
 * **说明** -（可选）项目说明
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="示例标记工具的连接设置。":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="示例标记工具上的“新建项目”页面。":::
 
 ## <a name="label-your-forms"></a>标记表单
 
@@ -155,7 +163,7 @@ ms.locfileid: "91976141"
 
 它还将显示已自动提取的表。 单击文档左侧的表/网格图标可查看提取的表。 在本快速入门中，由于表内容是自动提取的，因此我们不会对表内容进行标记，而是依靠自动提取。
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="示例标记工具的连接设置。":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="示例标记工具中的表可视化效果。":::
 
 ### <a name="apply-labels-to-text"></a>将标签应用于文本
 
@@ -201,7 +209,7 @@ ms.locfileid: "91976141"
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="示例标记工具的连接设置。":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="示例标记工具的主编辑器窗口。":::
 
 
 按照上述步骤标记至少五个窗体。
@@ -256,7 +264,7 @@ ms.locfileid: "91976141"
 * 标记列表，以及每个标记的估计准确度。
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="示例标记工具的连接设置。":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="训练视图。":::
 
 训练完成后，检查“平均准确度”值。 如果该值较低，应添加更多输入文档，并重复上述步骤。 已标记的文档将保留在项目索引中。
 
@@ -275,7 +283,7 @@ ms.locfileid: "91976141"
 
 若要在示例标记工具中组合模型，请单击左侧的模型组合（合并箭头）图标。 在左侧，选择要组合在一起的模型。 带有箭头图标的模型是已组合的模型。 单击“组合”按钮。 在弹出窗口中，为新的组合模型命名，然后单击“组合”。 操作完成后，新的组合模型应出现在列表中。 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="示例标记工具的连接设置。":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="模型组合 UX 视图。":::
 
 ---
 

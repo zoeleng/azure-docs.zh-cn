@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a73005580c9b7ddeae17e3e0490aa586bd9b0fbb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206718"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335791"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教程：订购 Azure Data Box
 
@@ -123,7 +123,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 可以通过浏览器使用 [Azure Cloud Shell](https://shell.azure.com/)（一个 Azure 托管的交互式 Shell 环境）来运行 CLI 命令。 Azure Cloud Shell 通过 Azure 服务支持 Bash 或 Windows PowerShell。 已预安装 Azure CLI 并将其配置为与帐户一起使用。 选择 Azure 门户右上角部分菜单上的“Cloud Shell”按钮：
 
-![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Cloud Shell 菜单选择](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 该按钮会启动交互式 shell，可以使用它来运行本文中概述的步骤。
 
@@ -213,13 +213,13 @@ PS C:\Windows\System32>
 在 Azure 门户中执行以下步骤以订购设备。
 
 1. 使用 Microsoft Azure 凭据在以下 URL 登录：[https://portal.azure.com](https://portal.azure.com)。
-2. 选择“+ 创建资源”并搜索 *Azure Data Box* 。 选择“Azure Data Box”。
+2. 选择“+ 创建资源”并搜索 *Azure Data Box*。 选择“Azure Data Box”。
 
-   ![“新建”部分的屏幕截图，在搜索字段中有“Azure Data Box”字样。](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![“新建”部分的屏幕截图，其中搜索字段中有“Azure Data Box”字样](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. 选择“创建”。
 
-   ![Azure Data Box 部分的屏幕截图，已标注“创建”选项。](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Azure Data Box 部分的屏幕截图，其中已标注“创建”选项](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. 检查 Data Box 服务是否在你的区域可用。 输入或选择以下信息，然后选择“应用”。
 
@@ -231,11 +231,11 @@ PS C:\Windows\System32>
     |源国家/地区    |    选择数据当前所在的国家/地区。         |
     |目标 Azure 区域     |     选择要在其中传输数据的 Azure 区域。 <br> 有关详细信息，请转到[适用区域](data-box-overview.md#region-availability)。            |
 
-    [![Azure Data Box 导入订单](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![启动 Azure Data Box 导入订单](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. 选择“Data Box”。 单次订购的可用最大容量为 80 TB。 可以创建多个订单，以增加数据大小。
 
-    ![可供选择的不同数据大小的屏幕截图：Data Box Disk：40 TB；Data Box：100 TB；Data Box Heavy：1000 TB；寄送自己的磁盘：1 TB。](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![可用数据大小：Data Box Disk：40 TB；Data Box：100 TB；Data Box Heavy：1000 TB；寄送自己的磁盘：1 TB](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. 在“订单”中，转到“基本”选项卡 。输入或选择以下信息，然后选择“下一步:数据目标>”。
 
@@ -245,7 +245,7 @@ PS C:\Windows\System32>
     |资源组    | 之前选择的资源组。 |
     |导入订单名称 | 提供友好名称用于跟踪订单。 <br> 名称可以为 3 到 24 个字符，包括字母、数字和连字符。 <br> 名称必须以字母或数字开头和结尾。    |
 
-    ![订单向导的屏幕截图，其中显示了向导的“基本信息”步骤（填写了相应的信息）。](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Data Box 导入订单向导的“基本信息”屏幕，其中已填写正确信息](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     默认情况下，设备解锁密码使用 Microsoft 管理的密钥进行加密。 完成订单后，可以添加客户管理的密钥。 客户管理的密钥允许你使用自己的 Azure 密钥保管库密钥来保护你的设备解锁密码。 有关详细信息，请参阅[在 Azure Data Box 的 Azure Key Vault 中使用客户管理的密钥](data-box-customer-managed-encryption-key-portal.md)。
 
@@ -253,9 +253,9 @@ PS C:\Windows\System32>
 
     如果使用“存储帐户”作为存储目标，则会看到以下屏幕截图：
 
-    ![Azure Data Box 数据目标](media/data-box-deploy-ordered/select-data-box-import-07.png)
+    ![Data Box 导入订单向导的“数据目标”屏幕，其中已选择存储帐户](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个或多个存储帐户。 Data Box 可以与最多 10 个存储帐户链接。 也可以创建新的 **常规用途 v1** 、 **常规用途 v2** 或 **Blob 存储帐户** 。
+    根据指定的 Azure 区域，从现有存储帐户的筛选列表中选择一个或多个存储帐户。 Data Box 可以与最多 10 个存储帐户链接。 也可以创建新的 **常规用途 v1**、**常规用途 v2** 或 **Blob 存储帐户**。
 
     支持使用虚拟网络的存储帐户。 若要允许 Data Box 服务使用受保护的存储帐户，请在存储帐户网络防火墙设置中启用受信任的服务。 有关详细信息，请了解如何[将 Azure Data Box 添加为受信任的服务](../storage/common/storage-network-security.md#exceptions)。
 
@@ -265,7 +265,7 @@ PS C:\Windows\System32>
     |---------|---------|
     |资源组     | 若要从本地 VHD 创建托管磁盘，请创建新的资源组。 使用现有资源组的前提是，资源组是在以前由 Data Box 服务为托管磁盘创建 Data Box 订单时创建的。 <br> 指定多个用分号分隔的资源组。 最多支持 10 个资源组。|
 
-    ![订单向导的屏幕截图，其中显示了向导的“数据目标”步骤（填写了相应的信息）。](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Data Box 导入订单向导的“数据目标”屏幕，其中已选择“托管磁盘”](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     为托管磁盘指定的存储帐户用作临时存储帐户。 Data Box 服务将 VHD 作为页 Blob 上传到临时存储帐户，然后将其转换为托管磁盘并移到资源组。 有关详细信息，请参阅[验证 Azure 中的数据上传](data-box-deploy-picked-up.md#verify-data-upload-to-azure)。
    > [!NOTE]
@@ -277,23 +277,23 @@ PS C:\Windows\System32>
 
     “安全性”屏幕上的所有设置都是可选的。 如果不更改任何设置，则将应用默认设置。
 
-    ![Data Box 导入订单的安全性屏幕](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+    ![Data Box 导入订单向导的“安全性”屏幕](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-1. 如果不想使用 Azure Data Box 默认使用的系统生成的密码，请展开“创建自己的密码”。
+8. 如果不想使用 Azure Data Box 默认使用的系统生成的密码，请展开“创建自己的密码”。
 
    系统生成的密码很安全，建议使用该密码，除非贵组织另有要求。
 
-   ![展开 Data Box 导入订单的“创建自己的密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+   ![Data Box 导入订单“安全性”屏幕上展开的“自带密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-02.png)
 
    - 要对新设备使用自己的密码，请在“设置设备密码的首选项”中选择“使用自己的密码”，然后键入符合安全要求的密码 。
    
-     ![Data Box 导入的安全性屏幕，其中包含“使用自己的设备密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+     ![Data Box 导入订单“安全性”屏幕上的“使用自己的设备密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
    - 使用自己的共享密码：
 
      1. 在“设置共享密码的首选项”中，依次选择“使用自己的密码”和“选择共享密码”  。
      
-        ![Data Box 导入的安全性屏幕，其中包含“使用自己的共享密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+        ![Data Box 导入订单“安全性”屏幕上的“使用自己的共享密码”选项](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
      1. 为订单中的每个存储帐户键入一个密码。 该密码将用于存储帐户的所有共享。
      
@@ -301,11 +301,11 @@ PS C:\Windows\System32>
      
         ![为 Data Box 导入订单输入共享密码的屏幕](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
 
-       在“安全性”屏幕上，可以使用“查看更改密码”来更改密码 。
+       在“安全性”屏幕上，可以使用“查看或更改密码”来更改密码 。
 
-1. 在“安全性”中，如果要启用基于软件的双重加密，请展开“双重加密(适用于高度安全的环境)”，然后选择“为订单启用双重加密”  。
+9. 在“安全性”中，如果要启用基于软件的双重加密，请展开“双重加密(适用于高度安全的环境)”，然后选择“为订单启用双重加密”  。
 
-   ![Data Box 导入的安全性屏幕，为 Data Box 订单启用了基于软件的加密](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+   ![Data Box 导入订单“安全性”屏幕上的“启用基于软件的加密”选项](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    除了对 Data Box 上的数据进行 AES-256 位加密，还可执行基于软件的加密。
 
@@ -314,29 +314,29 @@ PS C:\Windows\System32>
 
    在完成时选择“下一步:联系人详细信息”以继续。
 
-8. 在“联系人详细信息”中，选择“+ 添加送货地址” 。
+10. 在“联系人详细信息”中，选择“+ 添加送货地址” 。
 
-    ![订单向导的屏幕截图，其中显示了向导的“联系人详细信息”步骤（标注了“添加寄送地址”选项）。](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![在“联系人详细信息”屏幕中，将寄送地址添加到你的 Azure Data Box 导入订单](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. 在“寄送地址”中，提供你的姓名、公司的名称和邮政地址，以及有效的电话号码。 选择“验证地址”。 服务将验证寄送地址，以确定服务是否在该区域可用。 如果服务在指定的寄送地址可用，则会将结果通知给你。
+11. 在“寄送地址”中，提供你的姓名、公司的名称和邮政地址，以及有效的电话号码。 然后选择“验证地址”。 该服务将检查地址的服务可用性。 如果该寄送地址提供服务，你将收到通知。
 
-   ![“添加寄送地址”对话框的屏幕截图，其中标注了“寄送方式”选项和“添加寄送地址”选项。](media/data-box-deploy-ordered/select-data-box-import-10.png)
+     ![“添加寄送地址”对话框，其中标注了“寄送方式”选项和“添加寄送地址”选项](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
-   如果你选择了自我托管交付，则在成功下单后，你将收到一封电子邮件通知。 有关自托管寄送的详细信息，请参阅[使用自托管寄送](data-box-portal-customer-managed-shipping.md)。
+    如果你选择了自我托管交付，则在成功下单后，你将收到一封电子邮件通知。 有关自托管寄送的详细信息，请参阅[使用自托管寄送](data-box-portal-customer-managed-shipping.md)。
 
-10. 成功验证寄送详细信息后，选择“添加送货地址”。 你将返回“联系人详细信息”选项卡。
+12. 成功验证寄送详细信息后，选择“添加送货地址”。 你将返回“联系人详细信息”选项卡。
 
-11. 返回“联系人详细信息”后，添加一个或多个电子邮件地址。 服务会将有关任何订单状态更新的电子邮件通知发送到指定的电子邮件地址。
+13. 返回“联系人详细信息”后，添加一个或多个电子邮件地址。 服务会将有关任何订单状态更新的电子邮件通知发送到指定的电子邮件地址。
 
     我们建议使用组电子邮件，以便在组中的管理员离任后，可以持续收到通知。
 
-    ![订单向导的“联系人详细信息”步骤的“电子邮件”部分的屏幕截图，其中标注了“电子邮件”文本框和“下一步:‘查看和订购’选项”。](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![订单向导中“联系人详细信息”的电子邮件部分](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. 查看“查看 + 订购”中与订单、联系人、通知和隐私条款相关的信息。 选中对应于同意隐私条款的复选框。
 
 13. 选择“订单”。 创建订单需要几分钟时间。
 
-    ![订单向导的屏幕截图，其中显示了“查看和订购”步骤以及标注的“订单”选项。](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![订单向导的“审查和订购”屏幕](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -526,11 +526,11 @@ PS C:\Windows\System32>
 
 设备准备完成后，门户会显示订单处于“已处理”状态。
 
-![处理的 Data Box 订单](media/data-box-overview/data-box-order-status-processed.png)
+![已处理的 Data Box 订单](media/data-box-overview/data-box-order-status-processed.png)
 
 然后，Microsoft 会安排区域承运人发运设备。 设备发货后，你会收到跟踪号。 门户会显示订单处于“已发运”状态。
 
-![派遣的 Data Box 订单](media/data-box-overview/data-box-order-status-dispatched.png)
+![已发运的 Data Box 订单](media/data-box-overview/data-box-order-status-dispatched.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

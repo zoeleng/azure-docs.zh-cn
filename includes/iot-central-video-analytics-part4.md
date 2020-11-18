@@ -8,82 +8,44 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 164f5803b6e9e62447423735e98f6e4c36c73f13
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876610"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426717"
 ---
-### <a name="add-relationships"></a>添加关系
-
-在“LVA Edge 网关”设备模板中的“模块/LVA Edge 网关模块”下，选择“关系”  。 选择“+ 添加关系”，然后添加以下两个关系：
-
-|显示名称               |名称          |目标 |
-|-------------------------- |------------- |------ |
-|LVA Edge 运动探测器   |使用默认值   |LVA Edge 运动探测器设备 |
-|LVA Edge 对象探测器   |使用默认值   |LVA Edge 对象探测器设备 |
-
-再选择“保存”。
-
-:::image type="content" source="media/iot-central-video-analytics-part4/relationships.png" alt-text="添加关系":::
-
-### <a name="add-views"></a>添加视图
-
-“LVA Edge 网关”设备模板不包含任何视图定义。
-
-若要将视图添加到设备模板：
-
-1. 在“LVA Edge 网关”设备模板中，导航到“视图”并选择“可视化设备”磁贴  。
-
-1. 输入“LVA Edge 网关设备”作为视图名称。
-
-1. 将以下磁贴添加到视图：
-
-    * 具有以下设备信息属性的磁贴：设备型号、制造商、操作系统、处理器体系结构、软件版本、总内存和总存储      。
-    * 具有“可用内存”和“系统检测信号”遥测值的折线图磁贴 。
-    * 具有以下事件的事件历史记录磁贴：创建相机、删除相机、模块重启、模块已启动、模块已停止    。
-    * 显示“IoT Central 客户端状态”遥测的 2x1 上一个已知值磁贴。
-    * 显示“模块状态”遥测的 2x1 上一个已知值磁贴。
-    * 显示“系统检测信号”遥测的 1x1 上一个已知值磁贴。
-    * 显示“已连接相机”遥测的 1x1 上一个已知值磁贴。
-
-    :::image type="content" source="media/iot-central-video-analytics-part4/gateway-dashboard.png" alt-text="添加关系":::
-
-1. 选择“保存” 。
-
 ### <a name="publish-the-device-template"></a>发布设备模板
 
 在将设备添加到应用程序之前，必须先发布设备模板：
 
-1. 在“LVA Edge 网关”设备模板中选择“发布” 。
+1. 在“LVA Edge 网关 v2”设备模板中选择“发布” 。
 
 1. 在“将此设备模板发布到应用程序”页中，选择“发布” 。
 
-LVA Edge 网关现在可作为设备类型在应用程序的“设备”页上使用。
+LVA Edge 网关 v2 现在可作为设备类型在应用程序的“设备”页上使用 。
 
-## <a name="add-a-gateway-device"></a>添加网关设备
+## <a name="migrate-the-gateway-device"></a>迁移网关设备
 
-若要向应用程序添加“LVA Edge 网关”设备，请执行以下操作：
+现有的 gateway-001 设备使用 LVA Edge 网关设备模板 。 若要使用新的部署清单，请将设备迁移到新的设备模板：
 
-1. 导航到“设备”页，然后选择“LVA Edge 网关”设备模板 。
+迁移 gateway-001 设备：
 
-1. 选择“+ 新建”。
+1. 导航到“设备”页，然后选择“gateway-001”设备以在列表中突出显示该设备 。
 
-1. 在“创建新设备”对话框中，将设备名称更改为 LVA Gateway 001，并将设备 ID 改为 lva-gateway-001** 。
+1. 选择“迁移”。 如果“迁移”图标不可见，请选择“…”以查看更多选项 。
 
-    > [!NOTE]
-    > 设备 ID 在应用程序中必须是唯一的。
+    :::image type="content" source="media/iot-central-video-analytics-part4/migrate-device.png" alt-text="将网关设备迁移到新版本":::
 
-1. 选择“创建”。
+1. 在“迁移”对话框的列表中，选择“LVA Edge 网关 v2”，然后选择“迁移”  。
 
-设备状态为“已注册”。
+几秒钟后，迁移完成。 你的设备现在使用带有自定义的部署清单的 LVA Edge 网关 v2 设备模板。
 
 ### <a name="get-the-device-credentials"></a>获取设备凭据
 
 要使设备能够连接到 IoT Central 应用程序，则需要提供凭据。 若要获取设备凭据：
 
-1. 在“设备”页上，选择创建的 lva-gateway-001 设备 。
+1. 在“设备”页上，选择 gateway-001 设备 。
 
 1. 选择“连接”。
 

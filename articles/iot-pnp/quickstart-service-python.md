@@ -1,6 +1,6 @@
 ---
-title: 与已连接到 Azure IoT 解决方案的 IoT 即插即用设备交互 (Python) | Microsoft Docs
-description: 使用 Python 连接到已与 Azure IoT 解决方案连接的 IoT 即插即用设备并与之交互。
+title: 快速入门 - 与已连接到 Azure IoT 解决方案的 IoT 即插即用设备交互 (Python) | Microsoft Docs
+description: 快速入门 - 使用 Python 连接到已与 Azure IoT 解决方案连接的 IoT 即插即用设备并与之交互。
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 681568c3aee88483c7f9c813529f0eb500a59e93
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741496"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421492"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>快速入门：与已连接到解决方案的 IoT 即插即用设备交互 (Python)
 
@@ -86,8 +86,8 @@ pip install azure-iot-hub
 
 在[为 IoT 即插即用快速入门和教程设置环境](set-up-environment.md)中，已创建了两个环境变量以将示例配置为连接到 IoT 中心和设备：
 
-* **IOTHUB_CONNECTION_STRING** ：之前记下的 IoT 中心连接字符串。
-* **IOTHUB_DEVICE_ID** ：`"my-pnp-device"`。
+* **IOTHUB_CONNECTION_STRING**：之前记下的 IoT 中心连接字符串。
+* **IOTHUB_DEVICE_ID**：`"my-pnp-device"`。
 
 在服务终端中使用以下命令运行此示例：
 

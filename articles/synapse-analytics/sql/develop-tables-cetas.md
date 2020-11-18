@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0805aaf694f1569e613ab74135c95e454adbdc0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: df0198ba77e1661bb18aa72285e100ca070966a8
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315064"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331730"
 ---
 # <a name="cetas-with-synapse-sql"></a>Synapse SQL 提供的 CETAS
 
@@ -68,7 +68,7 @@ DATA_SOURCE = *external_data_source_name*
 
 FILE_FORMAT = *external_file_format_name*
 
-指定包含外部数据文件格式的外部文件格式对象的名称。 若要创建外部文件格式，请使用 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format)。 目前仅支持 FORMAT_TYPE=PARQUET 和 FORMAT_TYPE=DELIMITEDTEXT 的外部文件格式。
+指定包含外部数据文件格式的外部文件格式对象的名称。 若要创建外部文件格式，请使用 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format)。 目前仅支持 FORMAT_TYPE=PARQUET 和 FORMAT_TYPE=DELIMITEDTEXT 的外部文件格式。 不支持 DELIMITEDTEXT 格式的 GZip 压缩。
 
 WITH *<common_table_expression>*
 
@@ -144,32 +144,30 @@ CETAS 可用于存储包含以下 SQL 数据类型的结果集：
 - varbinary
 - char
 - varchar
+- nchar
+- nvarchar
+- smalldate
 - date
-- time
+- datetime
 - datetime2
+- datetimeoffset
+- time
 - Decimal
 - numeric
 - FLOAT
 - real
 - bigint
-- int
-- smallint
 - tinyint
+- smallint
+- int
+- bigint
 - bit
-
-> [!NOTE]
-> LOB 不能与 CETAS 配合使用。
-
-以下数据类型不能在 CETAS 的 SELECT 部分使用：
-
-- nchar
-- nvarchar
-- datetime
-- smalldatetime
-- datetimeoffset
 - money
 - smallmoney
 - uniqueidentifier
+
+> [!NOTE]
+> 大于 1MB 的 LOB 无法与 CETAS 一起使用。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,20 +1,20 @@
 ---
-title: 使用 MQTT 创建 IoT 即插即用设备客户端 | Microsoft Docs
-description: 直接使用 MQTT 协议创建 IoT 即插即用设备客户端，而不使用 Azure IoT 设备 SDK
+title: 教程 - 使用 MQTT 创建 Azure IoT 即插即用设备客户端 | Microsoft Docs
+description: 教程 - 直接使用 MQTT 协议创建 IoT 即插即用设备客户端，而不使用 Azure IoT 设备 SDK
 author: ericmitt
 ms.author: ericmitt
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046275"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421373"
 ---
-# <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>使用 MQTT 开发 IoT 即插即用设备客户端
+# <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>教程 - 使用 MQTT 开发 IoT 即插即用设备客户端
 
 如果可能，应该使用一种 Azure IoT 设备 SDK 来构建 IoT 即插即用设备客户端。 但是，在某些情形下（如使用内存有限的设备），可能需要使用 MQTT 库与 IoT 中心进行通信。
 
@@ -96,7 +96,7 @@ cd vcpkg
 
 在 Azure IoT 资源管理器中，可以看到设备不是 IoT 即插即用设备：
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="MQTT 示例应用程序的输出":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Azure IoT 资源管理器中的非 IoT 即插即用设备":::
 
 ### <a name="make-the-device-an-iot-plug-and-play-device"></a>将设备设为 IoT 即插即用设备
 
@@ -117,11 +117,11 @@ IoT 即插即用设备必须遵循一组简单约定。 如果设备在连接时
 
 设备孪生现在包含模型 ID：
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="MQTT 示例应用程序的输出":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="在 Azure IoT 资源管理器中查看模型 ID":::
 
 现在可以在 IoT 即插即用组件中导航：
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="MQTT 示例应用程序的输出":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="在 Azure IoT 资源管理器中查看组件":::
 
 现在可以修改设备代码以实现模型中定义的遥测、属性和命令。 若要查看使用 Mosquitto 库的恒温器设备的示例实现，请参阅 GitHub 上的[在 Windows 上使用 MQTT PnP 与 Azure IoTHub，而不使用 IoT SDK](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32)。
 

@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 62cf7c979be83454ae2433befcdbf4f5d8e5524f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518706"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516537"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>教程：通过 Azure CLI 创建和使用虚拟机规模集的自定义映像
 创建规模集时，需指定部署 VM 实例时要使用的映像。 若要在部署 VM 实例之后减少任务数目，可以使用自定义 VM 映像。 在此自定义 VM 映像中可以完成全部所需的应用程序安装或配置步骤。 在规模集中创建的任何 VM 实例使用自定义 VM 映像，并随时可为应用程序流量提供服务。 本教程介绍如何执行下列操作：
@@ -27,11 +27,11 @@ ms.locfileid: "92518706"
 > * 共享映像库
 
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.4.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。
+- 本文需要 Azure CLI 版本 2.4.0 或更高版本。 如果使用 Azure Cloud Shell，则最新版本已安装。
 
 ## <a name="overview"></a>概述
 
@@ -63,7 +63,7 @@ az vm create \
 ssh azureuser@<publicIpAddress>
 ```
 
-为了自定义 VM，让我们安装一个基本的 Web 服务器。 部署规模集中的 VM 实例时，该实例会包含运行 Web 应用程序的全部所需包。 按如下所示，使用 `apt-get` 安装 *NGINX* ：
+为了自定义 VM，让我们安装一个基本的 Web 服务器。 部署规模集中的 VM 实例时，该实例会包含运行 Web 应用程序的全部所需包。 按如下所示，使用 `apt-get` 安装 *NGINX*：
 
 ```bash
 sudo apt-get install -y nginx
@@ -118,7 +118,7 @@ az sig image-definition create \
 
 使用 [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) 从 VM 创建映像版本。  
 
-允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式： *MajorVersion*. *MinorVersion*. *Patch* 。
+允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*.*MinorVersion*.*Patch*。
 
 在此示例中，映像版本为 1.0.0，我们将在“美国中南部”区域创建 1 个副本，并在“美国东部 2”区域创建 1 个副本    。 复制区域必须包含源 VM 所在的区域。
 

@@ -1,19 +1,19 @@
 ---
-title: 将 IoT 即插即用示例 Node.js 组件设备代码连接到 IoT 中心 | Microsoft Docs
-description: 生成和运行使用了多个组件且连接到 IoT 中心的 IoT 即插即用示例 Node.js 设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
+title: 教程 - 将 IoT 即插即用示例 Node.js 组件设备代码连接到 Azure IoT 中心 | Microsoft Docs
+description: 教程 - 生成和运行使用了多个组件且连接到 IoT 中心的 IoT 即插即用示例 Node.js 设备代码。 使用 Azure IoT 资源管理器工具查看由设备发送到中心的信息。
 author: olivakar
 ms.author: olkar
 ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2f0bf3b4b6e7091222b98e1743f0fb4f431fdd12
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-js
+ms.openlocfilehash: 70fa10f5319de072ee8ea7dad4e73c58d4bdeede
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736059"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421409"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>教程：将示例 IoT 即插即用多组件设备应用程序连接到 IoT 中心 (Node.js)
 

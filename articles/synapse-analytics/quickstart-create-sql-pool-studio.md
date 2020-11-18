@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324348"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506339"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>快速入门：使用 Synapse Studio 创建专用 SQL 池
 
@@ -75,6 +75,8 @@ Azure Synapse Analytics 提供了各种分析引擎，可帮助你引入、转�
     > 请注意，专用 SQL 池可以使用的名称有特定的限制。 名称不能包含特殊字符，不能多于 15 个字符，不能包含保留字，并且在工作区中必须是独一无二的。
 
 4. 在下一个选项卡“其他设置”中，选择“无”来预配没有数据的 SQL 池 。 让默认排序规则保持选中状态。
+
+    如果要从还原点还原专用 SQL 池，请选择“还原点”。 有关如何执行还原的详细信息，请参阅[操作指南：还原现有专用 SQL 池](backuprestore/restore-sql-pool.md)
 
     ![SQL 池创建流 -“其他设置”选项卡。](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 

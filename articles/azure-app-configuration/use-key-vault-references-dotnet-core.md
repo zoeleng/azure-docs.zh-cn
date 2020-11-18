@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213252"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124792"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>教程：在 ASP.NET Core 应用中使用 Key Vault 引用
 
@@ -51,7 +51,7 @@ ms.locfileid: "88213252"
 
 1. 选择 Azure 门户左上角的“创建资源”选项： 
 
-    ![Key Vault 创建完成后的输出](./media/quickstarts/search-services.png)
+    ![屏幕截图显示 Azure 门户中的“创建资源”选项。](./media/quickstarts/search-services.png)
 1. 在搜索框中输入 **Key Vault**。
 1. 在结果列表中，选择左侧的“Key Vault”  。
 1. 在“Key Vault”中选择“添加”。  
@@ -65,7 +65,7 @@ ms.locfileid: "88213252"
 
 目前，只有你的 Azure 帐户有权访问这个新保管库。
 
-![Key Vault 创建完成后的输出](./media/quickstarts/vault-properties.png)
+![屏幕截图显示密钥保管库。](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>向 Key Vault 添加机密
 
@@ -122,7 +122,7 @@ ms.locfileid: "88213252"
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. 添加环境变量以存储 *clientId*、*clientSecret*和 *tenantId* 的值。
+1. 添加环境变量以存储 *clientId*、*clientSecret* 和 *tenantId* 的值。
 
     #### <a name="windows-command-prompt"></a>[Windows 命令提示符](#tab/cmd)
 

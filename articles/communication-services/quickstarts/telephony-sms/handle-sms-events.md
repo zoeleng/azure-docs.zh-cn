@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976923"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357464"
 ---
 # <a name="quickstart-handle-sms-events"></a>快速入门：处理短信事件
 
@@ -63,13 +63,15 @@ ms.locfileid: "91976923"
 
 可以订阅特定事件，以告知事件网格要跟踪哪些短信事件，以及要将事件发送到何处。 从下拉菜单中选择要订阅的事件。 对于短信，可以选择 `SMS Received` 和 `SMS Delivery Report Received`。 
 
+如果系统提示你提供“系统主题名称”，请随意提供一个唯一标识符，你可以在事件发出后选择使用此标识符来筛选事件。
+
 查看 [Azure 通信服务支持的事件](../../concepts/event-handling.md)的完整列表。
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="显示在资源事件页中选择事件订阅按钮的屏幕截图。":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="显示选择了“短信已收到”和“短信传递报告已收到”事件类型的屏幕截图。":::
 
 对于“终结点类型”，请选择“Web Hook”。  
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="显示在资源事件页中选择事件订阅按钮的屏幕截图。":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="显示设置为 Webhook 的“终结点类型”字段的屏幕截图。":::
 
 对于“终结点”，请单击“选择终结点”，然后输入 Web 应用的 URL 。
 
@@ -77,7 +79,7 @@ ms.locfileid: "91976923"
 
 然后选择“确认选择”。
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="显示在资源事件页中选择事件订阅按钮的屏幕截图。":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="显示确认 Webhook 终结点的屏幕截图。":::
 
 ## <a name="viewing-sms-events"></a>查看短信事件
 
@@ -94,15 +96,15 @@ ms.locfileid: "91976923"
 
 完成以上任一操作后，你会注意到 `SMS Received` 和 `SMS Delivery Report Received` 事件会发送到你的终结点。 这些事件会显示在我们在开始时设置的 [Azure 事件网格查看器示例](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)中。 可以按事件旁的眼睛图标来查看整个有效负载。 事件如下所示：
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="显示在资源事件页中选择事件订阅按钮的屏幕截图。":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="显示“短信已收到”事件的事件网格架构的屏幕截图。":::
 
-:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="显示在资源事件页中选择事件订阅按钮的屏幕截图。":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="显示“短信传递报告”事件的事件网格架构的屏幕截图。":::
 
 详细了解[事件架构和其他事件处理概念](../../concepts/event-handling.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果想要清理并删除通信服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。 了解[清理资源](../create-communication-resource.md#clean-up-resources)的详细信息。
+如果想要清理并删除通信服务订阅，可以删除资源或资源组。 删除资源组同时也会删除与之相关联的任何其他资源。 了解有关[清理资源](../create-communication-resource.md#clean-up-resources)的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 

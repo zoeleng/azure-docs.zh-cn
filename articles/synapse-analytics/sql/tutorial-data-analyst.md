@@ -1,6 +1,6 @@
 ---
-title: 教程：在 Azure Synapse Studio（预览版）中使用 SQL 按需版本（预览版）分析 Azure 开放数据集
-description: 本教程介绍如何在 Azure Synapse Studio 中使用按需 SQL（预览版）来组合不同的 Azure 开放数据集，从而轻松执行探索数据分析，然后将结果可视化。
+title: 教程：在 Azure Synapse Studio（预览版）中使用无服务器 SQL 池（预览版）分析 Azure 开放数据集
+description: 本教程介绍如何在 Azure Synapse Studio 中使用无服务器 SQL 池（预览版）来组合不同的 Azure 开放数据集，从而轻松执行探索数据分析，然后将结果可视化。
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309294"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>教程：在 Azure Synapse Studio 中使用 SQL 按需版本分析 Azure 开放数据集并将结果可视化
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>教程：在 Azure Synapse Studio 中使用无服务器 SQL 池分析 Azure 开放数据集并将结果可视化
 
-本教程介绍如何在 Azure Synapse Studio 中使用 SQL 按需版本来组合不同的 Azure 开放数据集，从而执行探索数据分析，然后将结果可视化。
+本教程介绍如何通过在 Azure Synapse Studio 中使用无服务器 SQL 池组合不同的 Azure 开放数据集，然后将结果可视化，来执行探索性数据分析。
 
 具体而言，你会分析[纽约市 (NYC) 出租车数据集](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)，其中包括：
 
@@ -213,9 +213,9 @@ WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND sta
 - 天气非常寒冷（温度低于零摄氏度）。
 - 风非常大（风速大约 10 米/秒）。
 
-本教程介绍了数据分析师如何快速执行探索数据分析，通过使用 SQL 按需版本轻松组合不同的数据集，以及如何通过使用 Azure Synapse Studio 将结果可视化。
+本教程介绍了数据分析师如何快速执行探索数据分析，通过使用无服务器 SQL 池轻松组合不同的数据集，以及如何通过使用 Azure Synapse Studio 将结果可视化。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解如何将 SQL 按需版本连接到 Power BI Desktop 并创建报表，请参阅[将 SQL 按需版本连接到 Power BI Desktop 并创建报表](tutorial-connect-power-bi-desktop.md)。
+若要了解如何将无服务器 SQL 池连接到 Power BI Desktop 并创建报表，请参阅[将无服务器 SQL 池连接到 Power BI Desktop 并创建报表](tutorial-connect-power-bi-desktop.md)。
  

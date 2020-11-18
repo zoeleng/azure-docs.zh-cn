@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: memildin
-ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: df863372cbf7abfb6fee145b7d13bb00d8deb074
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026711"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380155"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>即将推出的对 Azure 安全中心的重要更改
 
@@ -31,49 +31,48 @@ ms.locfileid: "93026711"
 
 ## <a name="planned-changes"></a>计划的更改
 
-### <a name="recommendations-related-to-azure-security-benchmark-to-be-added-preview"></a>与要添加的 Azure 安全基准相关的建议（预览版）
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-getting-sub-recommendations"></a>“应在计算机上安装系统更新”建议获取子建议
+
+#### <a name="summary"></a>摘要
 
 | 方面 | 详细信息 |
 |---------|---------|
-|公布日期 | 2020 年 10 月 26 日  |
-|进行此更改的日期  |  2020 年 11 月 |
-|影响     | 可能需要查看更多建议。<br>不会立即对安全功能分数产生影响 - 预览版建议不会影响安全功能分数。<br>不会立即对资源的运行状态产生影响 - 预览版建议不会显示资源“运行不正常”。|
+|公布日期 | 2020 年 11 月 9 日  |
+|进行此更改的日期  |  2020 年 11 月中旬 |
+|影响     | 在从此建议的当前版本到替换版本的过渡过程中，安全分数可能会更改。 |
 |  |  |
 
-Azure 安全基准是由 Microsoft 创作的特定于 Azure 的一组准则，适用于基于常见合规框架的安全与合规最佳做法。 [详细了解 Azure 安全基准](../security/benchmarks/introduction.md)。
+我们要发布“应在计算机上安装系统更新”建议的增强版本。 新版本将替换应用系统更新安全控件中的当前版本，并提供以下改进：
 
-以下 18 条新建议将添加到安全中心，以扩大基准的覆盖范围。
+- 为每个缺失更新提供了子建议
+- 重新设计了 Azure 门户的 Azure 安全中心页面的体验
+- 丰富了 Azure Resource Graph 的建议数据
 
-预览版建议不会显示资源运行不正常，并且在计算安全功能分数时不会包含这些建议。 请尽量修正这些建议，以便在预览期结束之后，借助这些建议提高安全功能分数。 如需详细了解如何响应这些建议，请参阅[修正 Azure 安全中心的建议](security-center-remediate-recommendations.md)。
+#### <a name="transition-period"></a>过渡期
 
-- 应为虚拟机启用 Azure 备份
-- 应为 MySQL 数据库服务器启用“强制 SSL 连接”
-- 应为 PostgreSQL 数据库服务器启用“强制 SSL 连接”
-- 应为 Azure Database for MariaDB 启用异地冗余备份
-- 应为 Azure Database for MySQL 启用异地冗余备份
-- 应为 Azure Database for PostgreSQL 启用异地冗余备份
-- 应将 Java 更新为 API 应用的最新版本
-- 应将 Java 更新为函数应用的最新版本
-- 应将 Java 更新为 Web 应用的最新版本
-- 应将 PHP 更新为 API 应用的最新版本
-- 应将 PHP 更新为 Web 应用的最新版本
-- 应为 MariaDB 服务器启用专用终结点
-- 应为 MySQL 服务器启用专用终结点
-- 应为 PostgreSQL 服务器启用专用终结点
-- 应将 Python 更新为 API 应用的最新版本
-- 应将 Python 更新为函数应用的最新版本
-- 应将 Python 更新为 Web 应用的最新版本
-- Web 应用应请求一个用于所有传入请求的 SSL 证书
+过渡期为 36 小时（大约）。 为了最大限度地减少任何潜在的中断，我们已安排更新在周末进行。 在过渡过程中，安全分数可能会受到影响。
 
-相关链接：
+#### <a name="redesigned-portal-experience"></a>重新设计的门户体验
 
-- [详细了解 Azure 安全基准](../security/benchmarks/introduction.md)
-- [详细了解 Azure API 应用](../app-service/app-service-web-tutorial-rest-api.md)
-- [详细了解 Azure 函数应用](../azure-functions/functions-overview.md)
-- [详细了解 Azure Web 应用](../app-service/overview.md)
-- [详细了解 Azure Database for MariaDB](../mariadb/overview.md)
-- [详细了解 Azure Database for MySQL](../mysql/overview.md)
-- [详细了解 Azure Database for PostgreSQL](../postgresql/overview.md)
+“应在计算机上安装系统更新”的建议详细信息页包括发现结果列表，如下所示。 选择单个发现结果时，结果窗格将打开，并提供指向修正信息和受影响资源列表的链接。
+
+:::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="在门户体验中打开其中一个子建议，了解更新的建议":::
+
+
+#### <a name="richer-data-from-azure-resource-graph"></a>Azure Resource Graph 中更丰富的数据
+
+Azure Resource Graph 是 Azure 中的一项服务，旨在提供高效的资源浏览。 可以使用 ARG 在一组给定的订阅中进行大规模查询，以便有效地控制环境。 
+
+对于 Azure 安全中心，你可以使用 ARG 和 [Kusto 查询语言 (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) 来查询各种安全状态数据。
+
+如果查询当前版本的“应在计算机上安装系统更新”，ARG 提供的唯一信息是，需要在计算机上修正建议。 发布更新版本后，以下查询将返回按计算机分组的每个缺失的系统更新。
+
+```kusto
+securityresources
+| where type =~ "microsoft.security/assessments/subassessments"
+| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+| where properties.status.code == "Unhealthy"
+```
 
 ## <a name="next-steps"></a>后续步骤
 

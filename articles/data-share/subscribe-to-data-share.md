@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9031ea2d862a23df5d597b790fffc49e624e53fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216566"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491913"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>教程：使用 Azure Data Share 接受和接收数据  
 
@@ -99,7 +99,7 @@ ms.locfileid: "92216566"
 
    这会转到数据共享帐户中的已接收共享。 
 
-   如果不想接受邀请，请选择“拒绝”。** 
+   如果不想接受邀请，请选择“拒绝”。 
 
 ## <a name="configure-received-share"></a>配置已接收共享
 按照以下步骤配置要接收数据的位置。
@@ -125,12 +125,19 @@ ms.locfileid: "92216566"
 
    ![触发快照](./media/trigger-snapshot.png "触发快照") 
 
-1. 如果上次运行状态为“成功”，请转到目标数据存储来查看接收的数据。** 选择“数据集”，然后单击“目标路径”中的链接。**** 
+1. 如果上次运行状态为“成功”，请转到目标数据存储来查看接收的数据。 选择“数据集”，然后单击“目标路径”中的链接。 
 
    ![使用者数据集](./media/consumer-datasets.png "使用者数据集映射") 
 
 ## <a name="view-history"></a>查看历史记录
-此步骤仅适用于基于快照的共享。 若要查看快照历史记录，请选择“历史记录”选项卡。在这里可以找到包含过去 30 天生成的所有快照的历史记录。 
+此步骤仅适用于基于快照的共享。 若要查看快照历史记录，请选择“历史记录”选项卡。在这里可以找到包含过去 30 天生成的所有快照的历史记录。
+
+## <a name="clean-up-resources"></a>清理资源
+
+当不再需要该资源时，转到“数据共享概述”页面并选择“删除”将其删除 。
 
 ## <a name="next-steps"></a>后续步骤
-本教程介绍了如何接受和接收 Azure Data Share。 若要详细了解 Azure Data Share 概念，请继续阅读[概念：Azure Data Share 术语](terminology.md)。
+本教程介绍了如何接受和接收 Azure Data Share。 若要详细了解 Azure Data Share 概念，请继续了解 Azure Data Share 术语。
+
+> [!div class="nextstepaction"]
+> [Azure Data Share 概念](terminology.md)

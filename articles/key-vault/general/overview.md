@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931999"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445092"
 ---
 # <a name="about-azure-key-vault"></a>关于 Azure Key Vault
 
@@ -39,7 +39,7 @@ Azure Key Vault 具有两个服务层级：标准层（使用软件密钥加密�
 
 访问密钥保管库需要适当的身份验证和授权，否则调用方（用户或应用程序）无法进行访问。 身份验证用于确定调用方的身份，而授权则决定了调用方能够执行的操作。
 
-身份验证通过 Azure Active Directory 来完成。 授权可以通过基于角色的访问控制 (RBAC) 或 Key Vault 访问策略来完成。 进行保管库的管理时，使用 RBAC；尝试访问存储在保管库中的数据时，使用密钥保管库访问策略。
+身份验证通过 Azure Active Directory 来完成。 授权可以通过 Azure 基于角色的访问控制 (Azure RBAC) 或 Key Vault 访问策略来完成。 进行保管库的管理时，使用 Azure RBAC；尝试访问存储在保管库中的数据时，使用密钥保管库访问策略。
 
 Azure Key Vault 可能受软件保护，或在 Azure Key Vault 高级层中由硬件安全模块 (HSM) 提供硬件保护。 受软件保护的密钥、密码和证书由 Azure 使用行业标准算法和密钥长度进行保护。  如果需要提高可靠性，可以在 HSM 中导入或生成永不超出 HSM 边界的密钥。 Azure Key Vault 使用经美国联邦信息处理标准 (FIPS) 140-2 级别 2 验证的 nCipher HSM。 你可以使用 nCipher 工具将密钥从 HSM 移动到 Azure Key Vault。
 

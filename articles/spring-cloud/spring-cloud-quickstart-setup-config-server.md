@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089122"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337761"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>快速入门：设置 Azure Spring Cloud Config Server
 
@@ -70,9 +70,33 @@ Azure Spring Cloud Config Server 是分布式系统的集中式配置服务。 �
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Azure Spring Cloud Config Server 的故障排除
+
+以下过程说明如何对 Config Server 设置进行故障排除。
+
+1. 在 Azure 门户中，转到服务“概览”页，然后选择“日志” 。 
+1. 选择“查询”和“显示包含‘错误’或‘异常’术语的应用程序日志” 。 
+1. 单击 **“运行”** 。 
+1. 如果在日志中发现错误“java.lang.illegalStateException”，则表明 Spring Cloud Service 无法从 Config Server 中找到属性。
+
+    [ ![ASC 门户运行查询](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. 转到服务“概述”页。
+1. 选择“诊断并解决问题”。 
+1. 选择“Config Server”检测程序。
+
+    [ ![ASC 门户诊断问题](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. 单击“Config Server 运行状况检查”。
+
+    [ ![ASC 门户精灵](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. 单击“Config Server 状态”以查看来自检测程序的详细信息。
+
+    [ ![ASC 门户运行状况状态](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>后续步骤
 

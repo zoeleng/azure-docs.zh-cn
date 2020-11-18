@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: e16342b4b46a189a5a5c4c0554fb2d870c9cdcac
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: af967c58cdeb2c750178141193a711a66af7477c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876607"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426713"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>教程：在 Azure IoT Central 中创建视频分析 - 对象和运动检测应用程序 (OpenVINO&trade;)
 
@@ -109,7 +109,7 @@ ms.locfileid: "91876607"
 
 ### <a name="replace-the-manifest"></a>替换清单
 
-在“LVA Edge 网关”页上，选择“+ 替换清单” 。
+在“LVA Edge 网关 v2”页上，选择“+ 替换清单” 。
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-openvino/replace-manifest.png" alt-text="替换清单":::
 

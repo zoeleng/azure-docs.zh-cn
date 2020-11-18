@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426247"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334663"
 ---
 ::: zone target="docs"
 
@@ -103,7 +103,7 @@ ms.locfileid: "92426247"
     
     ![文件资源管理器中显示的共享](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-    **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹** 。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
+    **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
     
 如果使用 Linux 客户端，请使用以下命令装载 SMB 共享。 下面的“vers”参数是 Linux 主机支持的 SMB 版本。 在下面的命令中插入相应版本。 有关 Data Box 支持的 SMB 版本，请参阅 [Linux 客户端支持的文件系统](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
@@ -229,11 +229,11 @@ C:\Users>
 
 选择“下载问题列表”。
 
-![下载并查看“连接和复制”上的错误 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![“连接和复制”，“下载问题列表”](media/data-box-deploy-copy-data/view-errors-2.png)
 
 打开列表以查看错误的详细信息，并选择解析 URL 以查看推荐的解决方法。
 
-![下载并查看“连接和复制”上的错误 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![下载并查看“连接和复制”上的错误](media/data-box-deploy-copy-data/view-errors-3.png)
 
 有关详细信息，请参阅[查看将数据复制到 Data Box 期间的错误日志](data-box-logs.md#view-error-log-during-data-copy)。 有关数据复制期间的错误详细列表，请参阅 [Data Box 问题故障排除](data-box-troubleshoot.md)。
 

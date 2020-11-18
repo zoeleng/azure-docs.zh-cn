@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 为 Azure VMware 解决方案的灾难恢复准备 Azure 资源
+title: 为 Azure VMware 解决方案 VM 的灾难恢复准备 Azure Site Recovery 资源
 description: 了解如何使用 Azure Site Recovery 为 Azure VMware 解决方案计算机的灾难恢复准备 Azure 资源。
 services: site-recovery
 author: Harsha-CS
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 83e2c46e1ce1977d0dd136e821c90843ce2de481
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 2bd305e3760a8c3d743037e7d90b71f5e9579eda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814186"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395472"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-azure-vmware-solution-to-azure"></a>为 Azure VMware 解决方案到 Azure 的灾难恢复准备 Azure 资源
+# <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>为 Azure VMware 解决方案 VM 的灾难恢复准备 Azure Site Recovery 资源
 
 本文介绍如何准备 Azure 资源和组件，以便可以使用 [Azure Site Recovery](site-recovery-overview.md) 服务设置 Azure VMware 解决方案的灾难恢复。 [Azure VMware 解决方案](../azure-vmware/introduction.md)可在 Azure 中提供私有云。 这些私有云包含基于专用裸机 Azure 基础结构构建的 vSphere 群集。
 
@@ -62,7 +62,7 @@ ms.locfileid: "91814186"
 1. 在 Azure 门户菜单中选择“创建资源”，然后在市场中搜索“恢复” 。
 2. 从搜索结果中选择“备份和站点恢复”，然后在“备份和站点恢复”页中单击“创建”。 
 3. 在“创建恢复服务保管库”页中，选择“订阅”。 我们将使用“Contoso 订阅”。
-4. 在**资源组**中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG**。
+4. 在 **资源组** 中，选择现有资源组或创建新资源组。 在本教程中，我们使用 **contosoRG**。
 5. 在“保管库名称”中输入一个易记名称，用于标识此保管库。 对于这组教程，我们使用 **ContosoVMVault**。
 6. 在“区域”中，选择保管库应位于的区域。 我们将使用“西欧”。
 7. 选择“查看 + 创建”。

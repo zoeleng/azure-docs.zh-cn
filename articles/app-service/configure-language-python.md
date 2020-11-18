@@ -2,15 +2,15 @@
 title: 配置 Linux Python 应用
 description: 了解如何使用 Azure 门户和 Azure CLI 配置运行 Web 应用的 Python 容器。
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743795"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425909"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>为 Azure 应用服务配置 Linux Python 应用
 
@@ -22,11 +22,11 @@ ms.locfileid: "92743795"
 
 可使用 [Azure 门户](https://portal.azure.com) 或 Azure CLI 进行配置：
 
-- **Azure 门户** ：按照 [在 Azure 门户配置应用服务应用](configure-common.md)中所述，使用应用的“设置” > 配置”页 。
+- **Azure 门户**：按照 [在 Azure 门户配置应用服务应用](configure-common.md)中所述，使用应用的“设置” > 配置”页 。
 
-- **Azure CLI** ：有两个选项。
+- **Azure CLI**：有两个选项。
 
-    - 在 [Azure Cloud Shell](../cloud-shell/overview.md) 中运行命令，你可使用代码块右上角的“试用”按钮打开它。
+    - 在 [Azure Cloud Shell](../cloud-shell/overview.md) 中运行命令。
     - 通过安装最新版的 [Azure CLI](/cli/azure/install-azure-cli) 在本地运行命令，然后使用 [az login](/cli/azure/reference-index#az-login) 登录到 Azure。
     
 > [!NOTE]
@@ -34,13 +34,13 @@ ms.locfileid: "92743795"
 
 ## <a name="configure-python-version"></a>配置 Python 版本
 
-- **Azure 门户** ：按照针对 Linux 容器的 [配置常规设置](configure-common.md#configure-general-settings)中所述，使用“配置”页上的“常规设置”选项卡 。
+- **Azure 门户**：按照针对 Linux 容器的 [配置常规设置](configure-common.md#configure-general-settings)中所述，使用“配置”页上的“常规设置”选项卡 。
 
-- **Azure CLI** ：
+- **Azure CLI**：
 
     -  使用 [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show) 显示当前 Python 版本：
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
         ```
         
@@ -48,13 +48,13 @@ ms.locfileid: "92743795"
     
     - 使用 [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) 设置 Python 版本
         
-        ```azurecli-interactive
+        ```azurecli
         az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
         ```
     
     - 使用 [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes) 显示 Azure 应用服务中支持的所有 Python 版本：
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp list-runtimes --linux | grep PYTHON
         ```
     
@@ -81,6 +81,8 @@ ms.locfileid: "92743795"
 - 若要运行后期生成的命令，请将 `POST_BUILD_COMMAND` 设置设置为包含命令（如 `echo Post-build command`），或包含与项目根文件夹相对的脚本文件的路径（如 `scripts/postbuild.sh`）。 所有命令都必须使用项目根文件夹的相对路径。
 
 有关自定义生成自动化的其他设置，请参阅 [Oryx 配置](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md)。 
+
+若要访问生成和部署日志，请参阅[访问部署日志](#access-deployment-logs)。
 
 若要详细了解应用服务如何在 Linux 中运行和生成 Python 应用，请参阅 [Oryx 如何检测和生成 Python 应用](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md)。
 
@@ -164,9 +166,13 @@ gunicorn --bind=0.0.0.0 --timeout 600 app:app
 
 ### <a name="default-behavior"></a>默认行为
 
-如果应用服务找不到自定义命令、Django 应用或 Flask 应用，则它会运行位于 _opt/defaultsite_ 文件夹中的默认只读应用。 默认应用如下所示：
+如果应用服务找不到自定义命令、Django 应用或 Flask 应用，它会运行位于 opt/defaultsite 文件夹中的默认只读应用（如下图所示）。
 
-![Linux 上的默认应用服务网页](media/configure-language-python/default-python-app.png)
+如果部署代码后仍看到默认应用，请参阅[故障排除 - 应用未显示](#app-doesnt-appear)。
+
+[![Linux 上的默认应用服务网页](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+同样，如果你希望看到已部署的应用，而不是默认应用，请参阅[故障排除 - 应用未显示](#app-doesnt-appear)。
 
 ## <a name="customize-startup-command"></a>自定义启动命令
 
@@ -178,11 +184,11 @@ gunicorn --bind=0.0.0.0 --timeout 600 app:app
 
 指定启动命令或命令文件：
 
-- **Azure 门户** ：选择应用的“配置”页，然后选择“常规设置” 。 在“启动命令”字段中，输入启动命令的全文或启动命令文件的名称。 然后，选择“保存”，应用所做的更改。 请参阅针对 Linux 容器的[配置常规设置](configure-common.md#configure-general-settings)。
+- **Azure 门户**：选择应用的“配置”页，然后选择“常规设置” 。 在“启动命令”字段中，输入启动命令的全文或启动命令文件的名称。 然后，选择“保存”，应用所做的更改。 请参阅针对 Linux 容器的[配置常规设置](configure-common.md#configure-general-settings)。
 
 - Azure CLI：使用 [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) 命令和 `--startup-file` 参数来设置启动命令或文件：
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
         
@@ -192,7 +198,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 app:app
 
 ### <a name="example-startup-commands"></a>示例启动命令
 
-- **添加了 Gunicorn 参数** ：以下示例将 `--workers=4` 添加到用于启动 Django 应用的 Gunicorn 命令行： 
+- **添加了 Gunicorn 参数**：以下示例将 `--workers=4` 添加到用于启动 Django 应用的 Gunicorn 命令行： 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -213,7 +219,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 app:app
 
     有关详细信息，请参阅 [Gunicorn 日志记录](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org)。
     
-- **自定义 Flask 主模块** ：默认情况下，应用服务假定 Flask 应用的主模块是 application.py 或 app.py 。 如果主模块使用其他名称，则必须自定义启动命令。 例如，如果 Flask 应用的主模块是 hello.py，而该文件中的 Flask 应用对象名为 `myapp`，则命令如下所示：
+- **自定义 Flask 主模块**：默认情况下，应用服务假定 Flask 应用的主模块是 application.py 或 app.py 。 如果主模块使用其他名称，则必须自定义启动命令。 例如，如果 Flask 应用的主模块是 hello.py，而该文件中的 Flask 应用对象名为 `myapp`，则命令如下所示：
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -225,7 +231,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 app:app
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **使用非 Gunicorn 服务器** ：若要使用其他 web 服务器（如 [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)），请使用适当的命令作为启动命令或在启动命令文件中使用：
+- **使用非 Gunicorn 服务器**：若要使用其他 web 服务器（如 [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)），请使用适当的命令作为启动命令或在启动命令文件中使用：
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -258,33 +264,81 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 
 若要通过 Azure 门户访问日志，请在应用的左侧菜单中选择“监视” > “日志流” 。
 
+## <a name="access-deployment-logs"></a>访问部署日志
+
+当你部署代码时，应用服务会执行前面的[自定义生成自动化](#customize-build-automation)部分所述的生成过程。 由于生成过程在自己的容器中运行，因此，生成日志与应用的诊断日志分开存储。
+
+通过以下步骤访问部署日志：
+
+1. 在 Web 应用的 Azure 门户上，选择左侧菜单中的“部署” > “部署中心(预览版)”。
+1. 在“日志”选项卡上，选择最新提交的“提交 ID”。
+1. 在出现的“日志详细信息”页上，选择“正在运行 oryx 生成...”旁边显示的“显示日志...”链接。
+
+生成问题（如 requirements.txt 中不正确的依赖项）以及生成前或生成后脚本中的错误都会显示在这些日志中。 如果 requirements 文件没有准确命名为 requirements.txt 或者没有出现在项目的根文件夹中，也会出现错误。
+
 ## <a name="open-ssh-session-in-browser"></a>在浏览器中打开 SSH 会话
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
+成功连接到 SSH 会话后，应该会在窗口底部显示“已建立 SSH 连接”消息。 如果显示诸如“SSH_CONNECTION_CLOSED”之类的错误或容器重启消息，则表明可能有错误阻止应用容器启动。 有关调查可能存在的问题的步骤，请参阅[故障排除](#troubleshooting)。
+
 ## <a name="troubleshooting"></a>疑难解答
 
-- **部署自己的应用代码后看到默认应用。** 之所以显示默认应用，是因为并未将应用代码部署到应用服务，或者应用服务未找到应用代码，因此运行了默认应用。
+一般来说，故障排除的第一步是使用应用服务诊断：
+
+1. 在 Web 应用的 Azure 门户上，从左侧菜单中选择“诊断并解决问题”。
+1. 选择“可用性和性能”。
+1. 查看“应用程序日志”、“容器崩溃”和“容器问题”选项中的信息，其中会出现最常见的问题。
+
+接下来，查看[部署日志](#access-deployment-logs)和[应用日志](#access-diagnostic-logs)中是否有任何错误消息。 这些日志通常会标识可能阻止应用部署或应用启动的特定问题。 例如，如果 requirements.txt 文件具有错误的文件名或不在项目根文件夹中，则生成可能失败。
+
+以下部分针对特定问题提供了更多指导。
+
+- [应用未显示 - 显示默认应用](#app-doesnt-appear)
+- [应用未显示 -“服务不可用”消息](#service-unavailable)
+- [找不到 setup.py 或 requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [在 SSH 会话中键入密码时，密码不显示](#other-issues)
+- [SSH 会话中的命令似乎已被截断](#other-issues)
+- [静态资产未在 Django 应用中显示](#other-issues)
+- [致命错误: 需要建立 SSL 连接](#other-issues)
+
+#### <a name="app-doesnt-appear"></a>应用未显示
+
+- **部署自己的应用代码后看到默认应用。** 之所以显示[默认应用](#default-behavior)，是因为并未将应用代码部署到应用服务，或者应用服务未找到应用代码，因此运行了默认应用。
 
     - 请重启应用服务，等待 15 到 20 秒，然后再次检查应用。
     
-    - 请确保使用适用于 Linux 的应用服务，而不要使用基于 Windows 的实例。 在 Azure CLI 中运行 `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind` 命令，对 `<resource-group-name>` 和 `<app-service-name>` 进行相应的替换。 应该会看到作为输出的 `app,linux`，否则请重新创建应用服务并选择 Linux。
+    - 请确保使用适用于 Linux 的应用服务，而不要使用基于 Windows 的实例。 在 Azure CLI 中运行 `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind` 命令，对 `<resource-group-name>` 和 `<app-name>` 进行相应的替换。 应该会看到作为输出的 `app,linux`，否则请重新创建应用服务并选择 Linux。
     
-    - 使用 SSH 或 Kudu 控制台直接连接到应用服务，并检查文件是否存在于 *site/wwwroot* 下。 如果这些文件不存在，请检查部署过程并重新部署应用。
+    - 使用 [SSH](#open-ssh-session-in-browser) 直接连接到应用服务容器，并验证文件是否在 site/wwwroot 下。 如果不在，请执行以下步骤：
+      1. 创建一个名为 `SCM_DO_BUILD_DURING_DEPLOYMENT` 且值为 1 的应用设置，重新部署代码，等待几分钟，然后再次尝试访问应用。 有关创建应用设置的详细信息，请参阅[在 Azure 门户中配置应用服务应用](configure-common.md)。
+      1. 查看部署过程，[检查部署日志](#access-deployment-logs)，更正所有错误，然后重新部署应用。
     
     - 如果这些文件存在，则表示应用服务无法识别特定的启动文件。 检查是否按应用服务的预期方式为 [Django](#django-app) 或 [Flask](#flask-app) 构建了应用，或使用[自定义启动命令](#customize-startup-command)。
 
-- **浏览器中显示“服务不可用”消息。** 浏览器在等待应用服务的响应时超时，这表示应用服务已启动 Gunicorn 服务器，但指定应用代码的参数不正确。
+- <a name="service-unavailable"></a>**浏览器中显示“服务不可用”消息。** 浏览器在等待应用服务的响应时超时，这表示应用服务已启动 Gunicorn 服务器，但应用本身未启动。 这种情况可能表示 Gunicorn 参数不正确，或者应用代码有错误。
 
     - 刷新浏览器，尤其是在应用服务计划中使用最低定价层的情况下。 例如，使用免费层时，应用可能需要较长时间才能启动，并在刷新浏览器后才会做出响应。
 
     - 检查是否按应用服务的预期方式为 [Django](#django-app) 或 [Flask](#flask-app) 构建了应用，或使用[自定义启动命令](#customize-startup-command)。
 
-    - 检查“[日志流](#access-diagnostic-logs)”是否有任何错误消息。
+    - 检查[应用日志流](#access-diagnostic-logs)是否有任何错误消息。 日志将显示应用代码中的任何错误。
+
+#### <a name="could-not-find-setuppy-or-requirementstxt"></a>找不到 setup.py 或 requirements.txt
 
 - 日志流显示“找不到 setup.py 或 requirements.txt；未运行 pip install。”：Oryx 生成过程找不到 requirements.txt 文件。
 
-    - 使用 SSH 或 Kudu 控制台直接连接到应用服务，并验证 requirements.txt 是否直接存在于 site/wwwroot 下 。 如果该文件不存在，请使该文件存在于存储库中，并包含在部署中。 如果它存在于单独的文件夹中，请将其移到根文件夹下。
+    - 通过 [SSH](#open-ssh-session-in-browser) 连接到 Web 应用的容器，并验证 requirements.txt 的命名是否正确，以及是否就在 site/wwwroot 下。 如果该文件不存在，请使该文件存在于存储库中，并包含在部署中。 如果它存在于单独的文件夹中，请将其移到根文件夹下。
+
+#### <a name="other-issues"></a>其他问题
+
+- **在 SSH 会话中键入密码时，密码不显示**：出于安全考虑，SSH 会话会在你键入密码时隐藏密码。 但是，这些字符会被记录下来，因此，请照常键入密码，完成后按 Enter。
+
+- **SSH 会话中的命令似乎已被截断**：编辑器可能未对命令自动换行，但它们仍应正常运行。
+
+- **静态资产未在 Django 应用中显示**：确保已启用 [WhiteNoise 模块](http://whitenoise.evans.io/en/stable/django.html)
+
+- **你看到消息“致命错误: 需要建立 SSL 连接”** ：检查任何用于从应用内部访问资源（如数据库）的用户名和密码。
 
 ## <a name="next-steps"></a>后续步骤
 

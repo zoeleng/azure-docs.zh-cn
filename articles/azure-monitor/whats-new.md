@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151810"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487986"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 文档中有哪些新增内容？
 
@@ -157,7 +157,7 @@ ms.locfileid: "92151810"
 ### <a name="alerts"></a>警报
 - [Azure Monitor 警报的操作规则](platform/alerts-action-rules.md) - 增加了 CLI 进程。
 - [在 Azure 门户中创建和管理操作组](platform/action-groups.md) - 已更新以反映 UI 中的更改。
-- [在 Azure Monitor Log Analytics 中保存的查询](log-query/saved-queries.md) - 新文章。
+- [Azure Monitor Log Analytics 中的示例查询](log-query/example-queries.md) - 新文章。
 - [排除 Azure Monitor 中的日志警报故障](platform/alerts-troubleshoot-log.md) - 增加了有关警报规则配额的部分。
 - [排除 Azure 指标警报故障](platform/alerts-troubleshoot-metric.md) - 增加了有关尚未发出的自定义指标的警报规则部分。
 - [了解指标警报在 Azure Monitor 中的工作原理](platform/alerts-metric-overview.md) - 添加了有关选择聚合粒度的建议。

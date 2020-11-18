@@ -3,13 +3,13 @@ title: 部署和配置 Azure VMware 解决方案
 description: 了解如何使用规划阶段中收集的信息部署 Azure VMware 解决方案私有云。
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152025"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336329"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>部署和配置 Azure VMware 解决方案
 
@@ -59,7 +59,7 @@ ms.locfileid: "92152025"
 
 在有效路由列表中，你应当会看到在 Azure VMware 解决方案部署过程中创建的网络。 你会看到从你在本文前面的[部署步骤](#deploy-azure-vmware-solution)中定义的 [`/22` 网络](production-ready-deployment-steps.md#ip-address-segment)派生的多个网络。
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="创建 Azure VMware 解决方案跳转盒" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="验证从 Azure VMware 解决方案播发到 Azure 虚拟网络的网络路由" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 在此示例中，在部署过程中输入的 10.74.72.0/22 网络派生了 /24 网络。  如果你看到类似的内容，则可以在 Azure VMware 解决方案中连接到 vCenter。
 
@@ -97,10 +97,10 @@ ms.locfileid: "92152025"
 
 如果你计划在 NSX-T 网段上使用 DHCP，请继续阅读本部分。 否则，请跳到[在 NSX-T 网段上添加 VM](#add-a-vm-on-the-nsx-t-network-segment) 部分。  
 
-现在，你已创建了你的 NSX-T 网段，接下来可以执行以下任一操作：
+现在，你已创建了你的 NSX-T 网段，可以通过两种方式在 Azure VMware 解决方案中创建和管理 DHCP：
 
-* 使用 NSX-T 作为创建的段的 DHCP 服务器。 对于此选项，你需要[在 NSX-T 中创建 DHCP 服务器](manage-dhcp.md#create-dhcp-server)并[中继到该服务器](manage-dhcp.md#create-dhcp-relay-service)。
-* 将来自 NSX-T 段的 DHCP 请求中继到环境中其他位置的 DHCP 服务器。 对于此选项，[仅执行中继配置](manage-dhcp.md#create-dhcp-relay-service)。
+* 如果你使用 NSX-T 来托管 DHCP 服务器，则需要[创建 DHCP 服务器](manage-dhcp.md#create-a-dhcp-server)并[中继到该服务器](manage-dhcp.md#create-dhcp-relay-service)。 
+* 如果你在网络中使用第三方外部 DHCP 服务器，则需要[创建 DHCP 中继服务](manage-dhcp.md#create-dhcp-relay-service)。  对于此选项，[仅执行中继配置](manage-dhcp.md#create-dhcp-relay-service)。
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>在 NSX-T 网段上添加 VM

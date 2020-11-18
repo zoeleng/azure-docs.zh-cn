@@ -3,12 +3,12 @@ title: 将视频连续录制到云中并从云中播放教程 - Azure
 description: 在本教程中，你将了解如何使用 Azure IoT Edge 上的 Azure 实时视频分析将视频连续录制到云中并使用 Azure 媒体服务流式传输该视频的任何部分。
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91774022"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346360"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>教程：将视频连续录制到云中并从云中播放
 
@@ -93,7 +93,7 @@ ms.locfileid: "91774022"
     借助 IoT 中心连接字符串，可以使用 Visual Studio Code 通过 Azure IoT 中心将命令发送到 Edge 模块。
     
 1. 接下来，浏览到 src/edge 文件夹并创建一个名为 .env 的文件。
-1. 复制 ~/clouddrive/lva-sample/.env 文件中的内容。 文本应如下所示：
+1. 复制 ~/clouddrive/lva-sample/edge-deployment/.env 文件中的内容。 文本应如下所示：
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -164,11 +164,63 @@ ms.locfileid: "91774022"
 1. 右键单击并选择“扩展设置”。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="媒体图":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="扩展设置":::
 1. 搜索并启用“显示详细消息”。
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="媒体图"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="显示详细消息":::
+1. <!--In Visual Studio Code, go-->转到 src/cloud-to-device-console-app/operations.json。
+1. 在 GraphTopologySet 节点下，编辑以下内容：
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+1. 接下来，在 GraphInstanceSet 和 GraphTopologyDelete 节点下，确保 topologyName 的值与前面图形拓扑中的 name 属性的值匹配   ：
+
+    `"topologyName" : "CVRToAMSAsset"`  
+1. 在浏览器中打开[拓扑](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json)，并查看 assetNamePattern。 为了确保资产具有唯一名称，可能需要在 operations.json 文件中更改图形实例的名称（默认值为 Sample-Graph-1）。
+
+    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
+1. 选择 F5 以启动调试会话。 在“终端”窗口中，你将看到一些输出的消息。
+1. operations.json 文件首先调用 GraphTopologyList 和 GraphInstanceList。 如果在先前的快速入门或教程后清理了资源，此操作会返回空列表，然后暂停以便你能够选择 Enter，如下所示：
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+
+1. 在“终端”窗口中选择 Enter 后，会执行下一组直接方法调用 ：
+   * 使用上述 topologyUrl 调用 GraphTopologySet
+   * 使用以下正文调用 GraphInstanceSet
+     
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph-1",
+       "properties": {
+         "topologyName": "CVRToAMSAsset",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
            }
          ]
        }

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 16e13a18f93da9063a7eb08e3a2df27db9e3090f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321688"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380923"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>什么是 Azure Synapse Analytics（工作区预览版）？
 
@@ -74,6 +74,11 @@ Synapse Studio 是一个 Web 原生的体验，它将数据工程师所需的全
 * 在一个位置生成端到端的分析解决方案：引入、浏览、准备、协调、可视化
 * 让编写 SQL 或 Spark 代码的数据工程师保持行业领先的工作效率：创作、调试和性能优化
 * 与企业 CI/CD 过程集成
+
+## <a name="engage-with-the-synapse-engineering-team"></a>与 Synapse 工程团队合作
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse)：询问开发问题。
+- [Microsoft 问答页](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)：询问技术问题。
 
 ## <a name="next-steps"></a>后续步骤
 

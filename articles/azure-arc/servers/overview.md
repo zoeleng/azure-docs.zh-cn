@@ -2,18 +2,18 @@
 title: 已启用 Azure Arc 的服务器概述
 description: 了解如何使用已启用 Azure Arc 的服务器像管理 Azure 资源一样，管理托管在 Azure 外部的服务器。
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 10/15/2020
+ms.date: 11/04/2020
 ms.topic: overview
-ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b9d38b2395d922e3e2a7daec654cd73de7267ee1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460846"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360575"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>什么是已启用 Azure Arc 的服务器？
 
-使用已启用 Azure Arc 的服务器，你可以管理企业网络或其他云提供商中的、托管在 Azure 外部的 Windows 和 Linux 计算机，就像管理本地 Azure 虚拟机一样。 当混合计算机连接到 Azure 时，它将成为一台联网计算机，被视为 Azure 中的资源。 每台联网计算机都有一个资源 ID，作为订阅内资源组的一部分进行管理，并可受益于标准的 Azure 构造，例如 Azure Policy 和应用标记。 为客户管理本地基础结构的服务提供商可以通过结合使用 Azure Arc 和 [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) 来管理其混合计算机，与当前跨多个客户环境管理本机 Azure 资源一样。
+使用已启用 Azure Arc 的服务器，你可以按照管理本地 Azure 虚拟机的方式，管理在 Azure 外部、在企业网络上或其他云提供商中托管的 Windows 和 Linux 计算机。 当混合计算机连接到 Azure 时，它将成为一台联网计算机，被视为 Azure 中的资源。 每台联网计算机都有一个资源 ID，包含在一个资源组中，可受益于标准的 Azure 构造，例如 Azure Policy 和应用标记。 为客户管理本地基础结构的服务提供商可以通过结合使用 Azure Arc 和 [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) 来管理其混合计算机，与当前跨多个客户环境管理本机 Azure 资源一样。
 
 若要为托管在 Azure 外部的混合计算机提供此体验，需要在打算连接到 Azure 的每台计算机上安装 Azure Connected Machine 代理。 此代理不提供任何其他功能，而且不会取代 Azure [Log Analytics 代理](../../azure-monitor/platform/log-analytics-agent.md)。 若要主动监视计算机上运行的 OS 和工作负荷、使用自动化 Runbook 或更新管理等解决方案对其进行管理，或使用其他 Azure 服务（例如 [Azure 安全中心](../../security-center/security-center-introduction.md)），需要安装适用于 Windows 和 Linux 的 Log Analytics 代理。
 
@@ -29,7 +29,10 @@ ms.locfileid: "92460846"
 
 - 使用其他 Azure 服务（如使用受支持的 [Azure VM 扩展](manage-vm-extensions.md)的 Azure 自动化[状态配置](../../automation/automation-dsc-overview.md)和 Azure Monitor Log Analytics 工作区）为非 Azure Windows 或 Linux 计算机简化部署。 这包括使用自定义脚本扩展执行部署后配置或软件安装。
 
-- 使用 Azure 自动化中的[更新管理](../../automation/update-management/update-mgmt-overview.md)为 Windows 和 Linux 服务器管理操作系统更新。
+- 使用 Azure 自动化中的[更新管理](../../automation/update-management/update-mgmt-overview.md)为 Windows 和 Linux 服务器管理操作系统更新
+
+    > [!NOTE]
+    > 目前，不支持直接从启用了 Arc 的服务器启用更新管理。 请参阅[从自动化帐户启用更新管理](../../automation/update-management/enable-from-automation-account.md)，以了解要求以及如何为服务器启用更新管理。
 
 - 使用 [Azure 安全中心](../../security-center/security-center-introduction.md)将用于检测威胁的非 Azure 服务器包含在内，并主动监视潜在的安全威胁。
 

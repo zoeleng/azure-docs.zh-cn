@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: eeceb1279579055bfff33f0a4413f0798418faed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d981e902f829eb0fa8283b6a38ae376a780bcc9
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83201511"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289751"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>教程：配置 Key Vault 中的证书自动轮换
 
@@ -41,13 +41,13 @@ ms.locfileid: "83201511"
 
 ## <a name="create-a-vault"></a>创建保管库
 
-创建密钥保管库或选择现有保管库以执行操作（请参阅[创建密钥保管库的步骤](../quick-create-portal.md)）。 在以下示例中，密钥保管库名称为 Example-Vault。
+创建密钥保管库或选择现有保管库以执行操作（请参阅[创建密钥保管库的步骤](../secrets/quick-create-portal.md)）。 在以下示例中，密钥保管库名称为 Example-Vault。
 
 ![密钥保管库创建完成后的输出](../media/certificates/tutorial-import-cert/vault-properties.png)
 
 ## <a name="create-a-certificate-in-key-vault"></a>在 Key Vault 中创建证书
 
-创建证书或将证书导入到密钥保管库中（请参阅[在 Key Vault 中创建证书的步骤](../quick-create-portal.md)）。 在本例中，你将使用名为 ExampleCertificate 的证书。
+创建证书或将证书导入到密钥保管库中（请参阅[在 Key Vault 中创建证书的步骤](../secrets/quick-create-portal.md)）。 在本例中，你将使用名为 ExampleCertificate 的证书。
 
 ## <a name="update-certificate-lifecycle-attributes"></a>更新证书生命周期属性
 
@@ -95,7 +95,7 @@ Key Vault 通过与 CA 建立的合作关系自动轮换证书。 由于 Key Vau
 1. 选择要更新的证书。 在本例中，你将使用名为 ExampleCertificate 的证书。
 1. 从顶部菜单栏中选择“颁发策略”。
 
-   ![证书属性](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![突出显示“颁发策略”按钮的屏幕截图。](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. 在“颁发策略”屏幕上，更新以下值：
 
@@ -134,7 +134,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-若要详细了解参数，请参阅 [az keyvault certificate](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes)。
+若要详细了解参数，请参阅 [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -152,5 +152,5 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 
 在本教程中，你更新了一个证书的生命周期属性。 若要详细了解 Key Vault 以及如何将其与应用程序集成，请继续阅读以下文章：
 
-- 详细了解如何[在 Azure Key Vault 中管理证书创建](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)。
+- 详细了解如何[在 Azure Key Vault 中管理证书创建](./create-certificate-scenarios.md)。
 - 查看 [Key Vault 概述](../general/overview.md)。

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: aahi
-ms.openlocfilehash: 122e44da7bbf4229f932eefdae4c70dc49f43bfe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 247aea49d60c2d953d8b6dff37d22188a5442a1f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371268"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94625267"
 ---
 在本快速入门中，你将使用必应图像搜索客户端库进行第一次图像搜索。 
 
@@ -129,12 +129,12 @@ if (imageResults != null)
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [必应图像搜索单页应用教程](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [必应图像搜索单页应用教程](../../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>另请参阅
 
-* [什么是必应图像搜索？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [什么是必应图像搜索？](../../overview.md)  
 * [尝试在线互动演示](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Azure 认知服务 SDK 的 .NET 示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-* [Azure 认知服务文档](https://docs.microsoft.com/azure/cognitive-services)
-* [必应图像搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure 认知服务文档](../../../index.yml)
+* [必应图像搜索 API 参考](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

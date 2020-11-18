@@ -5,27 +5,28 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d03d0267ff4fb16042d5cc2016e87139b88281a
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056576"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411195"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>教程：使用 Azure 虚拟 WAN 创建用户 VPN 连接
 
-本教程介绍如何使用虚拟 WAN 通过 IPsec/IKE (IKEv2) 或 OpenVPN VPN 连接与 Azure 中的资源建立连接。 此类连接要求在客户端计算机上配置一个客户端。 有关虚拟 WAN 的详细信息，请参阅[虚拟 WAN 概述](virtual-wan-about.md)
+本教程介绍如何使用虚拟 WAN 通过 IPsec/IKE (IKEv2) 或 OpenVPN VPN 连接与 Azure 中的资源建立连接。 此类连接要求在客户端计算机上配置 VPN 客户端。 有关虚拟 WAN 的详细信息，请参阅[虚拟 WAN 概述](virtual-wan-about.md)。
 
 在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
-> * 创建 WAN
+> * 创建虚拟 WAN
 > * 创建 P2S 配置
-> * 创建中心
+> * 创建虚拟中心
 > * 指定 DNS 服务器
-> * 下载 VPN 客户端配置文件
+> * 生成 VPN 客户端配置文件配置包
+> * 配置 VPN 客户端
 > * 查看虚拟 WAN
 
 ![虚拟 WAN 示意图](./media/virtual-wan-about/virtualwanp2s.png)
@@ -42,27 +43,28 @@ ms.locfileid: "92056576"
 
 点到站点 (P2S) 配置定义连接远程客户端的参数。
 
-[!INCLUDE [Create client profiles](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 
-## <a name="create-hub-with-point-to-site-gateway"></a><a name="hub"></a>使用点到站点网关创建中心
+## <a name="create-virtual-hub-and-gateway"></a><a name="hub"></a>创建虚拟中心和网关
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
 ## <a name="specify-dns-server"></a><a name="dns"></a>指定 DNS 服务器
 
-虚拟 WAN 用户 VPN 网关允许指定最多 5 个 DNS 服务器。 可以在创建中心的过程中对其进行配置，也可以在以后对其进行修改。 若要执行此操作，请找到虚拟中心。 在“用户 VPN(点到站点)”下，选择“配置”，然后在“自定义 DNS 服务器”文本框中输入 DNS 服务器 IP 地址  。
+你可以在创建中心时配置此设置，也可以在以后对其进行修改。 若要进行修改，请找到虚拟中心。 在“用户 VPN(点到站点)”下，选择“配置”，然后在“自定义 DNS 服务器”文本框中输入 DNS 服务器 IP 地址  。 最多可以指定 5 个 DNS 服务器。
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="自定义 DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
-## <a name="download-vpn-profile"></a><a name="download"></a>下载 VPN 配置文件
+## <a name="generate-vpn-client-profile-package"></a><a name="download"></a>生成 VPN 客户端配置文件包
 
-使用 VPN 配置文件来配置客户端。
+生成并下载 VPN 客户端配置文件包以配置 VPN 客户端。
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
-### <a name="configure-user-vpn-clients"></a>配置用户 VPN 客户端
+## <a name="configure-vpn-clients"></a><a name="configure-client"></a>配置 VPN 客户端
 
-使用下载的配置文件配置远程访问客户端。 每个操作系统的过程均不同，请按照适用于你的系统的说明进行操作。
+使用下载的配置文件包配置远程访问 VPN 客户端。 每个操作系统的过程各不相同。 按照适用于你的系统的说明进行操作。
+完成客户端配置后，即可连接。
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 

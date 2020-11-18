@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9e6b03a2f9dd0089b1112000804e46f3d214cd3c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362563"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131286"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>教程：配置 Log Analytics 向导
 
@@ -96,11 +96,11 @@ ms.locfileid: "92362563"
 
 7. 搜索“Azure Active Directory”。
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![屏幕截图显示 Azure 搜索中的 Azure Active Directory。](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. 在“监视”部分，单击“诊断设置” 。
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![屏幕截图显示从“监视”中选择的“诊断”设置。](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. 在“诊断设置”页上，单击“添加诊断设置” 。
 
@@ -128,7 +128,7 @@ ms.locfileid: "92362563"
 
 2. 搜索“Azure Active Directory”。
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![屏幕截图显示 Azure 搜索中的 Azure Active Directory。](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. 在“监视”部分，单击“日志” 。
 
@@ -210,7 +210,7 @@ ms.locfileid: "92362563"
 
 2. 搜索“Azure Active Directory”。
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![屏幕截图显示 Azure 搜索中的 Azure Active Directory。](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. 在“监视”部分，单击“日志” 。
 
@@ -301,7 +301,7 @@ ms.locfileid: "92362563"
 
 2. 搜索“Azure Active Directory”。
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![屏幕截图显示 Azure 搜索中的 Azure Active Directory。](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. 在“监视”部分，单击“工作簿” 。
 
@@ -332,7 +332,7 @@ ms.locfileid: "92362563"
 
 10. 单击 **“运行查询”**。
 
-    ![运行查询](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![屏幕截图显示“运行查询”按钮。](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
 11. 在工具栏中的“可视化效果”下，单击“饼图” 。
 
@@ -353,7 +353,7 @@ ms.locfileid: "92362563"
 
 2. 搜索“Azure Active Directory”。
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![屏幕截图显示 Azure 搜索中的 Azure Active Directory。](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. 在“监视”部分，单击“工作簿” 。
 
@@ -361,11 +361,11 @@ ms.locfileid: "92362563"
 
 4. 在“条件访问”部分中，单击“条件访问见解和报表” 。
 
-    ![条件访问模板](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![屏幕截图显示“条件访问见解”和“报表”选项。](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
 5. 在工具栏中，单击“编辑”。
 
-    ![条件访问模板](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![屏幕截图显示“编辑”按钮。](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
 6. 在工具栏中，单击三个点，然后单击“添加”，再单击“添加查询” 。
 
@@ -375,7 +375,7 @@ ms.locfileid: "92362563"
 
 8. 单击 **“运行查询”**。
 
-    ![运行查询](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![屏幕截图显示用于运行该查询的“运行查询”按钮。](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
 9. 单击“时间范围”，然后选择“在查询中设置” 。
 

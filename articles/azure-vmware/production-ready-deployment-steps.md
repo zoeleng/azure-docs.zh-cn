@@ -3,12 +3,12 @@ title: 规划 Azure VMware 解决方案部署
 description: 本文概述了 Azure VMware 解决方案部署工作流。  最终结果是一个就绪的可用于创建和迁移虚拟机 (VM) 的环境。
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517355"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287050"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>规划 Azure VMware 解决方案部署
 
@@ -17,7 +17,7 @@ ms.locfileid: "92517355"
 本快速入门中的过程会生成一个用于创建虚拟机 (VM) 并进行迁移的生产就绪环境。 
 
 >[!IMPORTANT]
->在创建 Azure VMware 解决方案资源之前，请按照[如何启用 Azure VMware 解决方案资源](enable-azure-vmware-solution.md)一文中的说明提交支持票证来分配节点。 支持团队收到你的请求后，最多需要五个工作日来确认你的请求并分配你的节点。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的节点，你会经历相同的过程。 
+>在创建 Azure VMware 解决方案资源之前，请按照[如何启用 Azure VMware 解决方案资源](enable-azure-vmware-solution.md)一文中的说明提交支持票证来分配主机。 支持团队收到你的请求后，最多需要五个工作日来确认你的请求并分配你的主机。 如果你有现有的 Azure VMware 解决方案私有云，但需要分配更多的主机，你会经历相同的过程。 
 
 
 ## <a name="subscription"></a>订阅
@@ -39,9 +39,9 @@ ms.locfileid: "92517355"
 
 定义要在部署过程中使用的资源名称。  资源名称是一个易记的描述性名称，用来为 Azure VMware 解决方案私有云命名。
 
-## <a name="size-nodes"></a>节点大小
+## <a name="size-hosts"></a>调整主机大小
 
-确定在部署 Azure VMware 解决方案时要使用的节点大小。  有关完整列表，请参阅 [Azure VMware 解决方案私有云和群集](concepts-private-clouds-clusters.md#hosts)文档。
+确定在部署 Azure VMware 解决方案时要使用的主机大小。  有关完整列表，请参阅 [Azure VMware 解决方案私有云和群集](concepts-private-clouds-clusters.md#hosts)文档。
 
 ## <a name="number-of-hosts"></a>主机数
 

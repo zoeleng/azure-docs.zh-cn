@@ -7,23 +7,23 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/09/2020
 ms.author: banders
-ms.openlocfilehash: 16ba70717d04c44e950ce2ed2c47e54859c4be47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684875"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408016"
 ---
 # <a name="cancel-your-azure-subscription"></a>取消 Azure 订阅
 
-如果不再需要订阅，可以在 Azure 门户中取消 Azure 订阅。
+如果不再需要 Azure 订阅，可以在 Azure 门户中将其取消。
 
 Microsoft 建议你在取消订阅之前执行以下操作，虽然这不是必需的：
 
 * 备份数据。 例如，若要在 Azure 存储或 SQL 中存储数据，请下载一个副本。 如果有虚拟机，请在本地保存该虚拟机的映像。
-* 关闭服务。 转到[管理门户中的资源页](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)，**停止**任何正在运行的虚拟机、应用程序或其他服务。
+* 关闭服务。 转到 [管理门户中的资源页](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)，**停止** 任何正在运行的虚拟机、应用程序或其他服务。
 * 考虑迁移数据。 请参阅[将资源移到新资源组或订阅中](../../azure-resource-manager/management/move-resource-group-and-subscription.md)。
 * 删除所有资源和所有资源组。
 * 如果在 `AssignableScopes` 中有任何引用此订阅的自定义角色，则应更新这些自定义角色以删除此订阅。 如果在取消订阅后尝试更新自定义角色，可能会收到错误。 有关详细信息，请参阅[排查自定义角色问题](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles)和 [Azure 自定义角色](../../role-based-access-control/custom-roles.md)。
@@ -71,9 +71,21 @@ Microsoft 建议你在取消订阅之前执行以下操作，虽然这不是必�
 
 如果你的订阅不是采用即用即付费率的订阅，可在取消后的 90 天内联系支持人员来重新激活订阅。
 
-## <a name="need-help-contact-us"></a>需要帮助？ 请联系我们。
+## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>为什么在 Azure 门户上看不到“取消订阅”选项？ 
 
-如有任何疑问或需要帮助，请[创建支持请求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+你可能没有取消订阅所需的权限。 有关谁可以取消各种类型的订阅的说明，请参阅[谁可以取消订阅？](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription)。
+
+## <a name="how-do-i-delete-my-azure-account"></a>如何删除 Azure 帐户？
+
+*我需要删除我的帐户，包括所有个人信息。我已经取消了有效的（免费试用版）订阅。我没有任何有效的订阅，并且想要完全删除我的帐户*。
+
+* 如果是通过组织获取的 Azure Active Directory 帐户，则 Azure AD 管理员可以删除该帐户。 在那之后，服务被禁用。 那意味着虚拟机已解除分配，临时 IP 地址已释放，并且存储是只读的。 总之，取消后，会立即停止计费。
+
+* 如果不是通过组织获取的 Azure AD 帐户，则可以取消后再删除 Azure 订阅，然后从该帐户中删除信用卡。 虽然该操作不会删除帐户，但会使其无法使用。 如果关联的 Microsoft 帐户当前未用于任何其他目的，则还可以进一步操作并将其删除。
+
+## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>如何取消 Visual Studio Professional 帐户？
+
+请参阅[续订和取消](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation)一文。 如果有任何 Visual Studio Azure 订阅，也需要取消和删除它们。
 
 ## <a name="next-steps"></a>后续步骤
 

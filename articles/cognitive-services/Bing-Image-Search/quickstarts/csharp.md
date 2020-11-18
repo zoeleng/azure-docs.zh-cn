@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 921230e217f014e05d6d7e9a2c5402814d3226f0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cf129e5059d7abc74a74983ce68f5a8ddc2bf18e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099957"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593546"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>快速入门：使用必应图像搜索 REST API 和 C# 来搜索图像
 
@@ -214,8 +214,8 @@ namespace BingSearchApisQuickstart
 
 ## <a name="see-also"></a>另请参阅
 
-* [什么是必应图像搜索 API？](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [什么是必应图像搜索 API？](../overview.md)  
 * [尝试在线互动演示](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [必应搜索 API 的定价详细信息](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* [Azure 认知服务文档](https://docs.microsoft.com/azure/cognitive-services)
-* [必应图像搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure 认知服务文档](../../index.yml)
+* [必应图像搜索 API 参考](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

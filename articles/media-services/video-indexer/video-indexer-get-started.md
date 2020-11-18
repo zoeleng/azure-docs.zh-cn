@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7099b0d303965b987fb316170738cc82568dc6d6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147277"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505591"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>快速入门：如何注册并上传第一个视频
 
 本快速入门介绍如何登录到视频索引器网站，以及如何上传第一个视频。
 
-创建视频索引器帐户时，可以选择免费试用帐户（提供特定分钟数的免费索引时间）或付费选项（不受配额的限制）。 使用免费试用版时，视频索引器为网站用户提供最多 600 分钟的免费索引，为 API 用户提供最多 2400 分钟的免费索引。 使用付费选项时，可以[创建连接到 Azure 订阅和 Azure 媒体服务帐户的视频索引器帐户](connect-to-azure.md)。 你需要为编制索引的分钟数付费，此外还需要支付 Azure 媒体服务帐户相关的费用。 
+创建视频索引器帐户时，可以选择免费试用帐户（提供特定分钟数的免费索引时间）或付费选项（不受配额的限制）。 使用免费试用版时，视频索引器为网站用户提供最多 600 分钟的免费索引，为 API 用户提供最多 2400 分钟的免费索引。 使用付费选项时，可以[创建连接到 Azure 订阅和 Azure 媒体服务帐户的视频索引器帐户](connect-to-azure.md)。 你需要为索引时间付费，有关详细信息，请参阅[媒体服务定价](https://azure.microsoft.com/pricing/details/media-services/)。 
 
 ## <a name="sign-up-for-video-indexer"></a>注册视频索引器
 

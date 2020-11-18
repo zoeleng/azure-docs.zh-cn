@@ -3,17 +3,17 @@ title: 使用 Power BI 应用分析 Azure 成本
 description: 本文介绍如何安装和使用 Azure 成本管理 Power BI 应用。
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131116"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413235"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>使用适用于企业协议 (EA) 的 Azure 成本管理 Power BI 应用分析成本
 
@@ -204,8 +204,8 @@ Failed to update data source credentials: The credentials provided for the Azure
 | [**预算**](/rest/api/consumption/budgets/get#definitions) | 预算详细信息，用于查看实际成本或用量，并将其与现有预算目标进行比较。 |
 | [**价目表**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | 所提供计费配置文件或 EA 注册的适用计量费率。 |
 | [**RI 费用**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | 与过去 24 个月的预留实例相关的费用。 |
-| [**RI 建议(共享)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | 根据过去 7 天、30 天或 60 天的所有订阅使用趋势提供的预留实例购买建议。 |
-| [**RI 建议(单个)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | 根据过去 7 天、30 天或 60 天的单个订阅使用趋势提供的预留实例购买建议。 |
+| [**RI 建议(共享)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | 根据过去 7 天的所有订阅使用趋势提供的预留实例购买建议。 |
+| [**RI 建议(单个)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | 根据过去 7 天的单个订阅使用趋势提供的预留实例购买建议。 |
 | [**RI 使用情况详细信息**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | 现有预留实例在过去一个月的消耗详细信息。 |
 | [**RI 使用情况摘要**](/rest/api/consumption/reservationssummaries/list) | 每日 Azure 预留使用百分比。 |
 | [**使用情况详细信息**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | EA 注册中给定计费配置文件的已用数量和估算费用的细目。 |

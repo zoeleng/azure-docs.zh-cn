@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149103"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445636"
 ---
 # <a name="managed-hsm-role-management"></a>托管 HSM 角色管理
 
@@ -113,7 +113,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅 [Azure 基于角色的访问控制 (RBAC)](../../role-based-access-control/overview.md) 的概述。
+- 请参阅 [Azure 基于角色的访问控制 (Azure RBAC)](../../role-based-access-control/overview.md) 的概述。
 - 请参阅有关[托管 HSM 角色管理](role-management.md)的教程
 - 详细了解[托管 HSM 访问控制模型](access-control.md)
 - 查看[托管 HSM 本地 RBAC 的所有内置角色](built-in-roles.md)
