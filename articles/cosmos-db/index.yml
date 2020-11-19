@@ -26,7 +26,7 @@ landingContent:
       url: introduction.md
   - linkListType: get-started
     links:
-    - text: NoSQL 与关系数据库
+    - text: NoSQL 与关系数据库test
       url: relational-nosql.md
     - text: Azure Cosmos DB 资源模型
       url: account-databases-containers-items.md
